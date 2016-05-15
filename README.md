@@ -4,12 +4,12 @@ A non-opinionated project generator for React and Flux.
 
 - Facebook's official React toolchains are adopted.
 - Setup a well-configured React/Flux development environment.
+- Generate scaffolds for React/Flux
+  - Dispatcher     : Dispatcher (Flux)
+  - Action Creator : (Flux)
+  - Store          : ReduceStore (Flux)
+  - Component      : ReactComponent (React), Container (Flux)
 - Generate test scaffolds for Jest from your React components.
-- Generate scaffolds for Flux 
-  - Dispatcher
-  - Action Creator
-  - Store :FluxReduceStore
-  - Component
 
 ## React stack
 
@@ -37,10 +37,10 @@ npm install -g starter-react-flux
 ## Usage
 
 ```
-starter-react-flux init                                  // Setup a new react/flux project.
-starter-react-flux generate test                         // Generate tests from your components.
-starter-react-flux generate store [Store_Name]           // Generate the store.
-starter-react-flux generate action [ActionCreators_Name] // Generate the ActionCreators.
+starter-react-flux init                                  // Setup a new react and flux project.
+starter-react-flux generate test                         // Generate test files from your components.
+starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file.
+starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file.
 ```
 
 ## Supported npm commands
@@ -89,4 +89,5 @@ npm run build                 // Build for production
 ## License
 
 - MIT
+
 

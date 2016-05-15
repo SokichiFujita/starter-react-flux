@@ -176,12 +176,6 @@ const AppContainer = Container.create(App);
 render(<AppContainer />, document.getElementById('root'));
 `;
 
-const actionCreatorsJS =
-`
-
-`
-
-
 const appDispatcherJS = 
 `import { Dispatcher } from 'flux';
 
@@ -217,6 +211,25 @@ Sample.propTypes = {
 
 export default Sample;
 `;
+
+const containerSample =
+`import React from 'react';
+
+const Sample = (props) => (
+  <div>
+    <h1>Hello</h1>
+    <p>{props.title}</p>
+  </div>
+);
+
+Sample.propTypes = {
+  title: React.PropTypes.string.isRequired,
+};
+
+export default Sample;
+`;
+
+
 
 const sampleTest =
 `jest.unmock('../app/components/Sample');
