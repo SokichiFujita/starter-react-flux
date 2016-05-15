@@ -37,9 +37,10 @@ npm install -g starter-react-flux
 ## Usage
 
 ```
-starter-react-flux init                         // Setup a new react project.
-starter-react-flux generate test                // Generate tests from your components.
-starter-react-flux generate store [StoreName]   // Generate a store file.
+starter-react-flux init                                  // Setup a new react/flux project.
+starter-react-flux generate test                         // Generate tests from your components.
+starter-react-flux generate store [Store_Name]           // Generate the store.
+starter-react-flux generate action [ActionCreators_Name] // Generate the ActionCreators.
 ```
 
 ## Supported npm commands
@@ -78,7 +79,7 @@ npm run build                 // Build for production
 
 ## Todo
 
-- [ ] Support for global npm command to make installation easier. (`npm install -g`)
+- [x] Support for global npm command to make installation easier. (`npm install -g`)
 - [x] Add more good toolchains. (e.g. Facebook's Immutable.js)
 - [ ] Add 3rd-party libraries (e.g. Material-UI, React-router)
 - [ ] Add tests for the generator.
