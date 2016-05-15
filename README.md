@@ -6,7 +6,7 @@ A non-opinionated project generator for React and Flux.
 - Setup a well-configured React/Flux development environment.
 - Generate scaffolds for React/Flux
   - Dispatcher     : Dispatcher (Flux)
-  - Action Creator : (Flux)
+  - Action         : ActionCreators (Flux)
   - Store          : ReduceStore (Flux)
   - Component      : ReactComponent (React), Container (Flux)
 - Generate test scaffolds for Jest from your React components.
@@ -14,17 +14,21 @@ A non-opinionated project generator for React and Flux.
 ## React stack
 
 - [React.js](http://facebook.github.io/react/)
-  - React
-  - react-dom
-  - react-addons-test-utils
-  - react-addons-perf
-  - react-addons-css-transition-group
+  - [react](https://facebook.github.io/react/index.html)
+  - [react-dom](https://facebook.github.io/react/index.html)
+- [React Addons](https://facebook.github.io/react/docs/addons.html)
+  - [Animation: react-addons-css-transition-group](https://facebook.github.io/react/docs/animation.html)
+  - [Test Utilities: react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html)
+  - [Performance Tools: react-addons-perf](https://facebook.github.io/react/docs/perf.html)
 - [Flux](https://facebook.github.io/flux/)
   - [flux/utils](https://facebook.github.io/flux/docs/flux-utils.html)
 - [Jest](https://facebook.github.io/jest/)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
-- [Webpack](https://webpack.github.io), [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
+- [Webpack](https://webpack.github.io)
+  - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [Babel](https://babeljs.io)
+  - [React preset](http://babeljs.io/docs/plugins/preset-react/)
+  - [ES2015 preset](https://babeljs.io/docs/plugins/preset-es2015/)
 - [ESLint](http://eslint.org)
   - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
