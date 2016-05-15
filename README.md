@@ -3,7 +3,7 @@
 A non-opinionated project generator for React and Flux.
 
 - Facebook's official React toolchains are adopted.
-- Setup a well-configured React/Flux development environment.
+- Setup a simply-configured React/Flux development environment.
 - Generate scaffolds for React/Flux
   - Dispatcher     : Dispatcher (Flux)
   - Action         : ActionCreators (Flux)
