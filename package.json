@@ -1,0 +1,24 @@
+{
+  "name": "starter-react-flux",
+  "version": "1.0.0",
+  "private": false,
+  "preferGlobal": true,
+  "bin": {
+    "starter-react-flux": "bin/index.js"
+  },
+  "description": "",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SokichiFujita/starter-react-flux"
+  },
+  "keywords": [],
+  "author": "SokichiFujita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SokichiFujita/starter-react-flux/issues"
+  },
+  "homepage": "https://github.com/SokichiFujita/starter-react-flux"
+}
