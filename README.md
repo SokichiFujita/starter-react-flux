@@ -1,9 +1,9 @@
-# react-flux-babel-webpack-eslint-jest
+# starter-react-flux
 
 A non-opinionated project generator for React and Flux.
 
-- Setup a well and simply configured React/Flux development environment.
 - Facebook's official React toolchains are adopted.
+- Setup a well-configured React/Flux development environment.
 - Generate test scaffolds for Jest from your React components.
 - Generate scaffolds for Flux 
   - Dispatcher
