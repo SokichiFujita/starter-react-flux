@@ -13,6 +13,8 @@ A non-opinionated project generator for React and Flux.
 
 ## React stack
 
+### Facebook official
+
 - [React.js](http://facebook.github.io/react/)
   - [react](https://facebook.github.io/react/index.html)
   - [react-dom](https://facebook.github.io/react/index.html)
@@ -24,6 +26,9 @@ A non-opinionated project generator for React and Flux.
   - [flux/utils](https://facebook.github.io/flux/docs/flux-utils.html)
 - [Jest](https://facebook.github.io/jest/)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
+
+### 3rd Party
+
 - [Webpack](https://webpack.github.io)
   - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [Babel](https://babeljs.io)
