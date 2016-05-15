@@ -176,6 +176,12 @@ const AppContainer = Container.create(App);
 render(<AppContainer />, document.getElementById('root'));
 `;
 
+const actionCreatorsJS =
+`
+
+`
+
+
 const appDispatcherJS = 
 `import { Dispatcher } from 'flux';
 
@@ -300,7 +306,6 @@ function setupReact() {
   createFile('./app/App.js', appJS);
   createFile('./app/dispatcher/AppDispatcher.js', appDispatcherJS);
   createFile('./app/constants/AppConstants.js', appConstantsJS);
-  createFile('./app/actions/ActionCreators.js', actionCreatorsJS);
   createFile('./app/components/Sample.js', componentSample);
   createFile('./__tests__/Sample-test.js', sampleTest);
   npmInstall(npms);
