@@ -1,19 +1,15 @@
 # starter-react-flux
 
-A non-opinionated project generator for React and Flux.
+A React and Flux project generator with Facebook's official React stack.
 
 - Facebook's official React toolchains are adopted.
 - Setup a simply-configured React/Flux development environment.
 - Generate scaffolds for React/Flux
-  - Dispatcher     : Dispatcher (Flux)
-  - Action         : ActionCreators (Flux)
-  - Store          : ReduceStore (Flux)
-  - Component      : ReactComponent (React), Container (Flux)
 - Generate test scaffolds for Jest from your React components.
 
 ## React stack
 
-### Facebook official
+### Facebook official libraries
 
 - [React.js](http://facebook.github.io/react/)
   - [react](https://facebook.github.io/react/index.html)
@@ -27,7 +23,7 @@ A non-opinionated project generator for React and Flux.
 - [Jest](https://facebook.github.io/jest/)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
 
-### 3rd Party
+### 3rd Party libraries
 
 - [Webpack](https://webpack.github.io)
   - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
