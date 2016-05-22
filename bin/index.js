@@ -62,6 +62,15 @@ const npms = [
   'npm install --save-dev eslint-config-airbnb'
 ]
 
+
+const npms_plus = [
+  'npm install --save-dev material-ui',
+  'npm install --save-dev react-tap-event-plugin',
+  'npm install --save-dev react-router',  
+  'npm install --save-dev axios'  
+]
+
+
 const repository = {
   "type":"git", 
   "url":"https://example.com"
@@ -261,8 +270,10 @@ function main() {
     case 3:
       if (args[2] == 'init') {
         setupReact();
+        setupReactPlus();
         showComplete();
-      } else {
+      } else if (args[2] == 'init-basic'){
+        setupReact();
         showUsage();
       }
       break;
@@ -294,6 +305,7 @@ function main() {
 function showUsage() {
   console.log('Usage:');
   console.log('starter-react-flux init                             : Setup a React/Flux project.');
+  console.log('starter-react-flux init-basic                       : Setup a React/Flux project which is limited for Facebook libraries');
   console.log('starter-react-flux generate test                    : Generate tests of components.');
   console.log('starter-react-flux generate store  [Store]          : Generate the Store. ');
   console.log('starter-react-flux generate action [ActionCreators] : Generate the ActionCreators.');
@@ -304,7 +316,7 @@ function showComplete() {
   console.log('Completed!');
 }
 
-function setupReact() {
+function setupReact(arg) {
   createDirectories(dirs);
   exec('npm init -y', puts);
   fixJSON('package.json', 'description', 'React template.');
@@ -323,6 +335,11 @@ function setupReact() {
   createFile('./__tests__/Sample-test.js', sampleTest);
   npmInstall(npms);
 }
+
+function setupReactPlus() {
+  npmInstall(npms_plus);
+}
+
 
 function generateComponentTestFiles() {
   const basePath = './app/components/';

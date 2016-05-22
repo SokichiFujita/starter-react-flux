@@ -1,11 +1,21 @@
 # starter-react-flux
 
-A React and Flux project generator with Facebook's official React stack.
+A React/Flux project and code generator.
 
-- Facebook's official React toolchains are adopted.
-- Setup a simply-configured React/Flux development environment.
-- Generate scaffolds for React/Flux
-- Generate test scaffolds for Jest from your React components.
+## Installation
+
+```
+npm install -g starter-react-flux
+```
+
+## Usage
+
+```
+starter-react-flux init                                  // Setup a new react and flux project.
+starter-react-flux generate test                         // Generate test files from your components.
+starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file.
+starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file.
+```
 
 ## React stack
 
@@ -32,23 +42,13 @@ A React and Flux project generator with Facebook's official React stack.
   - [ES2015 preset](https://babeljs.io/docs/plugins/preset-es2015/)
 - [ESLint](http://eslint.org)
   - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [React-Router](https://github.com/reactjs/react-router)
+- [material-ui](http://www.material-ui.com)
+- [axios](https://github.com/mzabriskie/axios)
 
-## Installation
 
-```
-npm install -g starter-react-flux
-```
 
-## Usage
-
-```
-starter-react-flux init                                  // Setup a new react and flux project.
-starter-react-flux generate test                         // Generate test files from your components.
-starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file.
-starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file.
-```
-
-## Supported npm commands
+## npm commands
 
 ```
 npm start                     // Webpack-dev-server
@@ -86,7 +86,7 @@ npm run build                 // Build for production
 
 - [x] Support for global npm command to make installation easier. (`npm install -g`)
 - [x] Add more good toolchains. (e.g. Facebook's Immutable.js)
-- [ ] Add 3rd-party libraries (e.g. Material-UI, React-router)
+- [x] Add 3rd-party libraries (e.g. Material-UI, React-router)
 - [ ] Add tests for the generator.
 - [ ] Generate tests for stores and actions.
 - [ ] Refactoring.
