@@ -64,8 +64,8 @@ const npms = [
 
 
 const npms_plus = [
-  'npm install --save material-ui',
   'npm install --save react-tap-event-plugin',
+  'npm install --save material-ui',
   'npm install --save react-router',  
   'npm install --save axios'  
 ]
