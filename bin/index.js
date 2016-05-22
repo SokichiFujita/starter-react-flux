@@ -32,17 +32,17 @@ const npms = [
   'npm install --save-dev babel-preset-react',
 
   //React.js
-  'npm install --save-dev react',
-  'npm install --save-dev react-dom',
+  'npm install --save react',
+  'npm install --save react-dom',
   'npm install --save-dev react-addons-css-transition-group',
   'npm install --save-dev react-addons-test-utils',
   'npm install --save-dev react-addons-perf',
 
   //Flux
-  'npm install --save-dev flux',
+  'npm install --save flux',
 
   //Immutable.js
-  'npm install --save-dev immutable',
+  'npm install --save immutable',
   
   //Jest
   'npm install --save-dev jest-cli',
