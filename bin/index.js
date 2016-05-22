@@ -270,6 +270,12 @@ function main() {
       } else if (args[2] == 'generate' && args[3] == 'action') {
         generateActionFile(args[4]);
         showComplete();
+      } else if (args[2] == 'generate' && args[3] == 'container') {
+        generateContainerFile(args[4]);
+        showComplete();
+      } else if (args[2] == 'generate' && args[3] == 'component') {
+        generateComponentFile(args[4]);
+        showComplete();
       } else {
         showUsage();
       }
