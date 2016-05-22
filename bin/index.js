@@ -158,32 +158,22 @@ const indexHTML =
 `;
 
 const appJS = 
-`import React, { Component } from 'react';
+`import React from 'react';
 import { render } from 'react-dom';
 import { Container } from 'flux/utils';
-import Sample from './components/Sample';
+import { Router, Route, browserHistory } from 'react-router'
 
-class App extends Component {
-  static getStores() {
-    return [];
-  }
+import TopContainer from './components/TopContainer';
+import SampleContainer1 from './components/SampleContainer1';
+import SampleContainer2 from './components/SampleContainer2';
 
-  static calculateState() {
-    return null;
-  }
-
-  componentDidMount() {
-  }
-
-  render() {
-    return (
-      <Sample title="World" />
-    );
-  }
-}
-
-const AppContainer = Container.create(App);
-render(<AppContainer />, document.getElementById('root'));
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={TopContainer}/>
+    <Route path="sample1" component={SampleContainer1}/>
+    <Route path="sample2" component={SampleContainer2}/>
+  </Router> 
+), document.getElementById('root'));
 `;
 
 const appDispatcherJS = 
@@ -221,25 +211,6 @@ Sample.propTypes = {
 
 export default Sample;
 `;
-
-const containerSample =
-`import React from 'react';
-
-const Sample = (props) => (
-  <div>
-    <h1>Hello</h1>
-    <p>{props.title}</p>
-  </div>
-);
-
-Sample.propTypes = {
-  title: React.PropTypes.string.isRequired,
-};
-
-export default Sample;
-`;
-
-
 
 const sampleTest =
 `jest.unmock('../app/components/Sample');
@@ -304,12 +275,14 @@ function main() {
 }
 
 function showUsage() {
+  console.log('*** starter-react-flux ***');
   console.log('Usage:');
   console.log('starter-react-flux init                             : Setup a React/Flux project.');
-  console.log('starter-react-flux init-basic                       : Setup a React/Flux project which is limited for Facebook libraries');
+  console.log('starter-react-flux generate container [Name]        : Generate the Component.');
+  console.log('starter-react-flux generate component [Name]        : Generate the Container.');
+  console.log('starter-react-flux generate store  [Name]           : Generate the Store. ');
+  console.log('starter-react-flux generate action [Name]           : Generate the ActionCreators.');
   console.log('starter-react-flux generate test                    : Generate tests of components.');
-  console.log('starter-react-flux generate store  [Store]          : Generate the Store. ');
-  console.log('starter-react-flux generate action [ActionCreators] : Generate the ActionCreators.');
   process.exit(-1);
 }
 
@@ -334,13 +307,16 @@ function setupReact(arg) {
   createFile('./app/constants/AppConstants.js', appConstantsJS);
   createFile('./app/components/Sample.js', componentSample);
   createFile('./__tests__/Sample-test.js', sampleTest);
+  generateStoreFile('SampleStore');
+  generateContainerFile('TopContainer');
+  generateContainerFile('SampleContainer1');
+  generateContainerFile('SampleContainer2');
   npmInstall(npms);
 }
 
 function setupReactPlus() {
   npmInstall(npms_plus);
 }
-
 
 function generateComponentTestFiles() {
   const basePath = './app/components/';
@@ -374,6 +350,68 @@ describe('<${module} />', () => {
 `
   return testCode;
 }
+
+
+function generateComponentFile(name) {
+  const code =
+`import React from 'react';
+
+const ${name} = (props) => (
+  <div>
+    <h1>Hello</h1>
+    <p>{props.title}</p>
+  </div>
+);
+
+${name}.propTypes = {
+  title: React.PropTypes.string.isRequired,
+};
+
+export default ${name};
+`;
+  
+  createFile(`./app/components/${name}.js`, code);
+}
+
+function generateContainerFile(name) {
+  const code =
+`import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { Container } from 'flux/utils';
+import { Link } from 'react-router'
+import SampleStore from '../stores/SampleStore';
+
+class _${name} extends Component {
+  static getStores() {
+    return [SampleStore];
+  }
+
+  static calculateState() {
+    return {
+      sample: SampleStore.getState()
+    };
+  }
+
+  componentDidMount() {
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Container</h1>
+        <p>${name}</p>
+      </div>
+    );
+  }
+}
+
+const ${name} = Container.create(_${name});
+export default ${name};
+`;
+
+  createFile(`./app/components/${name}.js`, code);
+}
+
 
 function generateStoreFile(name) {
 
