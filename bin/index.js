@@ -277,12 +277,12 @@ function main() {
 function showUsage() {
   console.log('*** starter-react-flux ***');
   console.log('Usage:');
-  console.log('starter-react-flux init                             : Setup a React/Flux project.');
-  console.log('starter-react-flux generate container [Name]        : Generate the Component.');
-  console.log('starter-react-flux generate component [Name]        : Generate the Container.');
-  console.log('starter-react-flux generate store  [Name]           : Generate the Store. ');
-  console.log('starter-react-flux generate action [Name]           : Generate the ActionCreators.');
-  console.log('starter-react-flux generate test                    : Generate tests of components.');
+  console.log('starter-react-flux init                      : Setup a React/Flux project.');
+  console.log('starter-react-flux generate container [Name] : Generate the Component.');
+  console.log('starter-react-flux generate component [Name] : Generate the Container.');
+  console.log('starter-react-flux generate store  [Name]    : Generate the Store. ');
+  console.log('starter-react-flux generate action [Name]    : Generate the ActionCreators.');
+  console.log('starter-react-flux generate test             : Generate tests of components.');
   process.exit(-1);
 }
 
@@ -355,11 +355,15 @@ describe('<${module} />', () => {
 function generateComponentFile(name) {
   const code =
 `import React from 'react';
+import { Link } from 'react-router'
 
 const ${name} = (props) => (
   <div>
     <h1>Hello</h1>
     <p>{props.title}</p>
+    <div><Link to="/">Top</Link></div>
+    <div><Link to="/sample1">Sample1</Link></div>
+    <div><Link to="/sample2">Sample2</Link></div>
   </div>
 );
 
@@ -400,6 +404,9 @@ class _${name} extends Component {
       <div>
         <h1>Container</h1>
         <p>${name}</p>
+        <div><Link to="/">Top</Link></div>
+        <div><Link to="/sample1">Sample1</Link></div>
+        <div><Link to="/sample2">Sample2</Link></div>
       </div>
     );
   }
