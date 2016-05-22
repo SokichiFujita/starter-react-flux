@@ -162,17 +162,23 @@ const appJS =
 import { render } from 'react-dom';
 import { Container } from 'flux/utils';
 import { Router, Route, browserHistory } from 'react-router'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import TopContainer from './components/TopContainer';
 import SampleContainer1 from './components/SampleContainer1';
 import SampleContainer2 from './components/SampleContainer2';
 
+const muiTheme = getMuiTheme({});
+
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={TopContainer}/>
-    <Route path="sample1" component={SampleContainer1}/>
-    <Route path="sample2" component={SampleContainer2}/>
-  </Router> 
+  <MuiThemeProvider muiTheme={muiTheme}>
+    <Router history={browserHistory}>
+      <Route path="/" component={TopContainer}/>
+      <Route path="sample1" component={SampleContainer1}/>
+      <Route path="sample2" component={SampleContainer2}/>
+    </Router>
+  </MuiThemeProvider>
 ), document.getElementById('root'));
 `;
 
@@ -384,6 +390,9 @@ import { render } from 'react-dom';
 import { Container } from 'flux/utils';
 import { Link } from 'react-router'
 import SampleStore from '../stores/SampleStore';
+import AppBar from 'material-ui/AppBar';
+import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
+import { List, ListItem } from 'material-ui/List';
 
 class _${name} extends Component {
   static getStores() {
@@ -402,11 +411,15 @@ class _${name} extends Component {
   render() {
     return (
       <div>
-        <h1>Container</h1>
-        <p>${name}</p>
-        <div><Link to="/">Top</Link></div>
-        <div><Link to="/sample1">Sample1</Link></div>
-        <div><Link to="/sample2">Sample2</Link></div>
+        <AppBar title="Sample App" />
+        <Toolbar>
+          <ToolbarTitle text="Container: ${name}"/>
+        </Toolbar>
+        <List>
+          <ListItem><Link to="/">Top</Link></ListItem>
+          <ListItem><Link to="sample1">Sample1</Link></ListItem>
+          <ListItem><Link to="sample2">Sample2</Link></ListItem>
+        </List>
       </div>
     );
   }
