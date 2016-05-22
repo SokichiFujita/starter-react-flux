@@ -86,7 +86,7 @@ const jest = {
 
 const scripts = {
   "start": "webpack-dev-server -d --progress --colors --display-error-details",
-  "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors",
+  "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors --display-error-details",
   "test": "jest",
   "lint": "eslint app/**"
 };
@@ -105,7 +105,8 @@ const config = {
   devtool: "inline-source-map",
   entry:  __dirname + "/app/App.js",
   output: {
-    path: __dirname + "/public",
+    path: "./public/js/",
+    publicPath: "/js/",
     filename: "bundle.js"
   },
   module: {
@@ -146,12 +147,12 @@ const indexHTML =
   <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <div id='root'>
     </div>
-    <script src="bundle.js"></script>
+    <script src="./js/bundle.js"></script>
   </body>
 </html>
 `;
