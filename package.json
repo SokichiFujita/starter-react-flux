@@ -1,12 +1,12 @@
 {
   "name": "starter-react-flux",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "private": false,
   "preferGlobal": true,
   "bin": {
     "starter-react-flux": "bin/index.js"
   },
-  "description": "",
+  "description": "A React/Flux project and code generator."
   "engines": {
     "node": ">=6.0.0"
   },
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/SokichiFujita/starter-react-flux"
   },
-  "keywords": [],
+  "keywords": ["react", "react.js", "reactjs", "flux", "flux-utils", "react-component", "jest", "immutable.js", "immutable", "material-ui", "react-router", "react-addons", "facebook", "starter", "starter-kit", "boilerplate", "generator", "webpack", "babel", "eslint", "es2015", "es6", "webpack-dev-server", "axios", "reducestore,""actioncreators","dispatcher"],
   "author": "SokichiFujita",
   "license": "MIT",
   "bugs": {
