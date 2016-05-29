@@ -42,6 +42,7 @@ starter-react-flux generate test                         // Generate test files 
 - [Babel](https://babeljs.io)
   - [React preset](http://babeljs.io/docs/plugins/preset-react/)
   - [ES2015 preset](https://babeljs.io/docs/plugins/preset-es2015/)
+  - [Stage 0 preset](https://babeljs.io/docs/plugins/preset-stage-0/)
 - [ESLint](http://eslint.org)
   - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [React-Router](https://github.com/reactjs/react-router)
