@@ -107,6 +107,33 @@ const eslint = {
     ]
 }
 
+const keywords = {
+  "keywords": [
+    "react",
+    "reactjs",
+    "react.js",
+    "flux",
+    "flux-utils",
+    "jest",
+    "immutable",
+    "immutable.js",
+    "react-router",
+    "material-ui",
+    "axios",
+    "es6",
+    "es7",
+    "es2015",
+    "es2016",
+    "stage-0",
+    "babel",
+    "eslint",
+    "webpack",
+    "react-component"
+  ]
+}
+
+
+
 const webpackConfig = 
 `const webpack = require('webpack');
 
@@ -321,6 +348,8 @@ function setupReact(arg) {
   fixJSON('package.json', 'repository', repository);
   fixJSON('package.json', 'jest', jest); 
   fixJSON('package.json', 'scripts', scripts); 
+  fixJSON('package.json', 'keywords', keywords); 
+  fixJSON('package.json', 'license', 'MIT'); 
   createJSON('.eslintrc', eslint);
   createJSON('.babelrc', {"presets":["react", "es2015", "stage-0"]});
   createFile('./public/index.html', indexHTML);
