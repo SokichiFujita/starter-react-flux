@@ -3,6 +3,9 @@
   "version": "1.2.1",
   "private": false,
   "preferGlobal": true,
+  "scripts": {
+    "test": "npm link && mkdir __test && cd __test && starter-react-flux init && npm test && npm build && echo Success! && cd ../ && rm -rf __test && npm unlink"
+  },
   "bin": {
     "starter-react-flux": "bin/index.js"
   },

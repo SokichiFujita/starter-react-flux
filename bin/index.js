@@ -82,6 +82,14 @@ const jest = {
     "<rootDir>/node_modules/react",
     "<rootDir>/node_modules/react-dom",
     "<rootDir>/node_modules/react-addons-test-utils"
+  ],
+  "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+  "testFileExtensions": [
+    "js"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json"
   ]
 };
 
@@ -215,7 +223,7 @@ class Sample extends Component {
     return (
       <div>
         <h1>Hello</h1>
-        <p>{props.title}</p>
+        <p>{this.props.title}</p>
       </div>
     );
   }
@@ -314,7 +322,7 @@ function setupReact(arg) {
   fixJSON('package.json', 'jest', jest); 
   fixJSON('package.json', 'scripts', scripts); 
   createJSON('.eslintrc', eslint);
-  createJSON('.babelrc', {"presets":["react", "es2015"]});
+  createJSON('.babelrc', {"presets":["react", "es2015", "stage-0"]});
   createFile('./public/index.html', indexHTML);
   createFile('./public/css/style.css', '');
   createFile('webpack.config.js', webpackConfig);
