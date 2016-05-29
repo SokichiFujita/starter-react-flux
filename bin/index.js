@@ -96,7 +96,7 @@ const jest = {
 const scripts = {
   "start": "webpack-dev-server -d --progress --colors --display-error-details",
   "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors --display-error-details",
-  "test": "jest",
+  "test": "BABEL_JEST_STAGE=0 jest",
   "lint": "eslint app/**"
 };
 
