@@ -1,6 +1,6 @@
 {
   "name": "starter-react-flux",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "preferGlobal": true,
   "bin": {
@@ -36,10 +36,15 @@
     "babel", 
     "eslint", 
     "es2015", 
+    "es2016", 
     "es6", 
+    "es7", 
+    "stage-0", 
     "webpack-dev-server", 
     "axios", 
+    "store,",
     "reducestore,",
+    "action",
     "actioncreators",
     "dispatcher"
   ],

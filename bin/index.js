@@ -30,6 +30,7 @@ const npms = [
   'npm install --save-dev babel-cli',
   'npm install --save-dev babel-preset-es2015',
   'npm install --save-dev babel-preset-react',
+  'npm install --save-dev babel-preset-stage-0',
 
   //React.js
   'npm install --save react',
@@ -115,7 +116,7 @@ const config = {
       exclude: /node_modules/,
       loader: "babel",
       query: {
-        presets: ["es2015","react"]
+        presets: ["es2015","react","stage-0"]
       }
     }]
   },
@@ -401,7 +402,7 @@ class ${name} extends Component {
 export default ${name};
 `;
   
-  createFile(`./src/components/${name}.js`, code);
+  createFile(`./app/components/${name}.js`, code);
 }
 
 
