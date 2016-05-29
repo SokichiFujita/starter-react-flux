@@ -4,7 +4,7 @@
   "private": false,
   "preferGlobal": true,
   "scripts": {
-    "test": "npm link && mkdir __test && cd __test && starter-react-flux init && npm test && npm build && cd ../ && rm -rf __test && npm unlink && echo Completed!"
+    "test": "npm link && mkdir __test && cd __test && starter-react-flux init && npm test && npm run build && cd ../ && rm -rf __test && npm unlink && echo Completed!"
   },
   "bin": {
     "starter-react-flux": "bin/index.js"
