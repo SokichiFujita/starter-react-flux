@@ -202,18 +202,23 @@ const appConstantsJS =
 `;
 
 const componentSample =
-`import React from 'react';
+`import React, { Component, PropTypes } from 'react';
 
-const Sample = (props) => (
-  <div>
-    <h1>Hello</h1>
-    <p>{props.title}</p>
-  </div>
-);
+class Sample extends Component {
 
-Sample.propTypes = {
-  title: React.PropTypes.string.isRequired,
-};
+  static propTypes = {
+    title: PropTypes.string.isRequired
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello</h1>
+        <p>{props.title}</p>
+      </div>
+    );
+  }
+}
 
 export default Sample;
 `;
@@ -229,9 +234,7 @@ import Sample from '../app/components/Sample'
 describe('<Sample />', () => {
   it('displays "Hello World"', () => {
     const app = TestUtils.renderIntoDocument(
-      <div>
-        <Sample title="World" />
-      </div>
+      <Sample title="World" />
     );
     const appNode = ReactDOM.findDOMNode(app);
     expect(appNode.textContent).toEqual('HelloWorld');
@@ -363,31 +366,44 @@ describe('<${module} />', () => {
   return testCode;
 }
 
-
 function generateComponentFile(name) {
   const code =
-`import React from 'react';
+`import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router'
 
-const ${name} = (props) => (
-  <div>
-    <h1>Hello</h1>
-    <p>{props.title}</p>
-    <div><Link to="/">Top</Link></div>
-    <div><Link to="/sample1">Sample1</Link></div>
-    <div><Link to="/sample2">Sample2</Link></div>
-  </div>
-);
+class ${name} extends Component {
 
-${name}.propTypes = {
-  title: React.PropTypes.string.isRequired,
-};
+  static propTypes = {
+    title: PropTypes.string.isRequired
+  }
+
+  state = {
+  }
+
+  handleClick = (event) => {
+    console.log(event);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello</h1>
+        <p>{this.props.title}</p>
+        <div onClick={this.handleClick}></div>
+        <div><Link to="/">Top</Link></div>
+        <div><Link to="/sample1">Sample1</Link></div>
+        <div><Link to="/sample2">Sample2</Link></div>
+      </div>
+    );
+  }
+}
 
 export default ${name};
 `;
   
-  createFile(`./app/components/${name}.js`, code);
+  createFile(`./src/components/${name}.js`, code);
 }
+
 
 function generateContainerFile(name) {
   const code =
