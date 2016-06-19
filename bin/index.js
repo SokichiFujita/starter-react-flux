@@ -198,6 +198,10 @@ const css =
 `html {
   font-family: 'Roboto', sans-serif;
 }
+
+body {
+  margin: 0;
+}
 `;
 
 const appJS = 
