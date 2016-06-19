@@ -184,6 +184,7 @@ const indexHTML =
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="./css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id='root'>
@@ -191,6 +192,12 @@ const indexHTML =
     <script src="./js/bundle.js"></script>
   </body>
 </html>
+`;
+
+const css = 
+`html {
+  font-family: 'Roboto', sans-serif;
+}
 `;
 
 const appJS = 
@@ -353,7 +360,7 @@ function setupReact(arg) {
   createJSON('.eslintrc', eslint);
   createJSON('.babelrc', {"presets":["react", "es2015", "stage-0"]});
   createFile('./public/index.html', indexHTML);
-  createFile('./public/css/style.css', '');
+  createFile('./public/css/style.css', css);
   createFile('webpack.config.js', webpackConfig);
   createFile('./app/App.js', appJS);
   createFile('./app/dispatcher/AppDispatcher.js', appDispatcherJS);
