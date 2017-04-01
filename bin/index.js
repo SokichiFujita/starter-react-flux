@@ -212,10 +212,13 @@ import { Container } from 'flux/utils';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import TopContainer from './components/TopContainer';
 import SampleContainer1 from './components/SampleContainer1';
 import SampleContainer2 from './components/SampleContainer2';
+
+injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({});
 
@@ -224,8 +227,8 @@ render((
     <Router>
       <div>
         <Route path="/" component={TopContainer}/>
-        <Route path="sample1" component={SampleContainer1}/>
-        <Route path="sample2" component={SampleContainer2}/>
+        <Route path="/sample1" component={SampleContainer1}/>
+        <Route path="/sample2" component={SampleContainer2}/>
       </div>
     </Router>
   </MuiThemeProvider>
@@ -491,8 +494,8 @@ class _${name} extends Component {
         </Toolbar>
         <List>
           <ListItem><Link to="/">Top</Link></ListItem>
-          <ListItem><Link to="sample1">Sample1</Link></ListItem>
-          <ListItem><Link to="sample2">Sample2</Link></ListItem>
+          <ListItem><Link to="/sample1">Sample1</Link></ListItem>
+          <ListItem><Link to="/sample2">Sample2</Link></ListItem>
         </List>
       </div>
     );
