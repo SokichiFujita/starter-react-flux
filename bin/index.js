@@ -225,7 +225,7 @@ render((
   <MuiThemeProvider muiTheme={muiTheme}>
     <Router>
       <div>
-        <Route path="/" component={TopContainer}/>
+        <Route exact path="/" component={TopContainer}/>
         <Route path="/sample1" component={SampleContainer1}/>
         <Route path="/sample2" component={SampleContainer2}/>
       </div>
