@@ -67,7 +67,7 @@ const npms = [
 const npms_plus = [
   'npm install --save react-tap-event-plugin',
   'npm install --save material-ui',
-  'npm install --save react-router',  
+  'npm install --save react-router-dom',  
   'npm install --save axios'  
 ]
 
@@ -209,7 +209,7 @@ const appJS =
 `import React from 'react';
 import { render } from 'react-dom';
 import { Container } from 'flux/utils';
-import { Router, Route, browserHistory } from 'react-router'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -221,10 +221,12 @@ const muiTheme = getMuiTheme({});
 
 render((
   <MuiThemeProvider muiTheme={muiTheme}>
-    <Router history={browserHistory}>
-      <Route path="/" component={TopContainer}/>
-      <Route path="sample1" component={SampleContainer1}/>
-      <Route path="sample2" component={SampleContainer2}/>
+    <Router>
+      <div>
+        <Route path="/" component={TopContainer}/>
+        <Route path="sample1" component={SampleContainer1}/>
+        <Route path="sample2" component={SampleContainer2}/>
+      </div>
     </Router>
   </MuiThemeProvider>
 ), document.getElementById('root'));
@@ -419,7 +421,7 @@ describe('<${module} />', () => {
 function generateComponentFile(name) {
   const code =
 `import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 class ${name} extends Component {
 
@@ -460,7 +462,7 @@ function generateContainerFile(name) {
 `import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Container } from 'flux/utils';
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import SampleStore from '../stores/SampleStore';
 import AppBar from 'material-ui/AppBar';
 import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
