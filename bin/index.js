@@ -28,7 +28,7 @@ const dirs = [
 const npms = [
   //Babel
   'npm install --save-dev babel-cli',
-  'npm install --save-dev babel-preset-latest',
+  'npm install --save-dev babel-preset-env',
   'npm install --save-dev babel-preset-react',
   'npm install --save-dev babel-preset-stage-0',
 
@@ -94,8 +94,8 @@ const jest = {
 };
 
 const scripts = {
-  "start": "webpack-dev-server -d --progress --colors --display-error-details",
-  "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors --display-error-details",
+  "start": "webpack-dev-server -d --progress --colors",
+  "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors",
   "test": "BABEL_JEST_STAGE=0 jest",
   "lint": "eslint app/**"
 };
@@ -137,30 +137,30 @@ const keywords = {
 
 const webpackConfig = 
 `const webpack = require('webpack');
+const path = require('path');
 
 const config = {
   devtool: "inline-source-map",
-  entry:  __dirname + "/app/App.js",
+  entry:  path.resolve(__dirname, "app/App.js"),
   output: {
-    path: "./public/js/",
+    path: path.resolve(__dirname, "public/js/"),
     publicPath: "/js/",
     filename: "bundle.js"
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: "babel",
+    rules: [{
+      test: /.jsx?$/,
+      exclude: [path.resolve(__dirname, "node_modules")],
+      loader: "babel-loader",
       query: {
-        presets: ["latest","react","stage-0"]
+        presets: ["es2015","react","stage-0"]
       }
     }]
   },
   devServer: {
-    contentBase: "./public",
-    colors: true,
+    contentBase: path.resolve(__dirname, "public"),
     historyApiFallback: true,
-    inline: true
+    compress: true, 
   },
 }
 
