@@ -363,7 +363,7 @@ function setupReact(arg) {
   fixJSON('package.json', 'keywords', keywords); 
   fixJSON('package.json', 'license', 'MIT'); 
   createJSON('.eslintrc', eslint);
-  createJSON('.babelrc', {"presets":["react", "es2015", "stage-0"]});
+  createJSON('.babelrc', {"presets":["react", "env", "stage-0"]});
   createFile('./public/index.html', indexHTML);
   createFile('./public/css/style.css', css);
   createFile('webpack.config.js', webpackConfig);
