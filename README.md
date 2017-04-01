@@ -2,9 +2,9 @@
 
 A React/Flux project and code generator.
 
-** Updated (04/2017) ***
+**Updated (04/2017)**
 
-Now support for Webpack 2, React-Router v4, ES2017!
+**Now support for ES2017, Webpack 2, React-Router v4 !**
 
 ## Installation
 
