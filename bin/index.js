@@ -28,7 +28,7 @@ const dirs = [
 const npms = [
   //Babel
   'npm install --save-dev babel-cli',
-  'npm install --save-dev babel-preset-es2015',
+  'npm install --save-dev babel-preset-latest',
   'npm install --save-dev babel-preset-react',
   'npm install --save-dev babel-preset-stage-0',
 
@@ -124,6 +124,7 @@ const keywords = {
     "es7",
     "es2015",
     "es2016",
+    "es2017",
     "stage-0",
     "babel",
     "eslint",
@@ -151,7 +152,7 @@ const config = {
       exclude: /node_modules/,
       loader: "babel",
       query: {
-        presets: ["es2015","react","stage-0"]
+        presets: ["latest","react","stage-0"]
       }
     }]
   },
