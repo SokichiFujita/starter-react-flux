@@ -4,7 +4,7 @@ A React/Flux project and code generator.
 
 **Updated (04/2017)**
 
-**Now support for ES2017, Webpack 2, React-Router v4 !**
+- **Now support for ES2017, Webpack 2, React-Router v4 !**
 
 ## Installation
 
@@ -39,23 +39,22 @@ starter-react-flux generate test                         // Generate test files 
 - [Jest](https://facebook.github.io/jest/)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
 
-### 3rd Party libraries
+### Third party libraries
 
-- [Webpack](https://webpack.github.io)
+- [Webpack 2](https://webpack.js.org)
   - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [Babel](https://babeljs.io)
   - [React preset](http://babeljs.io/docs/plugins/preset-react/)
-  - [ES2015 preset](https://babeljs.io/docs/plugins/preset-es2015/)
+  - [Env preset](https://babeljs.io/docs/plugins/preset-env/)
+    - ES2015, ES2016, ES2017 are supported.
   - [Stage 0 preset](https://babeljs.io/docs/plugins/preset-stage-0/)
 - [ESLint](http://eslint.org)
   - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
-- [React-Router](https://github.com/reactjs/react-router)
+- [React-Router v4](https://reacttraining.com/react-router/)
 - [material-ui](http://www.material-ui.com)
 - [axios](https://github.com/mzabriskie/axios)
 
-
-
-## npm commands
+## npm scripts
 
 ```
 npm start                     // Webpack-dev-server
