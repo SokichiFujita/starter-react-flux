@@ -4,6 +4,7 @@ const util = require('util');
 const exec = require('child_process').execSync;
 const fs = require('fs');
 const path = require('path');
+const generator = require('./generator');
 
 const dirs = [
   //Flux
@@ -133,167 +134,6 @@ const keywords = {
   ]
 }
 
-
-
-const webpackConfig = 
-`const webpack = require('webpack');
-const path = require('path');
-
-const config = {
-  devtool: "inline-source-map",
-  entry:  path.resolve(__dirname, "app/App.js"),
-  output: {
-    path: path.resolve(__dirname, "public/js/"),
-    publicPath: "/js/",
-    filename: "bundle.js"
-  },
-  module: {
-    rules: [{
-      test: /.jsx?$/,
-      exclude: [path.resolve(__dirname, "node_modules")],
-      loader: "babel-loader",
-      query: {
-        presets: ["env","react","stage-0"]
-      }
-    }]
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, "public"),
-    historyApiFallback: true,
-    compress: true, 
-  },
-}
-
-if (process.env.NODE_ENV === 'production') {
-  config.devtool = false;
-  config.plugins = [
-    new webpack.optimize.UglifyJsPlugin({comments: false}),
-    new webpack.DefinePlugin({
-      'process.env': {NODE_ENV: JSON.stringify('production')}
-    })
-  ];
-};
-
-module.exports = config;
-`;
-
-const indexHTML = 
-`<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div id='root'>
-    </div>
-    <script src="./js/bundle.js"></script>
-  </body>
-</html>
-`;
-
-const css = 
-`html {
-  font-family: 'Roboto', sans-serif;
-}
-
-body {
-  margin: 0;
-}
-`;
-
-const appJS = 
-`import React from 'react';
-import { render } from 'react-dom';
-import { Container } from 'flux/utils';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import TopContainer from './components/TopContainer';
-import SampleContainer1 from './components/SampleContainer1';
-import SampleContainer2 from './components/SampleContainer2';
-
-injectTapEventPlugin();
-
-const muiTheme = getMuiTheme({});
-
-render((
-  <MuiThemeProvider muiTheme={muiTheme}>
-    <Router>
-      <div>
-        <Route exact path="/" component={TopContainer}/>
-        <Route path="/sample1" component={SampleContainer1}/>
-        <Route path="/sample2" component={SampleContainer2}/>
-      </div>
-    </Router>
-  </MuiThemeProvider>
-), document.getElementById('root'));
-`;
-
-const appDispatcherJS = 
-`import { Dispatcher } from 'flux';
-
-class AppDispatcher extends Dispatcher {
-  dispatch(action = {}) {
-    super.dispatch(action);
-  }
-}
-
-export default new AppDispatcher();
-`;
-
-const appConstantsJS =
-`export const ActionTypes = {
-  TYPE_001: 'type-001',
-  TYPE_002: 'type-002',
-};
-`;
-
-const componentSample =
-`import React, { Component, PropTypes } from 'react';
-
-class Sample extends Component {
-
-  static propTypes = {
-    title: PropTypes.string.isRequired
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello</h1>
-        <p>{this.props.title}</p>
-      </div>
-    );
-  }
-}
-
-export default Sample;
-`;
-
-const sampleTest =
-`jest.unmock('../app/components/Sample');
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import Sample from '../app/components/Sample'
-
-describe('<Sample />', () => {
-  it('displays "Hello World"', () => {
-    const app = TestUtils.renderIntoDocument(
-      <Sample title="World" />
-    );
-    const appNode = ReactDOM.findDOMNode(app);
-    expect(appNode.textContent).toEqual('HelloWorld');
-  });
-});
-`;
-
 main();
 
 function main() {
@@ -312,7 +152,7 @@ function main() {
       break;
     case 4:
       if (args[2] == 'generate' && args[3] == 'test') {
-        generateComponentTestFiles();
+        generator.ComponentTestFiles();
         showComplete();
       } else {
         showUsage();
@@ -320,16 +160,16 @@ function main() {
       break;
     case 5:
       if (args[2] == 'generate' && args[3] == 'store') {
-        generateStoreFile(args[4]);
+        generator.StoreFile(args[4]);
         showComplete();
       } else if (args[2] == 'generate' && args[3] == 'action') {
-        generateActionFile(args[4]);
+        generator.ActionFile(args[4]);
         showComplete();
       } else if (args[2] == 'generate' && args[3] == 'container') {
-        generateContainerFile(args[4]);
+        generator.ContainerFile(args[4]);
         showComplete();
       } else if (args[2] == 'generate' && args[3] == 'component') {
-        generateComponentFile(args[4]);
+        generator.ComponentFile(args[4]);
         showComplete();
       } else {
         showUsage();
@@ -368,208 +208,23 @@ function setupReact(arg) {
   fixJSON('package.json', 'license', 'MIT'); 
   createJSON('.eslintrc', eslint);
   createJSON('.babelrc', {"presets":["react", "env", "stage-0"]});
-  createFile('./public/index.html', indexHTML);
-  createFile('./public/css/style.css', css);
-  createFile('webpack.config.js', webpackConfig);
-  createFile('./app/App.js', appJS);
-  createFile('./app/dispatcher/AppDispatcher.js', appDispatcherJS);
-  createFile('./app/constants/AppConstants.js', appConstantsJS);
-  createFile('./app/components/Sample.js', componentSample);
-  createFile('./__tests__/Sample-test.js', sampleTest);
-  generateStoreFile('SampleStore');
-  generateContainerFile('TopContainer');
-  generateContainerFile('SampleContainer1');
-  generateContainerFile('SampleContainer2');
+  createFile('./public/index.html', readFile('./index.html'));
+  createFile('./public/css/style.css', readFile('./main.css'));
+  createFile('webpack.config.js', readFile('./webpack'));
+  createFile('./app/App.js', readFile('./App.js'));
+  createFile('./app/dispatcher/AppDispatcher.js', readFile('./dispatcher.js'));
+  createFile('./app/constants/AppConstants.js', readFile('./constant.js'));
+  createFile('./app/components/Sample.js', readFile('./Sample.js'));
+  createFile('./__tests__/Sample-test.js', readFile('./testSample.js'));
+  generator.StoreFile('SampleStore');
+  generator.ContainerFile('TopContainer');
+  generator.ContainerFile('SampleContainer1');
+  generator.ContainerFile('SampleContainer2');
   npmInstall(npms);
 }
 
 function setupReactPlus() {
   npmInstall(npms_plus);
-}
-
-function generateComponentTestFiles() {
-  const basePath = './app/components/';
-  const components = getFileNames(basePath);
-  for (const i in components) {
-    const component = path.parse(components[i]).name;
-    const testFile = './__tests__/' + component + '-test.js';
-    createFile(testFile, generateComponentTestCode(component));
-  }
-}
-
-function generateComponentTestCode(module) {
-  const testCode = 
-`jest.unmock('../app/components/${module}');
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import ${module} from '../app/components/${module}'
-
-describe('<${module} />', () => {
-  it('', () => {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(
-      <${module} />
-    );
-    const dom = renderer.getRenderOutput();
-    //expect(dom.props.//PROPS_NAME).toEqual('//TEXT');
-  });
-});
-`
-  return testCode;
-}
-
-function generateComponentFile(name) {
-  const code =
-`import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router-dom'
-
-class ${name} extends Component {
-
-  static propTypes = {
-    title: PropTypes.string.isRequired
-  }
-
-  state = {
-  }
-
-  handleClick = (event) => {
-    console.log(event);
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello</h1>
-        <p>{this.props.title}</p>
-        <div onClick={this.handleClick}></div>
-        <div><Link to="/">Top</Link></div>
-        <div><Link to="/sample1">Sample1</Link></div>
-        <div><Link to="/sample2">Sample2</Link></div>
-      </div>
-    );
-  }
-}
-
-export default ${name};
-`;
-  
-  createFile(`./app/components/${name}.js`, code);
-}
-
-
-function generateContainerFile(name) {
-  const code =
-`import React, { Component } from 'react';
-import { render } from 'react-dom';
-import { Container } from 'flux/utils';
-import { Link } from 'react-router-dom'
-import SampleStore from '../stores/SampleStore';
-import AppBar from 'material-ui/AppBar';
-import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
-import { List, ListItem } from 'material-ui/List';
-
-class _${name} extends Component {
-  static getStores() {
-    return [SampleStore];
-  }
-
-  static calculateState() {
-    return {
-      sample: SampleStore.getState()
-    };
-  }
-
-  componentDidMount() {
-  }
-
-  render() {
-    return (
-      <div>
-        <AppBar title="Sample App" />
-        <Toolbar>
-          <ToolbarTitle text="Container: ${name}"/>
-        </Toolbar>
-        <List>
-          <ListItem><Link to="/">Top</Link></ListItem>
-          <ListItem><Link to="/sample1">Sample1</Link></ListItem>
-          <ListItem><Link to="/sample2">Sample2</Link></ListItem>
-        </List>
-      </div>
-    );
-  }
-}
-
-const ${name} = Container.create(_${name});
-export default ${name};
-`;
-
-  createFile(`./app/components/${name}.js`, code);
-}
-
-
-function generateStoreFile(name) {
-
-const code =
-`import { ReduceStore } from 'flux/utils';
-import { ActionTypes } from '../constants/AppConstants';
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import Immutable from 'immutable';
-
-class ${name} extends ReduceStore {
-  getInitialState() {
-    return [];
-  }
-
-  reduce(state, action) {
-    switch (action.type) {
-      case ActionTypes.TYPE_001:
-        return state;
-      default:
-        return state;
-    }
-  }
-}
-
-export default new ${name}(AppDispatcher);
-`;
-
-  createFile(`./app/stores/${name}.js`, code);
-}
-
-
-function generateActionFile(name) {
-
-const code =
-`import AppDispatcher from '../dispatcher/AppDispatcher';
-import { ActionTypes } from '../constants/AppConstants';
-
-const ${name}ActionCreators = {
-
-  action001(arg1) {
-    //
-    // Do something and pass the result to the data in the dispatch.
-    //
-    AppDispatcher.dispatch({
-      type: ActionTypes.TYPE_001,
-      data: 'RESULT OF YOUT ACTION',
-    });
-  },
-
-  action002(arg1) {
-    AppDispatcher.dispatch({
-      type: ActionTypes.TYPE_002,
-      data: 'RESULT OF YOUT ACTION',
-    });
-  },
-
-};
-
-export default ${name}ActionCreators;
-`;
-
-  createFile(`./app/actions/${name}ActionCreators.js`, code);
 }
 
 function getFileNames(dir) {
@@ -599,6 +254,14 @@ function puts(error, stdout, stderr) {
   util.puts(stdout);
   util.puts(stderr);
   util.puts(error);
+}
+
+function readFile(file) {
+  if (fs.existsSync(file)) { 
+    const content = fs.readFileSync(file);
+    console.log('Read:', file);
+    return content; 
+  }
 }
 
 function createFile(file, content) {
