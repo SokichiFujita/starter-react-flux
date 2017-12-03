@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const util = require('util');
 const exec = require('child_process').execSync;
-const fs = require('fs');
-const path = require('path');
+
 const generator = require('./generator');
+const fu = require('./futil');
 
 const dirs = [
   //Flux
@@ -36,9 +35,8 @@ const npms = [
   //React.js
   'npm install --save react',
   'npm install --save react-dom',
-  'npm install --save-dev react-addons-css-transition-group',
-  'npm install --save-dev react-addons-test-utils',
-  'npm install --save-dev react-addons-perf',
+  'npm install --save-dev prop-types',
+  'npm install --save-dev raf',
 
   //Flux
   'npm install --save flux',
@@ -84,13 +82,15 @@ const jest = {
     "<rootDir>/node_modules/react-dom",
     "<rootDir>/node_modules/react-addons-test-utils"
   ],
-  "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-  "testFileExtensions": [
-    "js"
-  ],
+  "transform": { 
+    "^.+\\.jsx?$": "babel-jest"
+  },
   "moduleFileExtensions": [
     "js",
     "json"
+  ],
+  "setupFiles": [
+    "raf/polyfill"
   ]
 };
 
@@ -198,24 +198,26 @@ function showComplete() {
 }
 
 function setupReact(arg) {
-  createDirectories(dirs);
-  exec('npm init -y', puts);
-  fixJSON('package.json', 'description', 'React template.');
-  fixJSON('package.json', 'repository', repository);
-  fixJSON('package.json', 'jest', jest); 
-  fixJSON('package.json', 'scripts', scripts); 
-  fixJSON('package.json', 'keywords', keywords); 
-  fixJSON('package.json', 'license', 'MIT'); 
-  createJSON('.eslintrc', eslint);
-  createJSON('.babelrc', {"presets":["react", "env", "stage-0"]});
-  createFile('./public/index.html', readFile('./index.html'));
-  createFile('./public/css/style.css', readFile('./main.css'));
-  createFile('webpack.config.js', readFile('./webpack'));
-  createFile('./app/App.js', readFile('./App.js'));
-  createFile('./app/dispatcher/AppDispatcher.js', readFile('./dispatcher.js'));
-  createFile('./app/constants/AppConstants.js', readFile('./constant.js'));
-  createFile('./app/components/Sample.js', readFile('./Sample.js'));
-  createFile('./__tests__/Sample-test.js', readFile('./testSample.js'));
+  fu.createDirectories(dirs);
+  exec('npm init -y', fu.puts);
+  fu.fixJSON('package.json', 'description', 'React template.');
+  fu.fixJSON('package.json', 'repository', repository);
+  fu.fixJSON('package.json', 'jest', jest); 
+  fu.fixJSON('package.json', 'scripts', scripts); 
+  fu.fixJSON('package.json', 'keywords', keywords); 
+  fu.fixJSON('package.json', 'license', 'MIT'); 
+  fu.createJSON('.eslintrc', eslint);
+  fu.createJSON('.babelrc', {"presets":["react", "env", "stage-0"]});
+  console.log(__dirname);
+
+  fu.createFile('./public/index.html', fu.readFile('./index.html'));
+  fu.createFile('./public/css/style.css', fu.readFile('./main.css'));
+  fu.createFile('webpack.config.js', fu.readFile('./webpack.js'));
+  fu.createFile('./app/App.js', fu.readFile('./App.js'));
+  fu.createFile('./app/dispatcher/AppDispatcher.js', fu.readFile('./dispatcher/dispatcher.js'));
+  fu.createFile('./app/constants/AppConstants.js', fu.readFile('./constants/constant.js'));
+  fu.createFile('./app/components/Sample.js', fu.readFile('./components/Sample.js'));
+  fu.createFile('./__tests__/Sample-test.js', fu.readFile('./testSample.js'));
   generator.StoreFile('SampleStore');
   generator.ContainerFile('TopContainer');
   generator.ContainerFile('SampleContainer1');
@@ -227,61 +229,11 @@ function setupReactPlus() {
   npmInstall(npms_plus);
 }
 
-function getFileNames(dir) {
-  if (fs.existsSync(dir)) { 
-    return fs.readdirSync(dir);
-  }
-  return [];
-}
-
-function createDirectories(dirs) {
-  dirs.map(function(dir) {
-    if (!fs.existsSync(dir)) { 
-      fs.mkdirSync(dir); 
-      console.log('Create:', dir);
-    }
-  })
-}
-
 function npmInstall(npms) {
   npms.map(command => {
     console.log(command);
-    exec(command, puts);
+    exec(command, fu.puts);
   });
 }
 
-function puts(error, stdout, stderr) { 
-  util.puts(stdout);
-  util.puts(stderr);
-  util.puts(error);
-}
-
-function readFile(file) {
-  if (fs.existsSync(file)) { 
-    const content = fs.readFileSync(file);
-    console.log('Read:', file);
-    return content; 
-  }
-}
-
-function createFile(file, content) {
-  if (!fs.existsSync(file)) { 
-    fs.writeFileSync(file, content);
-    console.log('Create:', file);
-  }
-}
-
-function createJSON(file, json) {
-  if (!fs.existsSync(file)) { 
-    fs.writeFileSync(file, JSON.stringify(json, null, "  "));
-    console.log('Create:', file);
-  }
-}
-
-function fixJSON(file, key, value) {
-  var json = JSON.parse(fs.readFileSync(file));
-  json[key] = value;
-  fs.writeFileSync(file, JSON.stringify(json, null, "  "));
-  console.log('Fix:', file, 'Key:', key);
-}
 
