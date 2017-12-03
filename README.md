@@ -18,12 +18,9 @@ starter-react-flux generate component [Component_Name]   // Generate a React Com
 starter-react-flux generate container [Container_Name]   // Generate a Container file.
 starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file.
 starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file.
-starter-react-flux generate test                         // Generate test files from your components.
 ```
 
-## React stack
-
-### Facebook official libraries
+## Using libraries
 
 - [React.js](http://facebook.github.io/react/)
   - [react](https://facebook.github.io/react/index.html)
@@ -34,15 +31,11 @@ starter-react-flux generate test                         // Generate test files 
   - [flux/utils](https://facebook.github.io/flux/docs/flux-utils.html)
 - [Jest](https://facebook.github.io/jest/)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
-
-### Third party libraries
-
 - [Webpack 2](https://webpack.js.org)
   - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [Babel](https://babeljs.io)
   - [React preset](http://babeljs.io/docs/plugins/preset-react/)
   - [Env preset](https://babeljs.io/docs/plugins/preset-env/)
-    - ES2015, ES2016, ES2017 are supported.
   - [Stage 0 preset](https://babeljs.io/docs/plugins/preset-stage-0/)
 - [ESLint](http://eslint.org)
   - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
@@ -50,7 +43,7 @@ starter-react-flux generate test                         // Generate test files 
 - [material-ui](http://www.material-ui.com)
 - [axios](https://github.com/mzabriskie/axios)
 
-## npm scripts
+## npm scripts for the generated app
 
 ```
 npm start                     // Webpack-dev-server
@@ -59,7 +52,7 @@ npm run lint                  // ESLint
 npm run build                 // Build for production
 ```
 
-## Directory structure
+## Directory structure of the generated app
 
 ```
 .
