@@ -1,6 +1,9 @@
 # starter-react-flux
 
-This is a starter kit for React and Flux. This tool will create a clean directories and code for React and Flux. You can easily start a React and Flux project.
+This is a starter kit for React and Flux. 
+
+This tool will create a clean directories and code for React and Flux. 
+You can easily start a React and Flux project.
 
 ## Installation
 
