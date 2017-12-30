@@ -1,8 +1,9 @@
 # starter-react-flux
 
-A React/Flux project and code generator.
+This is a starter kit for React and Flux. 
 
-- 12/2017: Now support for React v16 and the neweset libraries!
+This tool will create a clean directories and code for React and Flux. 
+You can easily start a React and Flux project.
 
 ## Installation
 
@@ -13,55 +14,46 @@ npm install -g starter-react-flux
 ## Usage
 
 ```
-starter-react-flux init                                  // Setup a new react and flux project.
-starter-react-flux generate component [Component_Name]   // Generate a React Component file.
-starter-react-flux generate container [Container_Name]   // Generate a Container file.
-starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file.
-starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file.
-starter-react-flux generate test                         // Generate test files from your components.
+starter-react-flux init                                  // Setup a new React and Flux project.
+starter-react-flux generate component [Component_Name]   // Generate a React Component file.
+starter-react-flux generate container [Container_Name]   // Generate a Container file for Flux.
+starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file for Flux.
+starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file for Flux.
 ```
 
-## React stack
+## Using libraries
 
-### Facebook official libraries
-
-- [React.js](http://facebook.github.io/react/)
+- [React.js v16](http://facebook.github.io/react/)
   - [react](https://facebook.github.io/react/index.html)
   - [react-dom](https://facebook.github.io/react/index.html)
 - [React Addons](https://facebook.github.io/react/docs/addons.html)
-  - [Animation: react-addons-css-transition-group](https://facebook.github.io/react/docs/animation.html)
   - [Test Utilities: react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html)
-  - [Performance Tools: react-addons-perf](https://facebook.github.io/react/docs/perf.html)
 - [Flux](https://facebook.github.io/flux/)
   - [flux/utils](https://facebook.github.io/flux/docs/flux-utils.html)
 - [Jest](https://facebook.github.io/jest/)
-- [Immutable.js](https://facebook.github.io/immutable-js/)
-
-### Third party libraries
-
-- [Webpack 2](https://webpack.js.org)
+- [Webpack](https://webpack.js.org)
   - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [Babel](https://babeljs.io)
   - [React preset](http://babeljs.io/docs/plugins/preset-react/)
   - [Env preset](https://babeljs.io/docs/plugins/preset-env/)
-    - ES2015, ES2016, ES2017 are supported.
   - [Stage 0 preset](https://babeljs.io/docs/plugins/preset-stage-0/)
 - [ESLint](http://eslint.org)
   - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [React-Router v4](https://reacttraining.com/react-router/)
-- [material-ui](http://www.material-ui.com)
-- [axios](https://github.com/mzabriskie/axios)
+- [Immutable.js](https://facebook.github.io/immutable-js/)
+- [Material-UI](http://www.material-ui.com)
+- [Axios](https://github.com/mzabriskie/axios)
 
-## npm scripts
+## npm scripts for the generated app
 
 ```
-npm start                     // Webpack-dev-server
-npm test                      // Jest
-npm run lint                  // ESLint
-npm run build                 // Build for production
+npm start                     // Launch your app with webpack-dev-server
+npm test                      // Test with Jest
+npm run lint                  // Analyzing your code by ESLint
+npm run build                 // Build your app into the public directory
 ```
 
-## Directory structure
+## Directory structure of the generated app
 
 ```
 .
@@ -88,6 +80,6 @@ npm run build                 // Build for production
 
 ## License
 
-- MIT
+- MIT License
 
 
