@@ -62,14 +62,12 @@ const npms = [
   'npm install --save-dev eslint-config-airbnb'
 ]
 
-
 const npms_plus = [
   'npm install --save react-tap-event-plugin',
   'npm install --save material-ui',
   'npm install --save react-router-dom',  
   'npm install --save axios'  
 ]
-
 
 const repository = {
   "type":"git", 
@@ -102,35 +100,16 @@ const scripts = {
 };
 
 const eslint = {
-    "extends": "airbnb",
-    "plugins": [
-        "react"
-    ]
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ]
 }
 
 const keywords = {
   "keywords": [
     "react",
-    "reactjs",
-    "react.js",
-    "flux",
-    "flux-utils",
-    "jest",
-    "immutable",
-    "immutable.js",
-    "react-router",
-    "material-ui",
-    "axios",
-    "es6",
-    "es7",
-    "es2015",
-    "es2016",
-    "es2017",
-    "stage-0",
-    "babel",
-    "eslint",
-    "webpack",
-    "react-component"
+    "flux"
   ]
 }
 
@@ -206,18 +185,19 @@ function setupReact(arg) {
   fu.fixJSON('package.json', 'scripts', scripts); 
   fu.fixJSON('package.json', 'keywords', keywords); 
   fu.fixJSON('package.json', 'license', 'MIT'); 
+
   fu.createJSON('.eslintrc', eslint);
   fu.createJSON('.babelrc', {"presets":["react", "env", "stage-0"]});
   console.log(__dirname);
+  fu.createFile('./public/index.html', fu.readFile('./public/index.html'));
+  fu.createFile('./public/css/style.css', fu.readFile('./public/main.css'));
+  fu.createFile('webpack.config.js', fu.readFile('./app/webpack.js'));
+  fu.createFile('./app/App.js', fu.readFile('./app/App.js'));
+  fu.createFile('./app/dispatcher/AppDispatcher.js', fu.readFile('./app/dispatcher/dispatcher.js'));
+  fu.createFile('./app/constants/AppConstants.js', fu.readFile('./app/constants/constant.js'));
+  fu.createFile('./app/components/Sample.js', fu.readFile('./app/components/Sample.js'));
+  fu.createFile('./__tests__/Sample-test.js', fu.readFile('./__tests__/testSample.js'));
 
-  fu.createFile('./public/index.html', fu.readFile('./index.html'));
-  fu.createFile('./public/css/style.css', fu.readFile('./main.css'));
-  fu.createFile('webpack.config.js', fu.readFile('./webpack.js'));
-  fu.createFile('./app/App.js', fu.readFile('./App.js'));
-  fu.createFile('./app/dispatcher/AppDispatcher.js', fu.readFile('./dispatcher/dispatcher.js'));
-  fu.createFile('./app/constants/AppConstants.js', fu.readFile('./constants/constant.js'));
-  fu.createFile('./app/components/Sample.js', fu.readFile('./components/Sample.js'));
-  fu.createFile('./__tests__/Sample-test.js', fu.readFile('./testSample.js'));
   generator.StoreFile('SampleStore');
   generator.ContainerFile('TopContainer');
   generator.ContainerFile('SampleContainer1');

@@ -156,7 +156,7 @@ export default ${name}ActionCreators;
 
 module.exports.ComponentTestFiles = () => {
   const basePath = './app/components/';
-  const components = getFileNames(basePath);
+  const components = fu.getFileNames(basePath);
   for (const i in components) {
     const component = path.parse(components[i]).name;
     const testFile = './__tests__/' + component + '-test.js';
