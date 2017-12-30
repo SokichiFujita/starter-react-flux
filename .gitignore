@@ -1,4 +1,5 @@
 __test
+*.lock
 
 # Logs
 logs
