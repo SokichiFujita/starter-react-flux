@@ -7,7 +7,9 @@
     "pretest": "npm run cleanup && npm link",
     "test": "mkdir __test && cd __test && starter-react-flux init && npm test && npm run build",
     "posttest": "npm unlink",
-    "cleanup": "rm -rf __test"
+    "cleanup": "rm -rf __test && rm -rf node_modules",
+    "lint": "eslint bin/**/*.js",
+    "fix": "eslint bin/**/*.js --fix"
   },
   "bin": {
     "starter-react-flux": "bin/index.js"
@@ -47,5 +49,12 @@
   "bugs": {
     "url": "https://github.com/SokichiFujita/starter-react-flux/issues"
   },
-  "homepage": "https://github.com/SokichiFujita/starter-react-flux"
+  "homepage": "https://github.com/SokichiFujita/starter-react-flux",
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.5.1",
+    "prettier": "^1.9.2"
+  }
 }
