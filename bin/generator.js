@@ -96,19 +96,24 @@ module.exports.StoreFile = (name) => {
 
   const code =
 `import { ReduceStore } from 'flux/utils';
+import Immutable from 'immutable';
 import { ActionTypes } from '../constants/AppConstants';
 import AppDispatcher from '../dispatcher/AppDispatcher';
-import Immutable from 'immutable';
 
 class ${name} extends ReduceStore {
   getInitialState() {
-    return [];
+    return Immutable.Map({
+      "title": "Title...", 
+      "text": "Text..."
+    }).toJS();
   }
 
   reduce(state, action) {
     switch (action.type) {
       case ActionTypes.TYPE_001:
         return state;
+      case ActionTypes.TYPE_002:
+        return Immutable.Map(action.data).set("text", "Flux is...").toJS();
       default:
         return state;
     }
@@ -142,7 +147,10 @@ const ${name}ActionCreators = {
   action002(arg1) {
     AppDispatcher.dispatch({
       type: ActionTypes.TYPE_002,
-      data: 'RESULT OF YOUT ACTION',
+      data: {
+        "title": "Introduction to React and Flux",
+        "text": "ABCDE"
+      },
     });
   },
 

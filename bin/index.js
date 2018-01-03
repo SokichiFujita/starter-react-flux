@@ -122,7 +122,12 @@ const eslint = {
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],   
-    "react/no-find-dom-node": 0
+    "react/no-find-dom-node": 0,
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }]
   }
 }
 
