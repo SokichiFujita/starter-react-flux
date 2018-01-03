@@ -35,7 +35,7 @@ const npms = [
   //React.js
   'npm install --save react',
   'npm install --save react-dom',
-  'npm install --save-dev prop-types',
+  'npm install --save prop-types',
   'npm install --save-dev raf',
 
   //Flux
