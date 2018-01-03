@@ -56,10 +56,16 @@ const npms = [
 
   //ESLint
   'npm install --save-dev eslint',
+  'npm install --save-dev babel-eslint',
   'npm install --save-dev eslint-plugin-import',
   'npm install --save-dev eslint-plugin-react',
   'npm install --save-dev eslint-plugin-jsx-a11y',
-  'npm install --save-dev eslint-config-airbnb'
+  'npm install --save-dev eslint-config-airbnb',
+
+  //Prettier
+  'npm install --save-dev prettier',
+  'npm install --save-dev eslint-plugin-prettier',
+  'npm install --save-dev eslint-config-prettier'
 ]
 
 const npms_plus = [
@@ -96,14 +102,28 @@ const scripts = {
   "start": "webpack-dev-server -d --progress --colors",
   "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors",
   "test": "BABEL_JEST_STAGE=0 jest",
-  "lint": "eslint app/**"
+  "lint": "eslint app/** __tests__/**",
+  "fix": "eslint app/** __tests__/** --fix"
 };
 
 const eslint = {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+     "browser": true,
+     "jest": true
+  },
   "plugins": [
-    "react"
-  ]
+    "prettier"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],   
+    "react/no-find-dom-node": 0
+  }
 }
 
 const keywords = {
