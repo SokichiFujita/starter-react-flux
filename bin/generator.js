@@ -48,10 +48,10 @@ module.exports.ContainerFile = (name) => {
 `import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 import { Link } from 'react-router-dom'
-import SampleStore from '../stores/SampleStore';
 import AppBar from 'material-ui/AppBar';
 import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
 import { List, ListItem } from 'material-ui/List';
+import SampleStore from '../stores/SampleStore';
 
 class _${name} extends Component {
   static getStores() {
