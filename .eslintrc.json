@@ -1,27 +1,22 @@
 {
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "airbnb",
+    "prettier",
+    "prettier/react"
   ],
+  "parser": "babel-eslint",
   "env": {
-     "es6": true,
      "browser": true,
-     "jest": true,
-     "node": true
+     "jest": true
   },
   "plugins": [
-    "react",
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "react/no-find-dom-node": 0
-  },
-  "parserOptions": {
-    "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
+    "react/no-find-dom-node": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off"
   }
 }
