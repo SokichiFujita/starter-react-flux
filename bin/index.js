@@ -27,52 +27,53 @@ const dirs = [
 
 const npms = [
   //Babel
-  'npm install --save-dev babel-cli',
-  'npm install --save-dev babel-preset-env',
-  'npm install --save-dev babel-preset-react',
-  'npm install --save-dev babel-preset-stage-0',
+  'yarn add --dev babel-cli',
+  'yarn add --dev babel-preset-env',
+  'yarn add --dev babel-preset-react',
+  'yarn add --dev babel-preset-stage-0',
 
   //React.js
-  'npm install --save react',
-  'npm install --save react-dom',
-  'npm install --save prop-types',
-  'npm install --save-dev raf',
+  'yarn add react',
+  'yarn add react-dom',
+  'yarn add prop-types',
+  'yarn add --dev raf',
 
   //Flux
-  'npm install --save flux',
+  'yarn add flux',
 
   //Immutable.js
-  'npm install --save immutable',
+  'yarn add immutable',
   
   //Jest
-  'npm install --save-dev jest-cli',
-  'npm install --save-dev babel-jest',
-  'npm install --save-dev babel-polyfill',
+  'yarn add --dev jest-cli',
+  'yarn add --dev babel-jest',
+  'yarn add --dev babel-polyfill',
 
   //WebPack
-  'npm install --save-dev webpack',
-  'npm install --save-dev webpack-dev-server',
-  'npm install --save-dev babel-loader',
+  'yarn add --dev webpack',
+  'yarn add --dev webpack-cli',
+  'yarn add --dev webpack-dev-server',
+  'yarn add --dev babel-loader',
 
   //ESLint
-  'npm install --save-dev eslint',
-  'npm install --save-dev babel-eslint',
-  'npm install --save-dev eslint-plugin-import',
-  'npm install --save-dev eslint-plugin-react',
-  'npm install --save-dev eslint-plugin-jsx-a11y',
-  'npm install --save-dev eslint-config-airbnb',
+  'yarn add --dev eslint',
+  'yarn add --dev babel-eslint',
+  'yarn add --dev eslint-plugin-import',
+  'yarn add --dev eslint-plugin-react',
+  'yarn add --dev eslint-plugin-jsx-a11y',
+  'yarn add --dev eslint-config-airbnb',
 
   //Prettier
-  'npm install --save-dev prettier',
-  'npm install --save-dev eslint-plugin-prettier',
-  'npm install --save-dev eslint-config-prettier'
+  'yarn add --dev prettier',
+  'yarn add --dev eslint-plugin-prettier',
+  'yarn add --dev eslint-config-prettier'
 ]
 
 const npms_plus = [
-  'npm install --save react-tap-event-plugin',
-  'npm install --save material-ui',
-  'npm install --save react-router-dom',  
-  'npm install --save axios'  
+  'yarn add react-tap-event-plugin',
+  'yarn add material-ui',
+  'yarn add react-router-dom',  
+  'yarn add axios'  
 ]
 
 const repository = {

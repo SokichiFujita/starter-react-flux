@@ -31,7 +31,6 @@ const config = {
 if (process.env.NODE_ENV === "production") {
   config.devtool = false;
   config.plugins = [
-    new webpack.optimize.UglifyJsPlugin({ comments: false }),
     new webpack.DefinePlugin({
       "process.env": { NODE_ENV: JSON.stringify("production") }
     })
