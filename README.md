@@ -9,7 +9,7 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux) 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md) 
 
-You can easily start a standard React and Flux project using awesome libraries.
+A starter kit for a React and Flux projext. You can easily start a standard React and Flux project using awesome libraries.
 
 ## Requirements
 
