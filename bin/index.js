@@ -221,13 +221,15 @@ function setupReact(arg) {
   fu.createFile('./app/App.js', fu.readFile('./app/App.js'));
   fu.createFile('./app/dispatcher/AppDispatcher.js', fu.readFile('./app/dispatcher/dispatcher.js'));
   fu.createFile('./app/constants/AppConstants.js', fu.readFile('./app/constants/constant.js'));
-  fu.createFile('./app/components/Sample.js', fu.readFile('./app/components/Sample.js'));
-  fu.createFile('./__tests__/Sample-test.js', fu.readFile('./__tests__/testSample.js'));
+  fu.createFile('./app/components/Navi.js', fu.readFile('./app/components/Navi.js'));
+  fu.createFile('./app/components/Menu.js', fu.readFile('./app/components/Menu.js'));
+  fu.createFile('./app/components/Content.js', fu.readFile('./app/components/Content.js'));
+  fu.createFile('./__tests__/Content-test.js', fu.readFile('./__tests__/Content-test.js'));
 
-  generator.StoreFile('SampleStore');
-  generator.ContainerFile('TopContainer');
-  generator.ContainerFile('SampleContainer1');
-  generator.ContainerFile('SampleContainer2');
+  generator.StoreFile('Sample');
+  generator.ActionFile('Sample');
+  generator.ContainerFile('Top');
+  generator.ContainerFile('Sample');
   npmInstall(npms);
 }
 

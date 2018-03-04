@@ -14,6 +14,14 @@ This is a starter kit for React and Flux.
 This tool will create a clean directories and code for React and Flux. 
 You can easily start a React and Flux project.
 
+
+## Pre-requirement
+
+Please install [yarn](https://yarnpkg.com/).
+
+- [Yarn - Installation](https://yarnpkg.com/en/docs/install)
+
+
 ## Installation
 
 ```
