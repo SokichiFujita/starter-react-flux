@@ -11,10 +11,10 @@
 
 You can easily start a standard React and Flux project using awesome libraries.
 
-## Requirement
+## Requirements
 
-- [yarn](https://yarnpkg.com/).
-  - Please install yarn: [yarn - installation](https://yarnpkg.com/en/docs/install)
+- Please install [yarn](https://yarnpkg.com/).
+  - [yarn - installation](https://yarnpkg.com/en/docs/install)
 
 ## Installation
 
