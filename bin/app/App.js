@@ -6,8 +6,7 @@ import getMuiTheme from "material-ui/styles/getMuiTheme";
 import injectTapEventPlugin from "react-tap-event-plugin";
 
 import TopContainer from "./components/TopContainer";
-import SampleContainer1 from "./components/SampleContainer1";
-import SampleContainer2 from "./components/SampleContainer2";
+import SampleContainer from "./components/SampleContainer";
 
 injectTapEventPlugin();
 
@@ -18,8 +17,7 @@ render(
     <Router>
       <div>
         <Route exact path="/" component={TopContainer} />
-        <Route path="/sample1" component={SampleContainer1} />
-        <Route path="/sample2" component={SampleContainer2} />
+        <Route path="/sample" component={SampleContainer} />
       </div>
     </Router>
   </MuiThemeProvider>,
