@@ -9,18 +9,12 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux) 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md) 
 
-This is a starter kit for React and Flux. 
+You can easily start a standard React and Flux project using awesome libraries.
 
-This tool will create a clean directories and code for React and Flux. 
-You can easily start a React and Flux project.
+## Requirement
 
-
-## Pre-requirement
-
-Please install [yarn](https://yarnpkg.com/).
-
-- [Yarn - Installation](https://yarnpkg.com/en/docs/install)
-
+- [yarn](https://yarnpkg.com/).
+  - Please install yarn: [yarn - installation](https://yarnpkg.com/en/docs/install)
 
 ## Installation
 
@@ -30,15 +24,30 @@ npm install -g starter-react-flux
 
 ## Usage
 
+### Start a new project
+
 ```
-starter-react-flux init                                  // Setup a new React and Flux project.
+mkdir my-app && cd my-app
+starter-react-flux init       // Setup a new React and Flux project.
+```
+
+```
+npm start                     // Launch the app with webpack-dev-server.
+npm test                      // Test with Jest.
+npm run build                 // Build the app into the ./public directory.
+npm run lint                  // Check the code by ESLint.
+```
+
+### Add optional components for React or Flux
+
+```
 starter-react-flux generate component [Component_Name]   // Generate a React Component file.
 starter-react-flux generate container [Container_Name]   // Generate a Container file for Flux.
 starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file for Flux.
 starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file for Flux.
 ```
 
-## Using libraries
+## Using modules
 
 - [React.js v16](http://facebook.github.io/react/)
   - [react](https://facebook.github.io/react/index.html)
@@ -48,7 +57,7 @@ starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCre
 - [Flux](https://facebook.github.io/flux/)
   - [flux/utils](https://facebook.github.io/flux/docs/flux-utils.html)
 - [Jest](https://facebook.github.io/jest/)
-- [Webpack](https://webpack.js.org)
+- [Webpack v4](https://webpack.js.org)
   - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [Babel](https://babeljs.io)
   - [React preset](http://babeljs.io/docs/plugins/preset-react/)
@@ -60,15 +69,6 @@ starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCre
 - [Immutable.js](https://facebook.github.io/immutable-js/)
 - [Material-UI](http://www.material-ui.com)
 - [Axios](https://github.com/mzabriskie/axios)
-
-## npm scripts for the generated app
-
-```
-npm start                     // Launch your app with webpack-dev-server
-npm test                      // Test with Jest
-npm run lint                  // Analyzing your code by ESLint
-npm run build                 // Build your app into the public directory
-```
 
 ## Directory structure of the generated app
 
