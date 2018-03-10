@@ -26,54 +26,56 @@ const dirs = [
 ]
 
 const npms = [
+  'npm install yarn',
   //Babel
-  'yarn add --dev babel-cli',
-  'yarn add --dev babel-preset-env',
-  'yarn add --dev babel-preset-react',
-  'yarn add --dev babel-preset-stage-0',
+  './node_modules/yarn/bin/yarn add --dev babel-cli',
+  './node_modules/yarn/bin/yarn add --dev babel-preset-env',
+  './node_modules/yarn/bin/yarn add --dev babel-preset-react',
+  './node_modules/yarn/bin/yarn add --dev babel-preset-stage-0',
 
   //React.js
-  'yarn add react',
-  'yarn add react-dom',
-  'yarn add prop-types',
-  'yarn add --dev raf',
+  './node_modules/yarn/bin/yarn add react',
+  './node_modules/yarn/bin/yarn add react-dom',
+  './node_modules/yarn/bin/yarn add prop-types',
+  './node_modules/yarn/bin/yarn add --dev raf',
 
   //Flux
-  'yarn add flux',
+  './node_modules/yarn/bin/yarn add flux',
 
   //Immutable.js
-  'yarn add immutable',
+  './node_modules/yarn/bin/yarn add immutable',
   
   //Jest
-  'yarn add --dev jest-cli',
-  'yarn add --dev babel-jest',
-  'yarn add --dev babel-polyfill',
+  './node_modules/yarn/bin/yarn add --dev jest-cli',
+  './node_modules/yarn/bin/yarn add --dev babel-jest',
+  './node_modules/yarn/bin/yarn add --dev babel-polyfill',
 
   //WebPack
-  'yarn add --dev webpack',
-  'yarn add --dev webpack-cli',
-  'yarn add --dev webpack-dev-server',
-  'yarn add --dev babel-loader',
+  './node_modules/yarn/bin/yarn add --dev webpack',
+  './node_modules/yarn/bin/yarn add --dev webpack-cli',
+  './node_modules/yarn/bin/yarn add --dev webpack-dev-server',
+  './node_modules/yarn/bin/yarn add --dev babel-loader',
+  './node_modules/yarn/bin/yarn add --dev webpack-bundle-analyzer',
 
   //ESLint
-  'yarn add --dev eslint',
-  'yarn add --dev babel-eslint',
-  'yarn add --dev eslint-plugin-import',
-  'yarn add --dev eslint-plugin-react',
-  'yarn add --dev eslint-plugin-jsx-a11y',
-  'yarn add --dev eslint-config-airbnb',
+  './node_modules/yarn/bin/yarn add --dev eslint',
+  './node_modules/yarn/bin/yarn add --dev babel-eslint',
+  './node_modules/yarn/bin/yarn add --dev eslint-plugin-import',
+  './node_modules/yarn/bin/yarn add --dev eslint-plugin-react',
+  './node_modules/yarn/bin/yarn add --dev eslint-plugin-jsx-a11y',
+  './node_modules/yarn/bin/yarn add --dev eslint-config-airbnb',
 
   //Prettier
-  'yarn add --dev prettier',
-  'yarn add --dev eslint-plugin-prettier',
-  'yarn add --dev eslint-config-prettier'
+  './node_modules/yarn/bin/yarn add --dev prettier',
+  './node_modules/yarn/bin/yarn add --dev eslint-plugin-prettier',
+  './node_modules/yarn/bin/yarn add --dev eslint-config-prettier'
 ]
 
 const npms_plus = [
-  'yarn add react-tap-event-plugin',
-  'yarn add material-ui',
-  'yarn add react-router-dom',  
-  'yarn add axios'  
+  './node_modules/yarn/bin/yarn add react-tap-event-plugin',
+  './node_modules/yarn/bin/yarn add material-ui',
+  './node_modules/yarn/bin/yarn add react-router-dom',  
+  './node_modules/yarn/bin/yarn add axios'  
 ]
 
 const repository = {
@@ -100,11 +102,13 @@ const jest = {
 };
 
 const scripts = {
-  "start": "webpack-dev-server -d --progress --colors",
-  "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors",
+  "start": "webpack-dev-server --progress --colors --mode development",
+  "dev": "webpack -p --progress --colors --mode development",
+  "build": "webpack -p --progress --colors --mode production",
   "test": "BABEL_JEST_STAGE=0 jest",
   "lint": "eslint app/** __tests__/**",
-  "fix": "eslint app/** __tests__/** --fix"
+  "fix": "eslint app/** __tests__/** --fix",
+  "bundle-analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer ./stats.json"
 };
 
 const eslint = {
