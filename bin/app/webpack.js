@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 
 const config = {
-  devtool: "inline-source-map",
+  mode: "production",
   entry: path.resolve(__dirname, "app/App.js"),
   output: {
     path: path.resolve(__dirname, "public/js/"),
@@ -28,14 +28,5 @@ const config = {
     open: true
   }
 };
-
-if (process.env.NODE_ENV === "production") {
-  config.devtool = false;
-  config.plugins = [
-    new webpack.DefinePlugin({
-      "process.env": { NODE_ENV: JSON.stringify("production") }
-    })
-  ];
-}
 
 module.exports = config;
