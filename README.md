@@ -21,6 +21,10 @@ A starter kit for a React and Flux projext. You can easily start a standard Reac
 - [Material-UI](http://www.material-ui.com)
 - [Axios](https://github.com/mzabriskie/axios)
 
+## Pre-requirement
+
+Node.js >= v8.x
+
 ## Installation
 
 ```
