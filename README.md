@@ -42,30 +42,41 @@ starter-react-flux init       // Setup a new React and Flux project.
 npm start                     // Launch the app with webpack-dev-server.
 ```
 
-#### Top page
+#### Top page with React and Flux
 
 ![](./images/app1.png)
 
-#### Another page with React-Router
+#### Client side routing with React Router
 
 ![](./images/app2.png)
 
+#### Bundle Analyzing with Webpack Bundle Anlyzer
 
 ```
-npm test                      // Test with Jest.
+npm run bundle-analyze
+```
+
+![](./images/webpack-bundle-analyzer.png)
+
+
+
+#### Testing with Jest
+```
+npm test                      // Testing with Jest.
 ```
 
 ![](./images/test.png)
 
-```
-npm run build                 // Build the app into the ./public directory.
-```
+
+#### Static analyze with ESLint
 
 ```
 npm run lint                  // Check the code by ESLint with AirBnb's style guideline.
 ```
 
 ![](./images/lint.png)
+
+#### Automatic code format with Prettier and ESLint
 
 ```
 npm run fix                   // Fix the code by Prettier with AirBnb's guidline.
@@ -74,13 +85,12 @@ npm run fix                   // Fix the code by Prettier with AirBnb's guidline
 ![](./images/fix.png)
 
 
-#### Bundle Analyze
+
+#### Production build with Webpack
 
 ```
-npm run bundle-analyze
+npm run build                 // Build the app into the ./public directory.
 ```
-
-![](./images/webpack-bundle-analyzer.png)
 
 
 ### To add optional components for React or Flux
