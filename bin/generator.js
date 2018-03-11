@@ -9,13 +9,6 @@ module.exports.ComponentFile = (name) => {
 import PropTypes from 'prop-types'; 
 
 class ${name} extends Component {
-
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
-  }
-
   render() {
     return (
       <div>
@@ -25,6 +18,12 @@ class ${name} extends Component {
       </div>
     );
   }
+}
+
+${name}.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 }
 
 export default ${name};

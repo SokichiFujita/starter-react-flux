@@ -73,7 +73,8 @@ const npms = [
 
 const npms_plus = [
   './node_modules/yarn/bin/yarn add react-tap-event-plugin',
-  './node_modules/yarn/bin/yarn add material-ui',
+  './node_modules/yarn/bin/yarn add material-ui@next',
+  './node_modules/yarn/bin/yarn add material-ui-icons',
   './node_modules/yarn/bin/yarn add react-router-dom',  
   './node_modules/yarn/bin/yarn add axios'  
 ]

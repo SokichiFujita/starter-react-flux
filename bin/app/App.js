@@ -1,19 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import getMuiTheme from "material-ui/styles/getMuiTheme";
-import injectTapEventPlugin from "react-tap-event-plugin";
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 
 import TopContainer from "./components/TopContainer";
 import SampleContainer from "./components/SampleContainer";
 
-injectTapEventPlugin();
-
-const muiTheme = getMuiTheme({});
+const muiTheme = createMuiTheme({});
 
 render(
-  <MuiThemeProvider muiTheme={muiTheme}>
+  <MuiThemeProvider theme={muiTheme}>
     <Router>
       <div>
         <Route exact path="/" component={TopContainer} />
