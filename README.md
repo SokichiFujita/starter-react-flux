@@ -50,7 +50,7 @@ npm start                     // Launch the app with webpack-dev-serve
 
 ![](./images/app2.png)
 
-#### Bundle Analyzing with Webpack Bundle Anlyzer
+#### Bundle analyzing with Webpack Bundle Analyzer
 
 ```
 npm run bundle-analyze
@@ -93,7 +93,7 @@ npm run build                 // Build the app into the ./public directo
 ```
 
 
-### To add optional components for React or Flux
+### Adding optional components for React or Flux
 
 ```
 starter-react-flux generate component [Component_Name]   // Generate a React Component file.
