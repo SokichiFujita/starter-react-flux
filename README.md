@@ -9,7 +9,9 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux) 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md) 
 
-A starter kit for a React and Flux projext. You can easily start a standard React and Flux project using awesome libraries.
+A starter kit for a React and Flux. You can easily create a standard React and Flux project using awesome libraries.
+
+Look ahead to the future! starter-react-flux will always install all the latest version of following libraries.
 
 - [React](http://facebook.github.io/react/), [Flux](https://facebook.github.io/flux/)
 - [Jest](https://facebook.github.io/jest/)
@@ -21,15 +23,13 @@ A starter kit for a React and Flux projext. You can easily start a standard Reac
 - [Material-UI](http://www.material-ui.com)
 - [Axios](https://github.com/mzabriskie/axios)
 
-## Pre-requirement
-
-Node.js >= v8.x
-
 ## Installation
 
 ```
 npm install -g starter-react-flux
 ```
+
+- Please use Node.js v8.x or above.
 
 ## Usage
 

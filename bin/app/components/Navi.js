@@ -7,7 +7,7 @@ import Typography from 'material-ui/Typography';
 class Navi extends Component {
   render() {
     return (
-      <AppBar position="static" color="default">
+      <AppBar position="absolute" style={this.props.style}>
         <Toolbar>
           <Typography variant="title" color="inherit">
             {this.props.title}
