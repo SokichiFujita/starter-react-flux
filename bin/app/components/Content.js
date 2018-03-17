@@ -10,7 +10,7 @@ class Content extends Component {
 
   render() {
     return (
-      <div>
+      <div style={this.props.style}>
         <h1>{this.props.title}</h1>
         <h2>{this.props.subtitle}</h2>
         <div>{this.props.text}</div>        

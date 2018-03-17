@@ -42,7 +42,7 @@ import Navi from './Navi';
 import Menu from './Menu';
 import Content from './Content';
 
-class _${name}Container extends Component {
+class ${name}Container extends Component {
   static getStores() {
     return [SampleStore];
   }
@@ -59,14 +59,14 @@ class _${name}Container extends Component {
   render() {
     return (
       <div>
-        <Navi title="${name}"/>
-        <div style={{display:"flex"}}>
-          <Menu/>
+        <Navi title="${name}" style={{zIndex:1201, position: 'fixed', top: 0}} />
+        <div style={{display: 'flex'}}>
+          <Menu style={{width:200, paddingTop:72}} />
           <Content 
             title={this.state.sample.title} 
             subtitle={this.state.sample.subtitle}
             text={this.state.sample.text}
-            style={{margin:'10px'}}
+            style={{padding: 20, paddingTop: 72}}
           />
         </div>
       </div>
@@ -74,8 +74,7 @@ class _${name}Container extends Component {
   }
 }
 
-const ${name}Container = Container.create(_${name}Container);
-export default ${name}Container;
+export default Container.create(${name}Container);
 `;
 
   fu.createFile(`./app/components/${name}Container.js`, code);
