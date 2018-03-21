@@ -96,16 +96,6 @@ npm run fix                   // Fix the code by Prettier with AirBnb's guidline
 npm run build                 // Build the app into the ./public directory.
 ```
 
-
-### Adding optional components for React or Flux
-
-```
-starter-react-flux generate component [Component_Name]   // Generate a React Component file.
-starter-react-flux generate container [Container_Name]   // Generate a Container file for Flux.
-starter-react-flux generate store [Store_Name]           // Generate a ReduceStore file for Flux.
-starter-react-flux generate action [ActionCreators_Name] // Generate a ActionCreators file for Flux.
-```
-
 ## Directory structure of the generated app
 
 ```
