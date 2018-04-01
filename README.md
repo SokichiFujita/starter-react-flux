@@ -35,10 +35,8 @@ mkdir my-app && cd my-app
 //npm >= 5.2.0
 npx starter-react-flux init
 
-or
-
 //npm < 5.2.0
-npm install -g starter-react-flux //npm under
+npm install -g starter-react-flux
 starter-react-flux init
 ```
 
