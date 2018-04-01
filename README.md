@@ -25,7 +25,7 @@ Look ahead to the future! starter-react-flux will always install all the latest 
 
 ## Installation
 
-- Prerequirement: yarn
+- Prerequirement: [Yarn](https://yarnpkg.com)  Please install yarn.
 
 ```
 npm install -g starter-react-flux
