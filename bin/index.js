@@ -26,57 +26,56 @@ const dirs = [
 ]
 
 const npms = [
-  'npm install yarn',
   //Babel
-  './node_modules/yarn/bin/yarn add --dev babel-cli',
-  './node_modules/yarn/bin/yarn add --dev babel-preset-env',
-  './node_modules/yarn/bin/yarn add --dev babel-preset-react',
-  './node_modules/yarn/bin/yarn add --dev babel-preset-stage-0',
+  'yarn add --dev babel-cli',
+  'yarn add --dev babel-preset-env',
+  'yarn add --dev babel-preset-react',
+  'yarn add --dev babel-preset-stage-0',
 
   //React.js
-  './node_modules/yarn/bin/yarn add react',
-  './node_modules/yarn/bin/yarn add react-dom',
-  './node_modules/yarn/bin/yarn add prop-types',
-  './node_modules/yarn/bin/yarn add --dev raf',
+  'yarn add react',
+  'yarn add react-dom',
+  'yarn add prop-types',
+  'yarn add --dev raf',
 
   //Flux
-  './node_modules/yarn/bin/yarn add flux',
+  'yarn add flux',
 
   //Immutable.js
-  './node_modules/yarn/bin/yarn add immutable',
+  'yarn add immutable',
   
   //Jest
-  './node_modules/yarn/bin/yarn add --dev jest-cli',
-  './node_modules/yarn/bin/yarn add --dev babel-jest',
-  './node_modules/yarn/bin/yarn add --dev babel-polyfill',
+  'yarn add --dev jest-cli',
+  'yarn add --dev babel-jest',
+  'yarn add --dev babel-polyfill',
 
   //WebPack
-  './node_modules/yarn/bin/yarn add --dev webpack',
-  './node_modules/yarn/bin/yarn add --dev webpack-cli',
-  './node_modules/yarn/bin/yarn add --dev webpack-dev-server',
-  './node_modules/yarn/bin/yarn add --dev babel-loader',
-  './node_modules/yarn/bin/yarn add --dev webpack-bundle-analyzer',
+  'yarn add --dev webpack',
+  'yarn add --dev webpack-cli',
+  'yarn add --dev webpack-dev-server',
+  'yarn add --dev babel-loader',
+  'yarn add --dev webpack-bundle-analyzer',
 
   //ESLint
-  './node_modules/yarn/bin/yarn add --dev eslint',
-  './node_modules/yarn/bin/yarn add --dev babel-eslint',
-  './node_modules/yarn/bin/yarn add --dev eslint-plugin-import',
-  './node_modules/yarn/bin/yarn add --dev eslint-plugin-react',
-  './node_modules/yarn/bin/yarn add --dev eslint-plugin-jsx-a11y',
-  './node_modules/yarn/bin/yarn add --dev eslint-config-airbnb',
+  'yarn add --dev eslint',
+  'yarn add --dev babel-eslint',
+  'yarn add --dev eslint-plugin-import',
+  'yarn add --dev eslint-plugin-react',
+  'yarn add --dev eslint-plugin-jsx-a11y',
+  'yarn add --dev eslint-config-airbnb',
 
   //Prettier
-  './node_modules/yarn/bin/yarn add --dev prettier',
-  './node_modules/yarn/bin/yarn add --dev eslint-plugin-prettier',
-  './node_modules/yarn/bin/yarn add --dev eslint-config-prettier'
+  'yarn add --dev prettier',
+  'yarn add --dev eslint-plugin-prettier',
+  'yarn add --dev eslint-config-prettier'
 ]
 
 const npms_plus = [
-  './node_modules/yarn/bin/yarn add react-tap-event-plugin',
-  './node_modules/yarn/bin/yarn add material-ui@next',
-  './node_modules/yarn/bin/yarn add material-ui-icons',
-  './node_modules/yarn/bin/yarn add react-router-dom',  
-  './node_modules/yarn/bin/yarn add axios'  
+  'yarn add react-tap-event-plugin',
+  'yarn add material-ui@next',
+  'yarn add material-ui-icons',
+  'yarn add react-router-dom',  
+  'yarn add axios'  
 ]
 
 const repository = {
