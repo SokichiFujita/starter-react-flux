@@ -23,23 +23,21 @@ Look ahead to the future! starter-react-flux will always install all the latest 
 - [Material-UI](http://www.material-ui.com)
 - [Axios](https://github.com/mzabriskie/axios)
 
-## Installation
-
-- Prerequirement: [Yarn](https://yarnpkg.com)  Please install yarn.
-
-```
-npm install -g starter-react-flux
-```
-
-- Please use Node.js v8.x or above.
-
 ## Usage
 
 ### Create a new project
 
+Please install [Yarn](https://yarnpkg.com).
+
 ```
 mkdir my-app && cd my-app
-starter-react-flux init       // Setup a new React and Flux project.
+
+//npm >= 5.2.0
+npx starter-react-flux init
+
+//npm < 5.2.0
+npm install -g starter-react-flux
+starter-react-flux init
 ```
 
 ### Launch the application
