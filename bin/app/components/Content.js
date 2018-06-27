@@ -5,7 +5,7 @@ import SampleActionCreators from '../actions/SampleActionCreators';
 
 class Content extends Component {
   handleClick = (e) => {
-    SampleActionCreators.actionCreator002();
+    SampleActionCreators.actionCreator001();
   }
 
   render() {

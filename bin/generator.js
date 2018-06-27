@@ -101,8 +101,6 @@ class ${name}Store extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
       case ActionTypes.TYPE_001:
-        return state;
-      case ActionTypes.TYPE_002:
         const newCount = state.count + 1;
         const result = {
           title: action.data.title,
@@ -111,6 +109,8 @@ class ${name}Store extends ReduceStore {
           count: newCount
         }
         return result;
+      case ActionTypes.TYPE_002:
+        return state;
       default:
         return state;
     }
@@ -131,20 +131,9 @@ module.exports.ActionFile = (name) => {
 import ActionTypes from '../constants/AppConstants';
 
 const ${name}ActionCreators = {
-
-  actionCreator001(arg1) {
-    // 1. Do something. (e.g. Fetch JSON from an API)
-    // 2. Create an action from the result.
-    // 3, Pass the action to the dispatch().
+  actionCreator001(arg) {
     AppDispatcher.dispatch({
       type: ActionTypes.TYPE_001,
-      data: 'RESULT OF YOUT ACTION',
-    });
-  },
-
-  actionCreator002(arg1) {
-    AppDispatcher.dispatch({
-      type: ActionTypes.TYPE_002,
       data: {
         "title": "New Title",
         "subtitle": "New Subtitle",
@@ -152,7 +141,15 @@ const ${name}ActionCreators = {
       },
     });
   },
-
+  actionCreator002(arg) {
+    // 1. Do something. (e.g. Fetch JSON from an API)
+    // 2. Create an action from the result.
+    // 3, Pass the action to the dispatch().
+    AppDispatcher.dispatch({
+      type: ActionTypes.TYPE_002,
+      data: 'RESULT OF YOUT ACTION',
+    });
+  },
 };
 
 export default ${name}ActionCreators;
