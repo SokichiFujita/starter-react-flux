@@ -132,7 +132,7 @@ import ActionTypes from '../constants/AppConstants';
 
 const ${name}ActionCreators = {
 
-  action001(arg1) {
+  actionCreator001(arg1) {
     // 1. Do something. (e.g. Fetch JSON from an API)
     // 2. Create an action from the result.
     // 3, Pass the action to the dispatch().
@@ -142,7 +142,7 @@ const ${name}ActionCreators = {
     });
   },
 
-  action002(arg1) {
+  actionCreator002(arg1) {
     AppDispatcher.dispatch({
       type: ActionTypes.TYPE_002,
       data: {

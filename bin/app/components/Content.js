@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import Button from 'material-ui/Button';
-import SampleActionCreator from '../actions/SampleActionCreators';
+import SampleActionCreators from '../actions/SampleActionCreators';
 
 class Content extends Component {
   handleClick = (e) => {
-    SampleActionCreator.action002();
+    SampleActionCreators.actionCreator002();
   }
 
   render() {
