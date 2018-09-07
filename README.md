@@ -13,18 +13,22 @@ A starter kit for a React and Flux. You can easily create a standard React and F
 
 - [React](http://facebook.github.io/react/), [Flux](https://facebook.github.io/flux/)
 - [Jest](https://facebook.github.io/jest/)
-- [Babel 7](https://babeljs.io), [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/), [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/), all plugins for stage3, stage2, stage1 and stage0!
-- [Webpack v4](https://webpack.js.org), [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html), [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+- [Babel 7](https://babeljs.io)
+  - [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/)
+  - [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/)
+  - All plugins for stage3, stage2, stage1 and stage0!
+- [Webpack v4](https://webpack.js.org)
+  - [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
+  - [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
 - [Prettier](https://prettier.io)
-- [ESLint v5](http://eslint.org), [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [ESLint v5](http://eslint.org),
+  - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [React-Router v4](https://reacttraining.com/react-router/)
 - [Material-UI v3](http://www.material-ui.com)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
 - [Axios](https://github.com/mzabriskie/axios)
 
-Sept. 7, 2018
-
-Look ahead to the future! starter-react-flux will always install all the latest version of following libraries.
+** Sept. 7, 2018 ** : starter-react-flux will always install the latest version.
 
 ## Usage
 
