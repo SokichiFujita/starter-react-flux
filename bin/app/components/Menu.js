@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import ListSubheader from "@material-ui/core/List/ListSubheader";
-import List, { ListItem } from "@material-ui/core/List";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import Drawer from "@material-ui/core/Drawer";
 
 class Menu extends Component {

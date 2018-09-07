@@ -14,10 +14,7 @@ const config = {
       {
         test: /.jsx?$/,
         exclude: [path.resolve(__dirname, "node_modules")],
-        loader: "babel-loader",
-        query: {
-          presets: ["env", "react", "stage-0"]
-        }
+        loader: "babel-loader"
       }
     ]
   },
