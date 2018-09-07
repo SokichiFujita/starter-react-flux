@@ -11,17 +11,20 @@
 
 A starter kit for a React and Flux. You can easily create a standard React and Flux project using awesome libraries.
 
-Look ahead to the future! starter-react-flux will always install all the latest version of following libraries.
-
 - [React](http://facebook.github.io/react/), [Flux](https://facebook.github.io/flux/)
 - [Jest](https://facebook.github.io/jest/)
-- [Webpack](https://webpack.js.org), [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html), [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
-- [Babel](https://babeljs.io), [React preset](http://babeljs.io/docs/plugins/preset-react/), [Env preset](https://babeljs.io/docs/plugins/preset-env/), [Stage 0 preset](https://babeljs.io/docs/plugins/preset-stage-0/)
-- [ESLint](http://eslint.org), [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
-- [React-Router](https://reacttraining.com/react-router/)
+- [Babel 7](https://babeljs.io), [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/), [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/), all plugins for stage3, stage2, stage1 and stage0!
+- [Webpack v4](https://webpack.js.org), [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html), [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+- [Prettier](https://prettier.io)
+- [ESLint v5](http://eslint.org), [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [React-Router v4](https://reacttraining.com/react-router/)
+- [Material-UI v3](http://www.material-ui.com)
 - [Immutable.js](https://facebook.github.io/immutable-js/)
-- [Material-UI](http://www.material-ui.com)
 - [Axios](https://github.com/mzabriskie/axios)
+
+Sept. 7, 2018
+
+Look ahead to the future! starter-react-flux will always install all the latest version of following libraries.
 
 ## Usage
 
@@ -119,6 +122,65 @@ npm run build                 // Build the app into the ./public directo
 │   ├── index.html
 │   └── js
 └── webpack.config.js //Configuration for Webpack
+```
+
+## Current Package 
+
+Sept.7, 2018
+
+```
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.0.2",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest-cli": "^23.5.0",
+    "prettier": "^1.14.2",
+    "regenerator-runtime": "^0.12.1",
+    "webpack": "^4.17.2",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.0.2",
+    "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
+    "flux": "^3.1.3",
+    "immutable": "^3.8.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1"
+  }
+
 ```
 
 ## License
