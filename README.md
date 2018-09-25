@@ -28,13 +28,10 @@ A starter kit for a React and Flux. You can easily create a standard React and F
 - [Immutable.js](https://facebook.github.io/immutable-js/)
 - [Axios](https://github.com/mzabriskie/axios)
 
-** Sept. 7, 2018 ** : starter-react-flux will always install the latest version.
-
+** Sept. 7, 2018 ** : starter-react-flux will always install the lat
 ## Usage
 
 ### Create a new project
-
-Please install [Yarn](https://yarnpkg.com).
 
 ```
 mkdir my-app && cd my-app
