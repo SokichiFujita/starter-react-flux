@@ -59,10 +59,9 @@ const npms = [
   "yarn add --dev @babel/plugin-transform-runtime",
 
   // React.js
-  "yarn add react",
-  "yarn add react-dom",
-  "yarn add prop-types",
-  //  "yarn add --dev raf",
+  "yarn add react@next",
+  "yarn add react-dom@next",
+  "yarn add prop-types@next",
 
   // Flux
   "yarn add flux",

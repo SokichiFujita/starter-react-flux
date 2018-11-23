@@ -126,21 +126,21 @@ npm run build                 // Build the app into the ./public directo
 └── webpack.config.js //Configuration for Webpack
 ```
 
-## Current Package 
+## Current Packages
 
-Sept.7, 2018
+### Nov.24, 2018: React Hooks APIs are available!
 
 ```
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.6",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
     "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.1.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
@@ -150,39 +150,39 @@ Sept.7, 2018
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-0",
-    "babel-eslint": "^9.0.0",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^8.0.2",
-    "eslint": "^5.5.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
-    "jest-cli": "^23.5.0",
-    "prettier": "^1.14.2",
-    "regenerator-runtime": "^0.12.1",
-    "webpack": "^4.17.2",
-    "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "jest-cli": "^23.6.0",
+    "prettier": "^1.15.2",
+    "regenerator-runtime": "^0.13.1",
+    "webpack": "^4.26.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
-    "@material-ui/core": "^3.0.2",
+    "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "flux": "^3.1.3",
-    "immutable": "^3.8.2",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "immutable": "^4.0.0-rc.12",
+    "prop-types": "^15.5.7-alpha.1",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
     "react-router-dom": "^4.3.1"
   }
-
 ```
 
 ## License
