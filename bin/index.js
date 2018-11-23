@@ -45,7 +45,6 @@ const npms = [
 
   // Stage 2
   "yarn add --dev @babel/plugin-proposal-decorators",
-  ,
   "yarn add --dev @babel/plugin-proposal-function-sent",
   "yarn add --dev @babel/plugin-proposal-export-namespace-from",
   "yarn add --dev @babel/plugin-proposal-numeric-separator",
@@ -56,6 +55,8 @@ const npms = [
   "yarn add --dev @babel/plugin-syntax-import-meta",
   "yarn add --dev @babel/plugin-proposal-class-properties",
   "yarn add --dev @babel/plugin-proposal-json-strings",
+
+  "yarn add --dev @babel/plugin-transform-runtime",
 
   // React.js
   "yarn add react",
@@ -246,6 +247,7 @@ function setupReact(arg) {
   fu.createJSON(".babelrc", {
     presets: ["@babel/preset-react", "@babel/preset-env"],
     plugins: [
+      "@babel/plugin-transform-runtime",
       "@babel/plugin-proposal-function-bind",
       "@babel/plugin-proposal-export-default-from",
       "@babel/plugin-proposal-logical-assignment-operators",
