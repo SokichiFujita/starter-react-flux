@@ -69,43 +69,33 @@ npm start                     // Launch the app with webpack-dev-serve
 
 ![](./images/app2.png)
 
-#### Bundle analyzing with Webpack Bundle Analyzer
+### Production build with Webpack
 
 ```
-npm run bundle-analyze
+npm run build                 // Build the app into the ./public directory.
 ```
+
+This command also analyzes the bundle file using Webpack Bundle Analyzer and generates reports.
 
 ![](./images/webpack-bundle-analyzer.png)
 
-#### Testing with Jest
+### Testing with Jest
 
 ```
 npm test                      // Testing with Jest.
 npm run update_test           // Update snapshot testing.
 ```
 
-![](./images/test.png)
-
-#### Static analysis with ESLint
+### Static analysis with ESLint
 
 ```
 npm run lint                  // Check the code by ESLint with AirBnb's style guideline.
 ```
 
-![](./images/lint.png)
-
-#### Automatic code format with Prettier and ESLint
+### Automatic code format with Prettier
 
 ```
 npm run fix                   // Fix the code by Prettier with AirBnb's guidline.
-```
-
-![](./images/fix.png)
-
-#### Production build with Webpack
-
-```
-npm run build                 // Build the app into the ./public directory.
 ```
 
 ## Directory structure of the generated app
