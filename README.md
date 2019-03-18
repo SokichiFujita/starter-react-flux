@@ -9,17 +9,15 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
-![](./images/app1.png)
-
 A vanilla starter kit to develop a [React](https://reactjs.org/) app that supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA) features.
 
-There are no black-box features like `eject` and `react-scripts` of `create-react-app`.
-
-This tool just only executes a bunch of installation commands and generates code and configurations.
+![](./images/app1.png)
 
 Get a simple and clean start point to develop a React project.
 
-## Starter-React-Flux uses following libraries
+This tool just only executes a bunch of installation commands and generates standard code and configurations. There are no black-box features like `eject` or `react-scripts` of `create-react-app`. You will be able to learn fundamental mechanisms of a React and Flux project.
+
+## Using libraries
 
 * [React](http://facebook.github.io/react/)
 * [Flux](https://facebook.github.io/flux/)
@@ -31,10 +29,10 @@ Get a simple and clean start point to develop a React project.
   * [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/)
   * [Experimental Plugins](https://babeljs.io/docs/en/plugins#experimental)
 * [Webpack v4](https://webpack.js.org)
-  * [Webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html)
+  * [Webpack-Dev-Server](https://webpack.github.io/docs/webpack-dev-server.html)
   * [HTML-Webpack-Plugin](https://github.com/jantimon/html-webpack-plugin)
   * [Workbox-Webpack-Plugin](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
-  * [webpack-pwa-manifest](https://github.com/arthurbergmz/webpack-pwa-manifest)
+  * [Webpack-PWA-Manifest](https://github.com/arthurbergmz/webpack-pwa-manifest)
   * [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
   * [Webpack Bundle Size Analyzer](https://github.com/robertknight/webpack-bundle-size-analyzer)
 * [Prettier](https://prettier.io)
