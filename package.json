@@ -1,6 +1,6 @@
 {
   "name": "starter-react-flux",
-  "version": "3.6.0",
+  "version": "4.0.0",
   "private": false,
   "preferGlobal": true,
   "scripts": {
@@ -23,15 +23,21 @@
     "url": "https://github.com/SokichiFujita/starter-react-flux"
   },
   "keywords": [
-    "react",
-    "react.js",
+    "React",
+    "React.js",
     "flux",
     "flux-utils",
+    "Progressive Web App",
+    "PWA",
+    "ServiceWorker",
+    "SPA",
+    "Single Page Application",
     "jest",
     "immutable.js",
     "material-ui",
     "react-router",
     "boilerplate",
+    "create-react-app",
     "generator",
     "webpack",
     "babel",

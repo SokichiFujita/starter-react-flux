@@ -1,55 +1,117 @@
-const fs = require('fs');
-const util = require('util');
-const path = require('path');
-const fu = require('./futil');
+const fs = require("fs");
+const util = require("util");
+const path = require("path");
+const fu = require("./futil");
 
-module.exports.ComponentFile = (name) => {
-    const code =
-`import React, { Component } from 'react';
+module.exports.ContentFile = contentPrefix => {
+  const code = `import React from 'react';
 import PropTypes from 'prop-types'; 
+import Button from "@material-ui/core/Button";
+import ${contentPrefix}ActionCreators from "../actions/${contentPrefix}ActionCreators";
 
-class ${name} extends Component {
-  render() {
-    return (
-      <div>
-        <h1>{this.props.title}</h1>
-        <h2>{this.props.subtitle}</h2>
-        <div>{this.props.text}</div>
+const ${contentPrefix}Content = ({ title, subtitle, text }) => {
+  const handleClick = () => {
+    ${contentPrefix}ActionCreators.actionCreator001();
+  };
+
+  return (
+    <div>
+      <div
+        style={{
+          backgroundImage: 
+            "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img/hero.jpeg)",
+          height: "40vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 32
+        }}
+      >
+        <div
+          className="hero-title"
+          style={{
+            fontWeight: 900,
+            fontSize: 72,
+            color: "white",
+          }}
+        >
+          Starter React Flux
+        </div>
+        <div
+        className="hero-subtitle"
+          style={{
+            fontWeight: 300,
+            fontSize: 40,
+            color: "white",
+          }}
+        >
+          Superfast React development tool
+        </div>
       </div>
-    );
-  }
-}
+      <div style={{ padding: 32 }}>
+        <div
+          style={{
+            fontWeight: 900,
+            fontSize: 48
+          }}
+        >
+          {title}
+        </div>
+        <div
+          style={{
+            fontWeight: 300,
+            fontSize: 24
+          }}
+        >
+          {subtitle}
+        </div>
+        <div style={{ fontFamily: "Merriweather", padding: "40px 0" }}>
+          {text}
+        </div>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "black", color: "white" }}
+          size="large"
+          onClick={handleClick}
+        >
+          Try Flux
+        </Button>
+      </div>
+    </div>
+  );
+};
 
-${name}.propTypes = {
+${contentPrefix}Content.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 }
 
-export default ${name};
+export default ${contentPrefix}Content;
 `;
-    
-  fu.createFile(`./app/components/${name}.js`, code);
-}
 
+  fu.createFile(`./app/components/${contentPrefix}Content.js`, code);
+};
 
-module.exports.ContainerFile = (name) => {
-    const code =
-`import React, { Component } from 'react';
+module.exports.ContainerFile = prefix => {
+  const code = `import React, { Component } from 'react';
 import { Container } from 'flux/utils';
-import SampleStore from '../stores/SampleStore';
+import ${prefix}Store from '../stores/${prefix}Store';
 import Navi from './Navi';
-import Menu from './Menu';
-import Content from './Content';
+import ${prefix}Content from './${prefix}Content';
 
-class ${name}Container extends Component {
+class ${prefix}Container extends Component {
   static getStores() {
-    return [SampleStore];
+    return [${prefix}Store];
   }
 
   static calculateState() {
     return {
-      sample: SampleStore.getState()
+      data: ${prefix}Store.getState()
     };
   }
 
@@ -58,37 +120,30 @@ class ${name}Container extends Component {
 
   render() {
     return (
-      <div>
-        <Navi title="${name}" style={{zIndex:1201, position: 'fixed', top: 0}} />
-        <div style={{display: 'flex'}}>
-          <Menu style={{width:200, paddingTop:72}} />
-          <Content 
-            title={this.state.sample.title} 
-            subtitle={this.state.sample.subtitle}
-            text={this.state.sample.text}
-            style={{padding: 20, paddingTop: 72}}
-          />
-        </div>
-      </div>
+      <>
+        <Navi title="${prefix}"/>
+        <${prefix}Content
+          title={this.state.data.title}
+          subtitle={this.state.data.subtitle}
+          text={this.state.data.text}
+        />
+      </>
     );
   }
 }
 
-export default Container.create(${name}Container);
+export default Container.create(${prefix}Container);
 `;
 
-  fu.createFile(`./app/components/${name}Container.js`, code);
-}
+  fu.createFile(`./app/components/${prefix}Container.js`, code);
+};
 
-
-module.exports.StoreFile = (name) => {
-
-  const code =
-`import { ReduceStore } from 'flux/utils';
+module.exports.StoreFile = prefix => {
+  const code = `import { ReduceStore } from 'flux/utils';
 import ActionTypes from '../constants/AppConstants';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
-class ${name}Store extends ReduceStore {
+class ${prefix}Store extends ReduceStore {
   getInitialState() {
     return {
       title: "Title", 
@@ -102,13 +157,12 @@ class ${name}Store extends ReduceStore {
     switch (action.type) {
       case ActionTypes.TYPE_001:
         const newCount = state.count + 1;
-        const result = {
+        return {
           title: action.data.title,
           subtitle: action.data.subtitle,
-          text: "Action Creator is called " + newCount  + " times.",
+          text: "Action Creator was called " + newCount  + " times.",
           count: newCount
         }
-        return result;
       case ActionTypes.TYPE_002:
         return state;
       default:
@@ -117,27 +171,24 @@ class ${name}Store extends ReduceStore {
   }
 }
 
-export default new ${name}Store(AppDispatcher);
+export default new ${prefix}Store(AppDispatcher);
 `;
 
-  fu.createFile(`./app/stores/${name}Store.js`, code);
-}
+  fu.createFile(`./app/stores/${prefix}Store.js`, code);
+};
 
-
-module.exports.ActionFile = (name) => {
-
-  const code =
-`import AppDispatcher from '../dispatcher/AppDispatcher';
+module.exports.ActionFile = prefix => {
+  const code = `import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/AppConstants';
 
-const ${name}ActionCreators = {
+const ${prefix}ActionCreators = {
   actionCreator001(arg) {
     AppDispatcher.dispatch({
-      type: ActionTypes.TYPE_001,
+      type: ActionTypes.${prefix}_TYPE_001,
       data: {
         "title": "New Title",
-        "subtitle": "New Subtitle",
-        "text": "New Text"
+        "subtitle": "Created by ActionCreator",
+        "text": "This text will be overwritten"
       },
     });
   },
@@ -146,46 +197,63 @@ const ${name}ActionCreators = {
     // 2. Create an action from the result.
     // 3, Pass the action to the dispatch().
     AppDispatcher.dispatch({
-      type: ActionTypes.TYPE_002,
+      type: ActionTypes.${prefix}_TYPE_002,
       data: 'RESULT OF YOUT ACTION',
     });
   },
 };
 
-export default ${name}ActionCreators;
+export default ${prefix}ActionCreators;
 `;
 
-  fu.createFile(`./app/actions/${name}ActionCreators.js`, code);
-}
+  fu.createFile(`./app/actions/${prefix}ActionCreators.js`, code);
+};
 
-module.exports.ComponentTestFiles = () => {
-  const basePath = './app/components/';
-  const components = fu.getFileNames(basePath);
-  for (const i in components) {
-    const component = path.parse(components[i]).name;
-    const testFile = './__tests__/' + component + '-test.js';
-    fu.createFile(testFile, generator.ComponentTestCode(component));
+module.exports.AppConstantFile = prefixList => {
+  const types = prefixList
+    .map(
+      x => `
+    ${x.toUpperCase()}_TYPE_001: '${x.toUpperCase()}_TYPE_001',
+    ${x.toUpperCase()}_TYPE_002: '${x.toUpperCase()}_TYPE_002',`
+    )
+    .reduce((p, c) => p + c, "");
+
+  const code = `const ActionTypes = {
+${types}
+
   }
-}
 
-module.exports.ComponentTestCode = (module) => {
-    const testCode = 
-`import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactTestUtils from 'react-dom/test-utils';
-import ${module} from '../app/components/${module}'
+  export default ActionTypes;
+`;
 
-test('${module} is equeal to ...' , () => {
-  const app = ReactTestUtils.renderIntoDocument(
-    <${module} />
+  fu.createFile(`./app/constants/AppConstants.js`, code);
+};
+
+module.exports.ContentTestCode = prefix => {
+  const code = `import React from "react";
+import renderer from "react-test-renderer";
+import ${prefix}Content from "../app/components/${prefix}Content";
+
+test("Check the content", () => {
+  const component = renderer.create(
+    <${prefix}Content title="Title" subtitle="Subtitle" text="Text" />
   );
-  const appNode = ReactDOM.findDOMNode(app);
-  expect('hello').toequeal('hello');
-  //expect(appNode.//todo).toEqual('//todo');
-
+  const instance = component.root;
+  expect(instance.findByProps({ className: "hero-title" }).children).toEqual([
+    "Starter React Flux"
+  ]);
+  expect(instance.findByProps({ className: "hero-subtitle" }).children).toEqual(
+    ["Superfast React development tool"]
+  );
+  //instance.findByProps({ className: "button" }).props.onClick();
 });
-`
-  return testCode;
-}
 
+test("Snapshot testing", () => {
+  const component = renderer.create(
+    <${prefix}Content title="Title" subtitle="Subtitle" text="Text" />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});`;
 
+  fu.createFile(`./__tests__/${prefix}Content-test.js`, code);
+};

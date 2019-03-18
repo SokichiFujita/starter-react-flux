@@ -14,15 +14,19 @@ const dirs = [
   "./app/dispatcher",
   "./app/stores",
   "./app/utils",
+  "./app/html",
+  "./app/icon",
 
   // Build
   "./public",
   "./public/css",
   "./public/img",
-  "./public/js",
 
   // Jest
-  "./__tests__"
+  "./__tests__",
+
+  // Bundle analysis
+  "./analysis/"
 ];
 
 const npms = [
@@ -32,33 +36,32 @@ const npms = [
   "yarn add --dev @babel/preset-env",
   "yarn add --dev @babel/preset-react",
 
-  // Stage 0
-  "yarn add --dev @babel/plugin-proposal-function-bind",
-
-  // Stage 1
-  "yarn add --dev @babel/plugin-proposal-export-default-from",
-  "yarn add --dev @babel/plugin-proposal-logical-assignment-operators",
-  "yarn add --dev @babel/plugin-proposal-optional-chaining",
-  "yarn add --dev @babel/plugin-proposal-pipeline-operator",
-  "yarn add --dev @babel/plugin-proposal-nullish-coalescing-operator",
-  "yarn add --dev @babel/plugin-proposal-do-expressions",
-
-  // Stage 2
-  "yarn add --dev @babel/plugin-proposal-decorators",
-  "yarn add --dev @babel/plugin-proposal-function-sent",
-  "yarn add --dev @babel/plugin-proposal-export-namespace-from",
-  "yarn add --dev @babel/plugin-proposal-numeric-separator",
-  "yarn add --dev @babel/plugin-proposal-throw-expressions",
-
-  // Stage 3
-  "yarn add --dev @babel/plugin-syntax-dynamic-import",
-  "yarn add --dev @babel/plugin-syntax-import-meta",
-  "yarn add --dev @babel/plugin-proposal-class-properties",
-  "yarn add --dev @babel/plugin-proposal-json-strings",
-
+  // Polyfill
+  "yarn add @babel/runtime",
   "yarn add --dev @babel/plugin-transform-runtime",
 
-  // React.js
+  // Experimental
+  "yarn add --dev @babel/plugin-proposal-class-properties",
+  "yarn add --dev @babel/plugin-proposal-decorators",
+  "yarn add --dev @babel/plugin-proposal-do-expressions",
+  "yarn add --dev @babel/plugin-proposal-export-default-from",
+  "yarn add --dev @babel/plugin-proposal-export-namespace-from",
+  "yarn add --dev @babel/plugin-proposal-function-bind",
+  "yarn add --dev @babel/plugin-proposal-function-sent",
+  "yarn add --dev @babel/plugin-proposal-logical-assignment-operators",
+  "yarn add --dev @babel/plugin-proposal-nullish-coalescing-operator",
+  "yarn add --dev @babel/plugin-proposal-numeric-separator",
+  "yarn add --dev @babel/plugin-proposal-optional-chaining",
+  "yarn add --dev @babel/plugin-proposal-pipeline-operator",
+  "yarn add --dev @babel/plugin-proposal-private-methods",
+  "yarn add --dev @babel/plugin-proposal-throw-expressions",
+
+  // Others
+  "yarn add --dev @babel/plugin-syntax-dynamic-import",
+  "yarn add --dev @babel/plugin-syntax-import-meta",
+  "yarn add --dev @babel/plugin-proposal-json-strings",
+
+  // React
   "yarn add react@next",
   "yarn add react-dom@next",
   "yarn add prop-types@next",
@@ -72,15 +75,21 @@ const npms = [
   // Jest
   "yarn add --dev jest-cli",
   "yarn add --dev babel-jest",
-  "yarn add --dev babel-core@^7.0.0-0",
-  "yarn add --dev regenerator-runtime",
+  "yarn add --dev react-test-renderer",
 
   // WebPack
   "yarn add --dev webpack",
   "yarn add --dev webpack-cli",
   "yarn add --dev webpack-dev-server",
-  "yarn add --dev webpack-bundle-analyzer",
   "yarn add --dev babel-loader",
+  "yarn add --dev webpack-merge",
+  // Analyze modules
+  "yarn add --dev webpack-bundle-analyzer",
+  "yarn add --dev webpack-bundle-size-analyzer",
+  // For PWA
+  "yarn add --dev workbox-webpack-plugin",
+  "yarn add --dev webpack-pwa-manifest",
+  "yarn add --dev html-webpack-plugin",
 
   // ESLint
   "yarn add --dev eslint",
@@ -121,14 +130,12 @@ const jest = {
 };
 
 const scripts = {
-  start: "webpack-dev-server --progress --colors --mode development",
-  dev: "webpack -p --progress --colors --mode development",
-  build: "webpack -p --progress --colors --mode production",
+  start: "webpack-dev-server --progress --colors --config webpack.dev.js",
+  build: "webpack -p --progress --colors --config webpack.prod.js",
   test: "jest",
+  update_test: "jest --updateSnapshot",
   lint: "eslint app/** __tests__/**",
-  fix: "eslint app/** __tests__/** --fix",
-  "bundle-analyze":
-    "webpack --profile --json > stats.json && webpack-bundle-analyzer ./stats.json"
+  fix: "eslint app/** __tests__/** --fix"
 };
 
 const eslint = {
@@ -244,61 +251,86 @@ function setupReact(arg) {
 
   fu.createJSON(".eslintrc", eslint);
   fu.createJSON(".babelrc", {
-    presets: ["@babel/preset-react", "@babel/preset-env"],
+    presets: [
+      "@babel/preset-react",
+      [
+        "@babel/preset-env",
+        {
+          targets: [
+            "last 2 Chrome versions",
+            "last 2 Safari versions",
+            "last 2 Firefox versions",
+            "ie 11",
+            "cover 85% in US"
+          ]
+        }
+      ]
+    ],
     plugins: [
-      "@babel/plugin-transform-runtime",
-      "@babel/plugin-proposal-function-bind",
+      ["@babel/plugin-proposal-class-properties", { loose: false }],
+      ["@babel/plugin-proposal-decorators", { legacy: true }],
+      "@babel/plugin-proposal-do-expressions",
       "@babel/plugin-proposal-export-default-from",
+      "@babel/plugin-proposal-export-namespace-from",
+      "@babel/plugin-proposal-function-bind",
+      "@babel/plugin-proposal-function-sent",
       "@babel/plugin-proposal-logical-assignment-operators",
+      ["@babel/plugin-proposal-nullish-coalescing-operator", { loose: false }],
+      "@babel/plugin-proposal-numeric-separator",
       ["@babel/plugin-proposal-optional-chaining", { loose: false }],
       ["@babel/plugin-proposal-pipeline-operator", { proposal: "minimal" }],
-      ["@babel/plugin-proposal-nullish-coalescing-operator", { loose: false }],
-      "@babel/plugin-proposal-do-expressions",
-      ["@babel/plugin-proposal-decorators", { legacy: true }],
-      "@babel/plugin-proposal-function-sent",
-      "@babel/plugin-proposal-export-namespace-from",
-      "@babel/plugin-proposal-numeric-separator",
+      ["@babel/plugin-proposal-private-methods", { loose: false }],
       "@babel/plugin-proposal-throw-expressions",
       "@babel/plugin-syntax-dynamic-import",
       "@babel/plugin-syntax-import-meta",
-      ["@babel/plugin-proposal-class-properties", { loose: false }],
-      "@babel/plugin-proposal-json-strings"
+      "@babel/plugin-proposal-json-strings",
+      "@babel/plugin-transform-runtime"
     ]
   });
+
   console.log(__dirname);
-  fu.createFile("./public/index.html", fu.readFile("./public/index.html"));
-  fu.createFile("./public/css/style.css", fu.readFile("./public/main.css"));
-  fu.createFile("webpack.config.js", fu.readFile("./app/webpack.js"));
+  fu.createFile("./app/html/index.html", fu.readFile("./app/html/index.html"));
+  fu.createFile("./public/favicon.ico", fu.readFile("./app/html/favicon.ico"));
+
+  fu.createFile("./app/icon/icon.png", fu.readFile("./app/icon/icon.png"));
+  fu.createFile(
+    "./public/css/style.css",
+    fu.readFile("./public/css/style.css")
+  );
+  fu.createFile(
+    "./public/img/hero.jpeg",
+    fu.readFile("./public/img/hero.jpeg")
+  );
+  fu.createFile("webpack.common.js", fu.readFile("./app/webpack.common.js"));
+  fu.createFile("webpack.dev.js", fu.readFile("./app/webpack.dev.js"));
+  fu.createFile("webpack.prod.js", fu.readFile("./app/webpack.prod.js"));
+
+  fu.createFile("./app/sw.js", fu.readFile("./app/sw.js"));
+
   fu.createFile("./app/App.js", fu.readFile("./app/App.js"));
   fu.createFile(
     "./app/dispatcher/AppDispatcher.js",
     fu.readFile("./app/dispatcher/dispatcher.js")
   );
   fu.createFile(
-    "./app/constants/AppConstants.js",
-    fu.readFile("./app/constants/constant.js")
-  );
-  fu.createFile(
     "./app/components/Navi.js",
     fu.readFile("./app/components/Navi.js")
   );
-  fu.createFile(
-    "./app/components/Menu.js",
-    fu.readFile("./app/components/Menu.js")
-  );
-  fu.createFile(
-    "./app/components/Content.js",
-    fu.readFile("./app/components/Content.js")
-  );
-  fu.createFile(
-    "./__tests__/Content-test.js",
-    fu.readFile("./__tests__/Content-test.js")
-  );
 
-  generator.StoreFile("Sample");
-  generator.ActionFile("Sample");
   generator.ContainerFile("Top");
+  generator.ContentFile("Top");
+  generator.ContentTestCode("Top");
+  generator.ActionFile("Top");
+  generator.StoreFile("Top");
+
   generator.ContainerFile("Sample");
+  generator.ContentFile("Sample");
+  generator.ContentTestCode("Sample");
+  generator.ActionFile("Sample");
+  generator.StoreFile("Sample");
+
+  generator.AppConstantFile(["Top", "Sample"]);
+
   npmInstall(npms);
 }
 
