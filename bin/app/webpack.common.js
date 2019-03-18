@@ -22,7 +22,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./app/html/index.html",
-      title: "Starter-React-Flux with PWA"
+      title: "Starter-React-Flux"
     }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, "app", "sw.js"),
