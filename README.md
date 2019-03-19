@@ -9,13 +9,11 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
-A vanilla starter kit to develop a [React](https://reactjs.org/) app that supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA) features.
+A simple and clean starter kit to develop a [React](https://reactjs.org/) project that supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA) features.
 
 ![](./images/app1.png)
 
-Get a simple and clean start point to develop a React project.
-
-This tool just only executes a bunch of installation commands and generates standard code and configurations. There are no black-box features like `eject` or `react-scripts` of `create-react-app`. You will be able to learn fundamental mechanisms of a React and Flux project.
+This tool doesn't contain any blackbox npm scripts and libraries only for starter-kit. It's completely the same as the React project from scratch. You can learn fundamental mechanisms of a React and Flux project.
 
 ## Using libraries
 
