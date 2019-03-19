@@ -245,14 +245,13 @@ test("Check the content", () => {
   expect(instance.findByProps({ className: "hero-subtitle" }).children).toEqual(
     ["Superfast React development tool"]
   );
-  //instance.findByProps({ className: "button" }).props.onClick();
 });
 
 test("Snapshot testing", () => {
   const component = renderer.create(
     <${prefix}Content title="Title" subtitle="Subtitle" text="Text" />
   );
-  expect(component.toJSON()).toMatchSnapshot();
+  //expect(component.toJSON()).toMatchSnapshot();
 });`;
 
   fu.createFile(`./__tests__/${prefix}Content-test.js`, code);
