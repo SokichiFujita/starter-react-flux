@@ -65,8 +65,6 @@ npm start                     // Launch the app with webpack-dev-serve
 
 ![](./images/app1.png)
 
-![](./images/app2.png)
-
 ### Production build with Webpack
 
 ```
