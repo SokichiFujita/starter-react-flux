@@ -8,6 +8,7 @@ const config = {
   entry: path.resolve(__dirname, "app/App.js"),
   output: {
     path: path.resolve(__dirname, "public"),
+    publicPath: "/",
     filename: "bundle.js"
   },
   module: {
