@@ -20,7 +20,7 @@ This tool doesn't contain any blackbox npm scripts and libraries only for starte
 * [React](http://facebook.github.io/react/)
 * [Flux](https://facebook.github.io/flux/)
 * [React-Router v4](https://reacttraining.com/react-router/)
-* [Material-UI v3](http://www.material-ui.com)
+* [Material-UI v4](http://www.material-ui.com)
 * [Workbox](https://developers.google.com/web/tools/workbox/)
 * [Babel 7](https://babeljs.io)
   * [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/)
