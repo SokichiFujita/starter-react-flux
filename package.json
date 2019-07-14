@@ -1,11 +1,12 @@
 {
   "name": "starter-react-flux",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "private": false,
   "preferGlobal": true,
   "scripts": {
     "pretest": "npm run cleanup && npm link",
-    "test": "mkdir __test && cd __test && starter-react-flux init && npm test && npm run build",
+    "test":
+      "mkdir __test && cd __test && starter-react-flux init && npm test && npm run build",
     "posttest": "npm unlink",
     "cleanup": "rm -rf __test && rm -rf node_modules",
     "lint": "eslint bin/**/*.js",
