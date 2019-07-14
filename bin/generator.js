@@ -3,15 +3,15 @@ const util = require("util");
 const path = require("path");
 const fu = require("./futil");
 
-module.exports.ContentFile = contentPrefix => {
+module.exports.ContentFile = prefix => {
   const code = `import React from 'react';
 import PropTypes from 'prop-types'; 
 import Button from "@material-ui/core/Button";
-import ${contentPrefix}ActionCreators from "../actions/${contentPrefix}ActionCreators";
+import ${prefix}ActionCreators from "../actions/${prefix}ActionCreators";
 
-const ${contentPrefix}Content = ({ title, subtitle, text }) => {
+const ${prefix}Content = ({ title, subtitle, text }) => {
   const handleClick = () => {
-    ${contentPrefix}ActionCreators.actionCreator001();
+    ${prefix}ActionCreators.actionCreator001();
   };
 
   return (
@@ -85,16 +85,16 @@ const ${contentPrefix}Content = ({ title, subtitle, text }) => {
   );
 };
 
-${contentPrefix}Content.propTypes = {
+${prefix}Content.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 }
 
-export default ${contentPrefix}Content;
+export default ${prefix}Content;
 `;
 
-  fu.createFile(`./app/components/${contentPrefix}Content.js`, code);
+  fu.createFile(`./app/components/${prefix}Content.js`, code);
 };
 
 module.exports.ContainerFile = prefix => {
@@ -155,7 +155,7 @@ class ${prefix}Store extends ReduceStore {
 
   reduce(state, action) {
     switch (action.type) {
-      case ActionTypes.TYPE_001:
+      case ActionTypes.${prefix.toUpperCase()}_TYPE_001:
         const newCount = state.count + 1;
         return {
           title: action.data.title,
@@ -163,7 +163,7 @@ class ${prefix}Store extends ReduceStore {
           text: "Action Creator was called " + newCount  + " times.",
           count: newCount
         }
-      case ActionTypes.TYPE_002:
+      case ActionTypes.${prefix.toUpperCase()}_TYPE_002:
         return state;
       default:
         return state;
@@ -184,7 +184,7 @@ import ActionTypes from '../constants/AppConstants';
 const ${prefix}ActionCreators = {
   actionCreator001(arg) {
     AppDispatcher.dispatch({
-      type: ActionTypes.${prefix}_TYPE_001,
+      type: ActionTypes.${prefix.toUpperCase()}_TYPE_001,
       data: {
         "title": "New Title",
         "subtitle": "Created by ActionCreator",
@@ -197,7 +197,7 @@ const ${prefix}ActionCreators = {
     // 2. Create an action from the result.
     // 3, Pass the action to the dispatch().
     AppDispatcher.dispatch({
-      type: ActionTypes.${prefix}_TYPE_002,
+      type: ActionTypes.${prefix.toUpperCase()}_TYPE_002,
       data: 'RESULT OF YOUT ACTION',
     });
   },
@@ -212,9 +212,9 @@ export default ${prefix}ActionCreators;
 module.exports.AppConstantFile = prefixList => {
   const types = prefixList
     .map(
-      x => `
-    ${x.toUpperCase()}_TYPE_001: '${x.toUpperCase()}_TYPE_001',
-    ${x.toUpperCase()}_TYPE_002: '${x.toUpperCase()}_TYPE_002',`
+      prefix => `
+    ${prefix.toUpperCase()}_TYPE_001: '${prefix.toUpperCase()}_TYPE_001',
+    ${prefix.toUpperCase()}_TYPE_002: '${prefix.toUpperCase()}_TYPE_002',`
     )
     .reduce((p, c) => p + c, "");
 
