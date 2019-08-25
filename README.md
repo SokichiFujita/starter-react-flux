@@ -1,4 +1,4 @@
-# starter-react-flux
+# Starter React Flux
 
 [![Build Status](https://travis-ci.org/SokichiFujita/starter-react-flux.svg?branch=master)](https://travis-ci.org/SokichiFujita/starter-react-flux)
 [![total](https://img.shields.io/npm/dt/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
@@ -9,35 +9,60 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
-A simple and clean starter kit to develop a [React](https://reactjs.org/) project that supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA) features.
+Create modern [React](https://reactjs.org/) apps which supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA).
+
+- Both TypeScript and JavaScript support
+- Both Yarn and NPM support
+- No Lock-In, No blackbox npm scripts and No eject command
+- Always installing latest packages
+
+### Quick start
+
+```
+mkdir my-app && cd my-app
+npx starter-react-flux init
+```
 
 ![](./images/app1.png)
 
-This tool doesn't contain any blackbox npm scripts and libraries only for starter-kit. It's completely the same as the React project from scratch. You can learn fundamental mechanisms of a React and Flux project.
 
-## Using libraries
+## Included packages
 
 * [React](http://facebook.github.io/react/)
+* [TypeScript](https://www.typescriptlang.org) (Optional)
 * [Flux](https://facebook.github.io/flux/)
-* [React-Router v4](https://reacttraining.com/react-router/)
-* [Material-UI v4](http://www.material-ui.com)
-* [Workbox](https://developers.google.com/web/tools/workbox/)
+* [Jest](https://facebook.github.io/jest/)
 * [Babel 7](https://babeljs.io)
   * [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/)
   * [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/)
   * [Experimental Plugins](https://babeljs.io/docs/en/plugins#experimental)
-* [Webpack v4](https://webpack.js.org)
+  * [@babel/preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript/) (Optional) 
+  * [babel-eslint](https://github.com/babel/babel-eslint)
+  * [babel-jest](https://jestjs.io)
+  * [babel-loader](https://github.com/babel/babel-loader)
+* [Webpack 4](https://webpack.js.org)
   * [Webpack-Dev-Server](https://webpack.github.io/docs/webpack-dev-server.html)
   * [HTML-Webpack-Plugin](https://github.com/jantimon/html-webpack-plugin)
   * [Workbox-Webpack-Plugin](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
   * [Webpack-PWA-Manifest](https://github.com/arthurbergmz/webpack-pwa-manifest)
   * [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
   * [Webpack Bundle Size Analyzer](https://github.com/robertknight/webpack-bundle-size-analyzer)
+* [ESLint 6](http://eslint.org)
+  * [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
+  * [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+  * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+  * [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+  * [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
+  * [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest)
+  * [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
+  * [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+  * [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) (Optional)
+  * [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint) (Optional)
 * [Prettier](https://prettier.io)
-* [ESLint v5](http://eslint.org)
-  * [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
-* [Jest](https://facebook.github.io/jest/)
-* [Axios](https://github.com/mzabriskie/axios)
+* [Workbox](https://developers.google.com/web/tools/workbox/)
+* [React-Router 5](https://reacttraining.com/react-router/)
+* [Material-UI 4](http://www.material-ui.com)
+* [axios](https://github.com/mzabriskie/axios)
 * [Immutable.js](https://facebook.github.io/immutable-js/)
 
 ## Usage
@@ -47,12 +72,17 @@ This tool doesn't contain any blackbox npm scripts and libraries only for starte
 ```
 mkdir my-app && cd my-app
 
-//npm >= 5.2.0
-npx starter-react-flux init
+// Generating JavaScript project with npm
+npx starter-react-flux init 
 
-//npm < 5.2.0
-npm install -g starter-react-flux
-starter-react-flux init
+// Generateing Typescript project with npm
+npx starter-react-flux init --ts
+
+// Generating JavaScript project with yarn
+npx starter-react-flux init --yarn
+
+// Generating Typescript project with yarn
+npx starter-react-flux init --ts --yarn
 ```
 
 ### Launch the application
@@ -79,19 +109,19 @@ This command also analyzes the bundle file using Webpack Bundle Analyzer and gen
 
 ```
 npm test                      // Testing with Jest.
-npm run update_test           // Update snapshot testing.
+npm run update_test           // Update snapshots for snapshot testing.
 ```
 
 ### Static analysis with ESLint
 
 ```
-npm run lint                  // Check the code by ESLint with AirBnb's style guideline.
+npm run lint                  // Run static analysis by ESLint.
 ```
 
 ### Automatic code format with Prettier
 
 ```
-npm run fix                   // Fix the code by Prettier with AirBnb's guidline.
+npm run fix                   // Run Prettier to fix code by lint rules.
 ```
 
 ## Directory structure of the generated app
@@ -102,7 +132,7 @@ npm run fix                   // Fix the code by Prettier with AirBnb's guidline
 ├── .eslintrc         //Configuration for ESLint
 ├── __tests__         //Test files for JEST
 ├── app
-│   ├── App.js        //Entry point to build
+│   ├── App.(js|tsx)  //Entry point to build
 │   ├── actions       //Action Creators of Flux
 │   ├── components    //React Components
 │   ├── constants     //Constatns for Action Creators and Stores of Flux
@@ -130,73 +160,10 @@ npm run fix                   // Fix the code by Prettier with AirBnb's guidline
 │   └── bundle-size analyzer.log
 │── webpack.common.js //Configuration for Webpack
 │── webpack.prod.js   //Production configuration for Webpack
-└── webpack.dev.js    //Development configuration for Webpack
+│── webpack.dev.js    //Development configuration for Webpack
+└── tsconfig.json     //TypeScript configuration (only for TypeScript project)
 ```
 
-## Current Packages
-
-### 3.19, 2019
-
-```
-  "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
-    "@babel/plugin-proposal-do-expressions": "^7.2.0",
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-function-bind": "^7.2.0",
-    "@babel/plugin-proposal-function-sent": "^7.2.0",
-    "@babel/plugin-proposal-json-strings": "^7.2.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.2.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
-    "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
-    "@babel/plugin-proposal-private-methods": "^7.3.4",
-    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-syntax-import-meta": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.5.0",
-    "babel-loader": "^8.0.5",
-    "eslint": "^5.15.2",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "html-webpack-plugin": "^3.2.0",
-    "jest-cli": "^24.5.0",
-    "prettier": "^1.16.4",
-    "react-test-renderer": "^16.8.4",
-    "webpack": "^4.29.6",
-    "webpack-bundle-analyzer": "^3.1.0",
-    "webpack-bundle-size-analyzer": "^3.0.0",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1",
-    "webpack-merge": "^4.2.1",
-    "webpack-pwa-manifest": "^4.0.0",
-    "workbox-webpack-plugin": "^4.1.1"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.3.4",
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/icons": "^3.0.2",
-    "axios": "^0.18.0",
-    "flux": "^3.1.3",
-    "immutable": "^4.0.0-rc.12",
-    "prop-types": "^15.5.7-alpha.1",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^4.4.0"
-  }
-```
 
 ## License
 
