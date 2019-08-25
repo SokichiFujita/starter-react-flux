@@ -12,15 +12,15 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("sw.js")
-      .then(reg => {
-        console.log("ServiceWorker is registered.", reg);
+      .then(() => {
+        // console.log("ServiceWorker is registered.");
       })
-      .catch(err => {
-        console.log("ServiceWorker registration error.", err);
+      .catch(() => {
+        // console.log("ServiceWorker registration error.");
       });
   });
 } else {
-  console.log("Your browser doesn't suppert ServiceWorker.", navigator);
+  // console.log("Your browser doesn't suppert ServiceWorker.", navigator);
 }
 
 render(
