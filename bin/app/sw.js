@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 console.log(`${new Date()}: Service Worker is loaded`);
 
 // Set cache name for multiple projects.
