@@ -11,9 +11,9 @@
 
 Create modern [React](https://reactjs.org/) apps which supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA).
 
-- Both TypeScript and JavaScript support
-- Both Yarn and NPM support
-- No Lock-In, No blackbox npm scripts and No eject command
+- Both **TypeScript** and **JavaScript** support
+- Both **npm** and **yarn** support
+- **Completely No Lock-In**, No blackbox npm scripts and No eject command
 - Always installing latest packages
 
 ### Quick start
