@@ -72,17 +72,29 @@ npm start
 
 ```
 mkdir my-app && cd my-app
+```
 
-// Generating JavaScript project with npm
+- Create a React app using JavaScript and npm
+
+```
 npx starter-react-flux init 
+```
 
-// Generateing Typescript project with npm
+- Create a React app using TypeScript and npm
+
+```
 npx starter-react-flux init --ts
+```
 
-// Generating JavaScript project with yarn
+- Create a React app using JavaScript and npm
+
+```
 npx starter-react-flux init --yarn
+```
 
-// Generating Typescript project with yarn
+- Create a React app using TypeScript and yarn
+
+```
 npx starter-react-flux init --ts --yarn
 ```
 
