@@ -5,16 +5,19 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 const config = {
-  entry: path.resolve(__dirname, "app/App.js"),
+  entry: path.resolve(__dirname, "app/App.tsx"),
   output: {
     path: path.resolve(__dirname, "public"),
     publicPath: "/",
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
+  },
   module: {
     rules: [
       {
-        test: /.(js|jsx)$/,
+        test: /.(ts|tsx|js|jsx)$/,
         exclude: [path.resolve(__dirname, "node_modules")],
         loader: "babel-loader"
       }
