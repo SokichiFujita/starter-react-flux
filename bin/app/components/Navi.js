@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 
 import ListSubheader from "@material-ui/core/ListSubheader";
 import List from "@material-ui/core/List";
@@ -14,7 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import { Link } from "react-router-dom";
 
-const Navi = ({ title }) => {
+export const Navi = ({ title }) => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
@@ -57,4 +57,6 @@ const Navi = ({ title }) => {
   );
 };
 
-export default Navi;
+Navi.propTypes = {
+  title: PropTypes.string.isRequired
+};

@@ -1,4 +1,4 @@
-import { Dispatcher } from 'flux';
+import { Dispatcher } from "flux";
 
 class AppDispatcher extends Dispatcher {
   dispatch(action = {}) {
