@@ -1,5 +1,7 @@
 package-lock.json
 
+.DS_Store
+
 __test
 *.lock
 
