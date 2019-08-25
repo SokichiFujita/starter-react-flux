@@ -3,13 +3,27 @@ const util = require("util");
 const path = require("path");
 const fu = require("./futil");
 
-module.exports.ContentFile = prefix => {
-  const code = `import React from 'react';
-import PropTypes from 'prop-types'; 
-import Button from "@material-ui/core/Button";
-import ${prefix}ActionCreators from "../actions/${prefix}ActionCreators";
+module.exports.ContentFile = ({ prefix, ts }) => {
+  const typeName = ts ? `${prefix}Props` : "";
+  const typeArg = ts ? `: ${prefix}Props` : "";
 
-const ${prefix}Content = ({ title, subtitle, text }) => {
+  const typeDef = ts
+    ? 
+`
+type ${typeName} = {
+  title: string;
+  subtitle: string;
+  text: string;
+};
+`
+    : ``;
+
+  const code = `import React from "react";
+import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
+import { ${prefix}ActionCreators } from "../actions/${prefix}ActionCreators";
+${typeDef}
+const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
   const handleClick = () => {
     ${prefix}ActionCreators.actionCreator001();
   };
@@ -18,7 +32,7 @@ const ${prefix}Content = ({ title, subtitle, text }) => {
     <div>
       <div
         style={{
-          backgroundImage: 
+          backgroundImage:
             "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./img/hero.jpeg)",
           height: "40vh",
           backgroundSize: "cover",
@@ -36,17 +50,17 @@ const ${prefix}Content = ({ title, subtitle, text }) => {
           style={{
             fontWeight: 900,
             fontSize: 72,
-            color: "white",
+            color: "white"
           }}
         >
           Starter React Flux
         </div>
         <div
-        className="hero-subtitle"
+          className="hero-subtitle"
           style={{
             fontWeight: 300,
             fontSize: 40,
-            color: "white",
+            color: "white"
           }}
         >
           Superfast React development tool
@@ -89,44 +103,58 @@ ${prefix}Content.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
-}
+};
 
 export default ${prefix}Content;
 `;
 
-  fu.createFile(`./app/components/${prefix}Content.js`, code);
+  if (ts) {
+    fu.createFile(`./app/components/${prefix}Content.tsx`, code);
+  } else {
+    fu.createFile(`./app/components/${prefix}Content.js`, code);
+  }
 };
 
-module.exports.ContainerFile = prefix => {
-  const code = `import React, { Component } from 'react';
-import { Container } from 'flux/utils';
-import ${prefix}Store from '../stores/${prefix}Store';
-import Navi from './Navi';
-import ${prefix}Content from './${prefix}Content';
+module.exports.ContainerFile = ({ prefix, ts }) => {
+  const typeArg = ts ? `<${prefix}Props, ${prefix}State>` : ``;
+  const typeDef = ts
+    ? `
+type ${prefix}State = {
+  title: string;
+  subtitle: string;
+  text: string;
+};
 
-class ${prefix}Container extends Component {
+type ${prefix}Props = {};
+`
+    : ``;
+
+  const code = `import React, { Component } from "react";
+import { Container } from "flux/utils";
+import ${prefix}Store from "../stores/${prefix}Store";
+import { Navi } from "./Navi";
+import ${prefix}Content from "./${prefix}Content";
+${typeDef}
+class ${prefix}Container extends Component${typeArg} {
   static getStores() {
     return [${prefix}Store];
   }
 
   static calculateState() {
+    const data = ${prefix}Store.getState();
     return {
-      data: ${prefix}Store.getState()
+      title: data.title,
+      subtitle: data.subtitle,
+      text: data.text
     };
   }
 
-  componentDidMount() {
-  }
-
   render() {
+    const { title, subtitle, text } = this.state;
     return (
       <>
-        <Navi title="${prefix}"/>
-        <${prefix}Content
-          title={this.state.data.title}
-          subtitle={this.state.data.subtitle}
-          text={this.state.data.text}
-        />
+        <Navi title="${prefix}" />
+        <${prefix}Content title={title} subtitle={subtitle} text={text} />
       </>
     );
   }
@@ -135,35 +163,59 @@ class ${prefix}Container extends Component {
 export default Container.create(${prefix}Container);
 `;
 
-  fu.createFile(`./app/components/${prefix}Container.js`, code);
+  if (ts) {
+    fu.createFile(`./app/components/${prefix}Container.tsx`, code);
+  } else {
+    fu.createFile(`./app/components/${prefix}Container.js`, code);
+  }
 };
 
-module.exports.StoreFile = prefix => {
-  const code = `import { ReduceStore } from 'flux/utils';
-import ActionTypes from '../constants/AppConstants';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+module.exports.StoreFile = ({ prefix, ts }) => {
+  const PREFIX = prefix.toUpperCase();
+  const typeArg = ts ? `<${prefix}State, Actions>` : "";
+  const typeDef = ts
+    ? `
+import { ActionTypes, Actions } from "../constants/AppConstants";
 
-class ${prefix}Store extends ReduceStore {
+type ${prefix}State = {
+  title: string;
+  subtitle: string;
+  text: string;
+  count: number;
+};
+`
+    : `
+import { ActionTypes } from "../constants/AppConstants";
+`;
+  const reduceArg = ts
+    ? `(state: ${prefix}State, action: Actions)`
+    : `(state, action)`;
+
+  const code = `import { ReduceStore } from "flux/utils";
+import AppDispatcher from "../dispatcher/AppDispatcher";
+${typeDef}
+class ${prefix}Store extends ReduceStore${typeArg} {
   getInitialState() {
     return {
-      title: "Title", 
-      subtitle: "Subtitle", 
+      title: "Title",
+      subtitle: "Subtitle",
       text: "Text",
       count: 0
     };
   }
 
-  reduce(state, action) {
+  reduce${reduceArg} {
     switch (action.type) {
-      case ActionTypes.${prefix.toUpperCase()}_TYPE_001:
+      case ActionTypes.${PREFIX}_TYPE_001: {
         const newCount = state.count + 1;
         return {
           title: action.data.title,
           subtitle: action.data.subtitle,
-          text: "Action Creator was called " + newCount  + " times.",
+          text: \`Action Creator was called \${newCount} times.\`,
           count: newCount
-        }
-      case ActionTypes.${prefix.toUpperCase()}_TYPE_002:
+        };
+      }
+      case ActionTypes.${PREFIX}_TYPE_002:
         return state;
       default:
         return state;
@@ -174,62 +226,101 @@ class ${prefix}Store extends ReduceStore {
 export default new ${prefix}Store(AppDispatcher);
 `;
 
-  fu.createFile(`./app/stores/${prefix}Store.js`, code);
-};
-
-module.exports.ActionFile = prefix => {
-  const code = `import AppDispatcher from '../dispatcher/AppDispatcher';
-import ActionTypes from '../constants/AppConstants';
-
-const ${prefix}ActionCreators = {
-  actionCreator001(arg) {
-    AppDispatcher.dispatch({
-      type: ActionTypes.${prefix.toUpperCase()}_TYPE_001,
-      data: {
-        "title": "New Title",
-        "subtitle": "Created by ActionCreator",
-        "text": "This text will be overwritten"
-      },
-    });
-  },
-  actionCreator002(arg) {
-    // 1. Do something. (e.g. Fetch JSON from an API)
-    // 2. Create an action from the result.
-    // 3, Pass the action to the dispatch().
-    AppDispatcher.dispatch({
-      type: ActionTypes.${prefix.toUpperCase()}_TYPE_002,
-      data: 'RESULT OF YOUT ACTION',
-    });
-  },
-};
-
-export default ${prefix}ActionCreators;
-`;
-
-  fu.createFile(`./app/actions/${prefix}ActionCreators.js`, code);
-};
-
-module.exports.AppConstantFile = prefixList => {
-  const types = prefixList
-    .map(
-      prefix => `
-    ${prefix.toUpperCase()}_TYPE_001: '${prefix.toUpperCase()}_TYPE_001',
-    ${prefix.toUpperCase()}_TYPE_002: '${prefix.toUpperCase()}_TYPE_002',`
-    )
-    .reduce((p, c) => p + c, "");
-
-  const code = `const ActionTypes = {
-${types}
-
+  if (ts) {
+    fu.createFile(`./app/stores/${prefix}Store.ts`, code);
+  } else {
+    fu.createFile(`./app/stores/${prefix}Store.js`, code);
   }
-
-  export default ActionTypes;
-`;
-
-  fu.createFile(`./app/constants/AppConstants.js`, code);
 };
 
-module.exports.ContentTestCode = prefix => {
+module.exports.ActionFile = ({ prefix, ts }) => {
+  const PREFIX = prefix.toUpperCase();
+  const code = `import AppDispatcher from "../dispatcher/AppDispatcher";
+import { ActionTypes } from "../constants/AppConstants";
+
+const get${prefix}Action001 = () => ({
+  type: ActionTypes.${PREFIX}_TYPE_001${
+    ts ? ` as ActionTypes.${PREFIX}_TYPE_001` : ""
+  },
+  data: {
+    title: "New Title",
+    subtitle: "Created by ActionCreator",
+    text: "This text will be overwritten"
+  }
+});
+
+const get${prefix}Action002 = () => ({
+  type: ActionTypes.${PREFIX}_TYPE_002${
+    ts ? ` as ActionTypes.${PREFIX}_TYPE_002` : ""
+  },
+  data: "RESULT OF YOUT ACTION"
+});
+${
+    ts
+      ? 
+`
+export type ${prefix}Actions = ReturnType<
+  typeof get${prefix}Action001 | typeof get${prefix}Action002
+>;
+`
+      : ""
+}
+export const ${prefix}ActionCreators = {
+  actionCreator001() {
+    AppDispatcher.dispatch(get${prefix}Action001());
+  },
+  actionCreator002() {
+    AppDispatcher.dispatch(get${prefix}Action002());
+  }
+};
+`;
+
+  if (ts) {
+    fu.createFile(`./app/actions/${prefix}ActionCreators.ts`, code);
+  } else {
+    fu.createFile(`./app/actions/${prefix}ActionCreators.js`, code);
+  }
+};
+
+module.exports.AppConstantFile = ({ prefixes, ts }) => {
+  const actionTypeCode = prefixes
+    .map(
+      prefix => 
+`  ${prefix.toUpperCase()}_TYPE_001${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_001",
+  ${prefix.toUpperCase()}_TYPE_002${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_002",
+`).reduce((p, c) => p + c, "").slice(0,-2);
+
+const actionCode = prefixes
+.map(
+  prefix => `import { ${prefix}Actions } from "../actions/${prefix}ActionCreators";
+`).reduce((p, c) => p + c, "");
+
+const exportActionCode = prefixes.map(prefix => [`${prefix}Actions`, ` | `])
+  .reduce((p, c) => p.concat(c), [])
+  .slice(0, -1)
+  .reduce((p, c) => p + c, "")
+
+const code = ts ? `${actionCode}
+export type Actions = ${exportActionCode};
+
+export enum ActionTypes {
+${actionTypeCode}
+}
+`
+    : 
+`export const ActionTypes = {
+${actionTypeCode}
+};
+`;
+
+  if (ts) {
+    fu.createFile(`./app/constants/AppConstants.ts`, code);
+  } else {
+    fu.createFile(`./app/constants/AppConstants.js`, code);
+  }
+};
+
+module.exports.ContentTestCode = ({ prefix, ts }) => {
   const code = `import React from "react";
 import renderer from "react-test-renderer";
 import ${prefix}Content from "../app/components/${prefix}Content";
@@ -248,11 +339,16 @@ test("Check the content", () => {
 });
 
 test("Snapshot testing", () => {
-  const component = renderer.create(
-    <${prefix}Content title="Title" subtitle="Subtitle" text="Text" />
-  );
-  //expect(component.toJSON()).toMatchSnapshot();
-});`;
+  // const component = renderer.create(
+  //   <${prefix}Content title="Title" subtitle="Subtitle" text="Text" />
+  // );
+  // expect(component.toJSON()).toMatchSnapshot();
+});
+`;
 
-  fu.createFile(`./__tests__/${prefix}Content-test.js`, code);
+  if (ts) {
+    fu.createFile(`./__tests__/${prefix}Content-test.tsx`, code);
+  } else {
+    fu.createFile(`./__tests__/${prefix}Content-test.js`, code);
+  }
 };
