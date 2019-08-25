@@ -21,6 +21,7 @@ Create modern [React](https://reactjs.org/) apps which supports [Progressive Web
 ```
 mkdir my-app && cd my-app
 npx starter-react-flux init
+npm start
 ```
 
 ![](./images/app1.png)
