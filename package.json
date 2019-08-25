@@ -1,13 +1,22 @@
 {
   "name": "starter-react-flux",
-  "version": "4.0.5",
+  "version": "5.0.0",
   "private": false,
   "preferGlobal": true,
   "scripts": {
-    "pretest": "npm run cleanup && npm link",
-    "test":
-      "mkdir __test && cd __test && starter-react-flux init && npm test && npm run build",
-    "posttest": "npm unlink",
+    "pretest-js": "npm run cleanup && npm link",
+    "pretest-ts": "npm run cleanup && npm link",
+    "pretest-js-yarn": "npm run cleanup && npm link",
+    "pretest-ts-yarn": "npm run cleanup && npm link",
+    "test-js": "mkdir __test && cd __test && starter-react-flux init && npm test && npm run build && npm run lint",
+    "test-ts": "mkdir __test && cd __test && starter-react-flux init --ts && npm test && npm run build && npm run lint && npm run typecheck",
+    "test-js-yarn": "mkdir __test && cd __test && starter-react-flux init --yarn && npm test && npm run build && npm run lint",
+    "test-ts-yarn": "mkdir __test && cd __test && starter-react-flux init --ts --yarn && npm test && npm run build && npm run lint && npm run typecheck",
+    "posttest-js": "npm unlink",
+    "posttest-ts": "npm unlink",
+    "posttest-js-yarn": "npm unlink",
+    "posttest-ts-yarn": "npm unlink",
+    "test": "npm run test-js && npm run test-ts && npm run test-js-yarn && npm run test-ts-yarn",
     "cleanup": "rm -rf __test && rm -rf node_modules",
     "lint": "eslint bin/**/*.js",
     "fix": "eslint bin/**/*.js --fix"
@@ -17,7 +26,7 @@
   },
   "description": "A React/Flux project and code generator.",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=12.0.0"
   },
   "repository": {
     "type": "git",
@@ -53,16 +62,21 @@
   },
   "homepage": "https://github.com/SokichiFujita/starter-react-flux",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.1.2",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^4.14.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-prettier": "^2.4.0",
-    "eslint-plugin-react": "^7.5.1",
-    "prettier": "^1.9.2"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.15.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "^1.18.2"
   }
 }
