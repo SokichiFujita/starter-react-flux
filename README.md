@@ -9,7 +9,7 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
-Create modern [React](https://reactjs.org/) [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) (PWAs) quickly.
+Create modern [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) (PWAs) using [React](https://reactjs.org/).
 
 - Both **TypeScript** and **JavaScript** are supported
 - Both **npm** and **yarn** are supported
