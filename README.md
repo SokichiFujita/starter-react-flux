@@ -13,7 +13,7 @@ Create modern [Progressive Web Apps](https://developers.google.com/web/progressi
 
 - Both **TypeScript** and **JavaScript** are supported
 - Both **npm** and **yarn** are supported
-- **Completely No Lock-In**, No blackbox npm scripts and No eject command
+- **No Lock-In**, No blackbox npm scripts and No eject command
 - Always installing latest packages
 
 ### Quick start
