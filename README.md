@@ -9,10 +9,10 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
-Create modern [React](https://reactjs.org/) apps which supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA).
+Create modern [React](https://reactjs.org/) [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) (PWAs) quickly.
 
-- Both **TypeScript** and **JavaScript** support
-- Both **npm** and **yarn** support
+- Both **TypeScript** and **JavaScript** are supported
+- Both **npm** and **yarn** are supported
 - **Completely No Lock-In**, No blackbox npm scripts and No eject command
 - Always installing latest packages
 
@@ -27,7 +27,7 @@ npm start
 ![](./images/app1.png)
 
 
-## Included packages
+## Installed packages
 
 * [React](http://facebook.github.io/react/)
 * [TypeScript](https://www.typescriptlang.org) (Optional)
