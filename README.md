@@ -11,10 +11,10 @@
 
 Create modern [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) (PWAs) using [React](https://reactjs.org/) and [Flux](https://facebook.github.io/flux/).
 
-- Both **TypeScript** and **JavaScript** are supported.
-- Both **npm** and **yarn** are supported.
-- **No Lock-In**, No blackbox npm scripts and eject command.
-- Latest libraries are supported.
+- Both **[TypeScript](https://www.typescriptlang.org)** and **[JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)** are supported.
+- Both **[npm](https://www.npmjs.com)** and **[yarn](https://yarnpkg.com)** are supported.
+- **No Lock-In**, No blackbox npm scripts and `npm run eject` command.
+- Latest version of the [libraries](https://github.com/SokichiFujita/starter-react-flux#installed-packages) are supported.
 - Others
   - [Configuration for AWS Amplify](https://github.com/SokichiFujita/starter-react-flux/wiki/AWS-Amplify)
 
