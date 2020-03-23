@@ -1,6 +1,6 @@
 {
   "name": "starter-react-flux",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "private": false,
   "preferGlobal": true,
   "scripts": {
