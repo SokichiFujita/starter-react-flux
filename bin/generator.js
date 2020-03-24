@@ -83,12 +83,12 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
         >
           {subtitle}
         </div>
-        <div style={{ fontFamily: "Merriweather", padding: "40px 0", }}>
+        <div style={{ fontFamily: "Merriweather", padding: "40px 0" }}>
           {text}
         </div>
         <Button
           variant="contained"
-          style={{ backgroundColor: "black", color: "white", }}
+          style={{ backgroundColor: "black", color: "white" }}
           size="large"
           onClick={handleClick}
         >
@@ -102,7 +102,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
 ${prefix}Content.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 export default ${prefix}Content;
@@ -335,7 +335,7 @@ test("Check the content", () => {
   ]);
   expect(
     instance.findByProps({ className: "hero-subtitle" }).children
-    ).toEqual(["Superfast React development tool"]);
+  ).toEqual(["Superfast React development tool"]);
 });
 
 test("Snapshot testing", () => {
