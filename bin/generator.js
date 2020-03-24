@@ -145,7 +145,7 @@ class ${prefix}Container extends Component${typeArg} {
     return {
       title: data.title,
       subtitle: data.subtitle,
-      text: data.text
+      text: data.text,
     };
   }
 
@@ -245,15 +245,15 @@ const get${prefix}Action001 = () => ({
   data: {
     title: "New Title",
     subtitle: "Created by ActionCreator",
-    text: "This text will be overwritten"
-  }
+    text: "This text will be overwritten",
+  },
 });
 
 const get${prefix}Action002 = () => ({
   type: ActionTypes.${PREFIX}_TYPE_002${
     ts ? ` as ActionTypes.${PREFIX}_TYPE_002` : ""
   },
-  data: "RESULT OF YOUT ACTION"
+  data: "RESULT OF YOUT ACTION",
 });
 ${
     ts
@@ -271,7 +271,7 @@ export const ${prefix}ActionCreators = {
   },
   actionCreator002() {
     AppDispatcher.dispatch(get${prefix}Action002());
-  }
+  },
 };
 `;
 
@@ -288,7 +288,7 @@ module.exports.AppConstantFile = ({ prefixes, ts }) => {
       prefix => 
 `  ${prefix.toUpperCase()}_TYPE_001${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_001",
   ${prefix.toUpperCase()}_TYPE_002${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_002",
-`).reduce((p, c) => p + c, "").slice(0,-2);
+`).reduce((p, c) => p + c, "").slice(0,-1);
 
 const actionCode = prefixes
 .map(
@@ -331,11 +331,11 @@ test("Check the content", () => {
   );
   const instance = component.root;
   expect(instance.findByProps({ className: "hero-title" }).children).toEqual([
-    "Starter React Flux"
+    "Starter React Flux",
   ]);
-  expect(instance.findByProps({ className: "hero-subtitle" }).children).toEqual(
-    ["Superfast React development tool"]
-  );
+  expect(
+    instance.findByProps({ className: "hero-subtitle" }).children
+    ).toEqual(["Superfast React development tool"]);
 });
 
 test("Snapshot testing", () => {

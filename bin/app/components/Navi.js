@@ -28,7 +28,7 @@ export const Navi = ({ title }) => {
               fontWeight: 900,
               fontSize: 20,
               marginLeft: 24,
-              color: "black"
+              color: "black",
             }}
           >
             {title}
@@ -41,7 +41,7 @@ export const Navi = ({ title }) => {
             width: 200,
             height: "100%",
             backgroundColor: "rgb(44,44,44)",
-            color: "white"
+            color: "white",
           }}
         >
           <ListSubheader style={{ color: "white" }}>Menu</ListSubheader>
@@ -58,5 +58,5 @@ export const Navi = ({ title }) => {
 };
 
 Navi.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
