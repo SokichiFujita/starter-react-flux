@@ -42,7 +42,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: 32
+          padding: 32,
         }}
       >
         <div
@@ -50,7 +50,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
           style={{
             fontWeight: 900,
             fontSize: 72,
-            color: "white"
+            color: "white",
           }}
         >
           Starter React Flux
@@ -60,7 +60,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
           style={{
             fontWeight: 300,
             fontSize: 40,
-            color: "white"
+            color: "white",
           }}
         >
           Superfast React development tool
@@ -70,7 +70,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
         <div
           style={{
             fontWeight: 900,
-            fontSize: 48
+            fontSize: 48,
           }}
         >
           {title}
@@ -78,17 +78,17 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
         <div
           style={{
             fontWeight: 300,
-            fontSize: 24
+            fontSize: 24,
           }}
         >
           {subtitle}
         </div>
-        <div style={{ fontFamily: "Merriweather", padding: "40px 0" }}>
+        <div style={{ fontFamily: "Merriweather", padding: "40px 0", }}>
           {text}
         </div>
         <Button
           variant="contained"
-          style={{ backgroundColor: "black", color: "white" }}
+          style={{ backgroundColor: "black", color: "white", }}
           size="large"
           onClick={handleClick}
         >
@@ -200,7 +200,7 @@ class ${prefix}Store extends ReduceStore${typeArg} {
       title: "Title",
       subtitle: "Subtitle",
       text: "Text",
-      count: 0
+      count: 0,
     };
   }
 
@@ -212,7 +212,7 @@ class ${prefix}Store extends ReduceStore${typeArg} {
           title: action.data.title,
           subtitle: action.data.subtitle,
           text: \`Action Creator was called \${newCount} times.\`,
-          count: newCount
+          count: newCount,
         };
       }
       case ActionTypes.${PREFIX}_TYPE_002:
