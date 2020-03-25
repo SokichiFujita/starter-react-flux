@@ -240,7 +240,17 @@ const eslint_ts = {
         specialLink: ["to", "hrefLeft", "hrefRight"],
         aspects: ["noHref", "invalidHref", "preferButton"]
       }
-    ]
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ]
   }
 };
 
