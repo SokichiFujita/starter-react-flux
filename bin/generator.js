@@ -42,7 +42,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: 32
+          padding: 32,
         }}
       >
         <div
@@ -50,7 +50,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
           style={{
             fontWeight: 900,
             fontSize: 72,
-            color: "white"
+            color: "white",
           }}
         >
           Starter React Flux
@@ -60,7 +60,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
           style={{
             fontWeight: 300,
             fontSize: 40,
-            color: "white"
+            color: "white",
           }}
         >
           Superfast React development tool
@@ -70,7 +70,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
         <div
           style={{
             fontWeight: 900,
-            fontSize: 48
+            fontSize: 48,
           }}
         >
           {title}
@@ -78,7 +78,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
         <div
           style={{
             fontWeight: 300,
-            fontSize: 24
+            fontSize: 24,
           }}
         >
           {subtitle}
@@ -102,7 +102,7 @@ const ${prefix}Content = ({ title, subtitle, text }${typeArg}) => {
 ${prefix}Content.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 export default ${prefix}Content;
@@ -145,7 +145,7 @@ class ${prefix}Container extends Component${typeArg} {
     return {
       title: data.title,
       subtitle: data.subtitle,
-      text: data.text
+      text: data.text,
     };
   }
 
@@ -200,7 +200,7 @@ class ${prefix}Store extends ReduceStore${typeArg} {
       title: "Title",
       subtitle: "Subtitle",
       text: "Text",
-      count: 0
+      count: 0,
     };
   }
 
@@ -212,7 +212,7 @@ class ${prefix}Store extends ReduceStore${typeArg} {
           title: action.data.title,
           subtitle: action.data.subtitle,
           text: \`Action Creator was called \${newCount} times.\`,
-          count: newCount
+          count: newCount,
         };
       }
       case ActionTypes.${PREFIX}_TYPE_002:
@@ -245,15 +245,15 @@ const get${prefix}Action001 = () => ({
   data: {
     title: "New Title",
     subtitle: "Created by ActionCreator",
-    text: "This text will be overwritten"
-  }
+    text: "This text will be overwritten",
+  },
 });
 
 const get${prefix}Action002 = () => ({
   type: ActionTypes.${PREFIX}_TYPE_002${
     ts ? ` as ActionTypes.${PREFIX}_TYPE_002` : ""
   },
-  data: "RESULT OF YOUT ACTION"
+  data: "RESULT OF YOUT ACTION",
 });
 ${
     ts
@@ -271,7 +271,7 @@ export const ${prefix}ActionCreators = {
   },
   actionCreator002() {
     AppDispatcher.dispatch(get${prefix}Action002());
-  }
+  },
 };
 `;
 
@@ -288,7 +288,7 @@ module.exports.AppConstantFile = ({ prefixes, ts }) => {
       prefix => 
 `  ${prefix.toUpperCase()}_TYPE_001${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_001",
   ${prefix.toUpperCase()}_TYPE_002${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_002",
-`).reduce((p, c) => p + c, "").slice(0,-2);
+`).reduce((p, c) => p + c, "").slice(0,-1);
 
 const actionCode = prefixes
 .map(
@@ -331,11 +331,11 @@ test("Check the content", () => {
   );
   const instance = component.root;
   expect(instance.findByProps({ className: "hero-title" }).children).toEqual([
-    "Starter React Flux"
+    "Starter React Flux",
   ]);
-  expect(instance.findByProps({ className: "hero-subtitle" }).children).toEqual(
-    ["Superfast React development tool"]
-  );
+  expect(
+    instance.findByProps({ className: "hero-subtitle" }).children
+  ).toEqual(["Superfast React development tool"]);
 });
 
 test("Snapshot testing", () => {
