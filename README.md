@@ -1,5 +1,6 @@
 # Starter React Flux
 
+![Node.js CI](https://github.com/SokichiFujita/starter-react-flux/workflows/Node.js%20CI/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/SokichiFujita/starter-react-flux.svg?branch=master)](https://travis-ci.org/SokichiFujita/starter-react-flux)
 [![total](https://img.shields.io/npm/dt/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![per year](https://img.shields.io/npm/dy/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
@@ -9,12 +10,14 @@
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
-Create modern [React](https://reactjs.org/) apps which supports [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (PWA).
+Starter-React-Flux enable you to create modern [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) using [React](https://reactjs.org/) and [Flux](https://facebook.github.io/flux/).
 
-- Both TypeScript and JavaScript support
-- Both Yarn and NPM support
-- No Lock-In, No blackbox npm scripts and No eject command
-- Always installing latest packages
+- Both **[TypeScript](https://www.typescriptlang.org)** and **[JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)** are supported.
+- Both **[npm](https://www.npmjs.com)** and **[yarn](https://yarnpkg.com)** are supported.
+- **No Lock-In**, No blackbox npm scripts and `npm run eject` command.
+- Latest version of the [libraries](https://github.com/SokichiFujita/starter-react-flux#installed-packages) are supported.
+- Others
+  - [Configuration for AWS Amplify](https://github.com/SokichiFujita/starter-react-flux/wiki/AWS-Amplify)
 
 ### Quick start
 
@@ -26,63 +29,35 @@ npm start
 
 ![](./images/app1.png)
 
-
-## Included packages
-
-* [React](http://facebook.github.io/react/)
-* [TypeScript](https://www.typescriptlang.org) (Optional)
-* [Flux](https://facebook.github.io/flux/)
-* [Jest](https://facebook.github.io/jest/)
-* [Babel 7](https://babeljs.io)
-  * [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/)
-  * [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/)
-  * [Experimental Plugins](https://babeljs.io/docs/en/plugins#experimental)
-  * [@babel/preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript/) (Optional) 
-  * [babel-eslint](https://github.com/babel/babel-eslint)
-  * [babel-jest](https://jestjs.io)
-  * [babel-loader](https://github.com/babel/babel-loader)
-* [Webpack 4](https://webpack.js.org)
-  * [Webpack-Dev-Server](https://webpack.github.io/docs/webpack-dev-server.html)
-  * [HTML-Webpack-Plugin](https://github.com/jantimon/html-webpack-plugin)
-  * [Workbox-Webpack-Plugin](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
-  * [Webpack-PWA-Manifest](https://github.com/arthurbergmz/webpack-pwa-manifest)
-  * [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
-  * [Webpack Bundle Size Analyzer](https://github.com/robertknight/webpack-bundle-size-analyzer)
-* [ESLint 6](http://eslint.org)
-  * [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
-  * [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
-  * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
-  * [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
-  * [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
-  * [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest)
-  * [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
-  * [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
-  * [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) (Optional)
-  * [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint) (Optional)
-* [Prettier](https://prettier.io)
-* [Workbox](https://developers.google.com/web/tools/workbox/)
-* [React-Router 5](https://reacttraining.com/react-router/)
-* [Material-UI 4](http://www.material-ui.com)
-* [axios](https://github.com/mzabriskie/axios)
-* [Immutable.js](https://facebook.github.io/immutable-js/)
-
 ## Usage
 
 ### Create a new project
 
 ```
 mkdir my-app && cd my-app
+```
 
-// Generating JavaScript project with npm
+- Create a React app using JavaScript and npm
+
+```
 npx starter-react-flux init 
+```
 
-// Generateing Typescript project with npm
+- Create a React app using TypeScript and npm
+
+```
 npx starter-react-flux init --ts
+```
 
-// Generating JavaScript project with yarn
+- Create a React app using JavaScript and npm
+
+```
 npx starter-react-flux init --yarn
+```
 
-// Generating Typescript project with yarn
+- Create a React app using TypeScript and yarn
+
+```
 npx starter-react-flux init --ts --yarn
 ```
 
@@ -124,6 +99,46 @@ npm run lint                  // Run static analysis by ESLint.
 ```
 npm run fix                   // Run Prettier to fix code by lint rules.
 ```
+
+## Installed packages
+
+* [React](http://facebook.github.io/react/)
+* [TypeScript](https://www.typescriptlang.org) (Optional)
+* [Flux](https://facebook.github.io/flux/)
+* [Jest](https://facebook.github.io/jest/)
+* [Babel 7](https://babeljs.io)
+  * [@babel/preset-react](http://babeljs.io/docs/plugins/preset-react/)
+  * [@babel/preset-env](https://babeljs.io/docs/plugins/preset-env/)
+  * [Experimental Plugins](https://babeljs.io/docs/en/plugins#experimental)
+  * [@babel/preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript/) (Optional) 
+  * [babel-eslint](https://github.com/babel/babel-eslint)
+  * [babel-jest](https://jestjs.io)
+  * [babel-loader](https://github.com/babel/babel-loader)
+* [Webpack 4](https://webpack.js.org)
+  * [Webpack-Dev-Server](https://webpack.github.io/docs/webpack-dev-server.html)
+  * [HTML-Webpack-Plugin](https://github.com/jantimon/html-webpack-plugin)
+  * [Workbox-Webpack-Plugin](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
+  * [Webpack-PWA-Manifest](https://github.com/arthurbergmz/webpack-pwa-manifest)
+  * [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
+  * [Webpack Bundle Size Analyzer](https://github.com/robertknight/webpack-bundle-size-analyzer)
+* [ESLint 6](http://eslint.org)
+  * [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
+  * [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+  * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+  * [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+  * [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
+  * [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest)
+  * [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
+  * [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+  * [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) (Optional)
+  * [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint) (Optional)
+* [Prettier](https://prettier.io)
+* [Workbox](https://developers.google.com/web/tools/workbox/)
+* [React-Router 5](https://reacttraining.com/react-router/)
+* [Material-UI 4](http://www.material-ui.com)
+* [axios](https://github.com/mzabriskie/axios)
+* [Immutable.js](https://facebook.github.io/immutable-js/)
+
 
 ## Directory structure of the generated app
 

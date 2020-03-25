@@ -19,7 +19,7 @@ workbox.core.clientsClaim();
 // @see https://developers.google.com/web/tools/workbox/modules/workbox-google-analytics
 // workbox.googleAnalytics.initialize();
 
-workbox.precaching.precacheAndRoute(self.__precacheManifest);
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
 // Cache Google Fonts
 workbox.routing.registerRoute(
