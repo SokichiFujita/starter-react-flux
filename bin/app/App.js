@@ -28,10 +28,10 @@ render(
     <Router>
       <Switch>
         <Route exact path="/">
-          <TopContainer/>
+          <TopContainer />
         </Route>
         <Route path="/sample">
-          <SampleContainer/>
+          <SampleContainer />
         </Route>
       </Switch>
     </Router>
