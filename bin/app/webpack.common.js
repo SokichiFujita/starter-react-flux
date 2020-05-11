@@ -11,6 +11,9 @@ const config = {
     publicPath: "/",
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: [".mjs", ".js", ".jsx"]
+  },
   module: {
     rules: [
       {
