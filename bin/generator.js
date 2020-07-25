@@ -8,8 +8,7 @@ module.exports.ContentFile = ({ prefix, ts }) => {
   const typeArg = ts ? `: ${prefix}Props` : "";
 
   const typeDef = ts
-    ? 
-`
+    ? `
 type ${typeName} = {
   title: string;
   subtitle: string;
@@ -125,7 +124,7 @@ type ${prefix}State = {
   text: string;
 };
 
-type ${prefix}Props = {};
+type ${prefix}Props = Record<string, any>;
 `
     : ``;
 
@@ -256,14 +255,13 @@ const get${prefix}Action002 = () => ({
   data: "RESULT OF YOUT ACTION",
 });
 ${
-    ts
-      ? 
-`
+  ts
+    ? `
 export type ${prefix}Actions = ReturnType<
   typeof get${prefix}Action001 | typeof get${prefix}Action002
 >;
 `
-      : ""
+    : ""
 }
 export const ${prefix}ActionCreators = {
   actionCreator001() {
@@ -285,30 +283,42 @@ export const ${prefix}ActionCreators = {
 module.exports.AppConstantFile = ({ prefixes, ts }) => {
   const actionTypeCode = prefixes
     .map(
-      prefix => 
-`  ${prefix.toUpperCase()}_TYPE_001${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_001",
-  ${prefix.toUpperCase()}_TYPE_002${ts ? " = " : ": "}"${prefix.toUpperCase()}_TYPE_002",
-`).reduce((p, c) => p + c, "").slice(0,-1);
+      (prefix) =>
+        `  ${prefix.toUpperCase()}_TYPE_001${
+          ts ? " = " : ": "
+        }"${prefix.toUpperCase()}_TYPE_001",
+  ${prefix.toUpperCase()}_TYPE_002${
+          ts ? " = " : ": "
+        }"${prefix.toUpperCase()}_TYPE_002",
+`
+    )
+    .reduce((p, c) => p + c, "")
+    .slice(0, -1);
 
-const actionCode = prefixes
-.map(
-  prefix => `import { ${prefix}Actions } from "../actions/${prefix}ActionCreators";
-`).reduce((p, c) => p + c, "");
+  const actionCode = prefixes
+    .map(
+      (
+        prefix
+      ) => `import { ${prefix}Actions } from "../actions/${prefix}ActionCreators";
+`
+    )
+    .reduce((p, c) => p + c, "");
 
-const exportActionCode = prefixes.map(prefix => [`${prefix}Actions`, ` | `])
-  .reduce((p, c) => p.concat(c), [])
-  .slice(0, -1)
-  .reduce((p, c) => p + c, "")
+  const exportActionCode = prefixes
+    .map((prefix) => [`${prefix}Actions`, ` | `])
+    .reduce((p, c) => p.concat(c), [])
+    .slice(0, -1)
+    .reduce((p, c) => p + c, "");
 
-const code = ts ? `${actionCode}
+  const code = ts
+    ? `${actionCode}
 export type Actions = ${exportActionCode};
 
 export enum ActionTypes {
 ${actionTypeCode}
 }
 `
-    : 
-`export const ActionTypes = {
+    : `export const ActionTypes = {
 ${actionTypeCode}
 };
 `;

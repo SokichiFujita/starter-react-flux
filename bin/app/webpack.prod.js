@@ -1,4 +1,4 @@
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
@@ -11,10 +11,10 @@ const config = {
     new BundleAnalyzerPlugin({
       analyzerMode: "static",
       openAnalyzer: true,
-      reportFilename: "../analysis/bundle-analyzer.html"
+      reportFilename: "../analysis/bundle-analyzer.html",
     }),
-    new WebpackBundleSizeAnalyzerPlugin("../analysis/bundle-size-analyzer.log")
-  ]
+    new WebpackBundleSizeAnalyzerPlugin("../analysis/bundle-size-analyzer.log"),
+  ],
 };
 
 module.exports = merge(common, config);
