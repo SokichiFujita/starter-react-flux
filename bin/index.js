@@ -26,9 +26,8 @@ const dirs = [
   "./__tests__",
 
   // Bundle analysis
-  "./analysis/"
+  "./analysis/",
 ];
-
 
 const npms = (yarn) => {
   const npmInstall = "npm install --save";
@@ -37,18 +36,18 @@ const npms = (yarn) => {
   const yarnInstallDev = "yarn add --dev";
   const install = yarn ? yarnInstall : npmInstall;
   const installDev = yarn ? yarnInstallDev : npmInstallDev;
-  
+
   return [
     // Babel
     `${installDev} @babel/cli`,
     `${installDev} @babel/core`,
     `${installDev} @babel/preset-env`,
     `${installDev} @babel/preset-react`,
-  
+
     // Polyfill
-    `${install} @babel/runtime`,
+    `${install} @babel/runtime-corejs3`,
     `${installDev} @babel/plugin-transform-runtime`,
-  
+
     // Experimental
     `${installDev} @babel/plugin-proposal-class-properties`,
     `${installDev} @babel/plugin-proposal-decorators`,
@@ -64,28 +63,28 @@ const npms = (yarn) => {
     `${installDev} @babel/plugin-proposal-pipeline-operator`,
     `${installDev} @babel/plugin-proposal-private-methods`,
     `${installDev} @babel/plugin-proposal-throw-expressions`,
-  
+
     // Others
     `${installDev} @babel/plugin-syntax-dynamic-import`,
     `${installDev} @babel/plugin-syntax-import-meta`,
     `${installDev} @babel/plugin-proposal-json-strings`,
-  
+
     // React
     `${install} react`,
     `${install} react-dom`,
     `${install} prop-types`,
-  
+
     // Flux
     `${install} flux`,
-  
+
     // Immutable.js
     `${install} immutable`,
-  
+
     // Jest
-    `${installDev} jest-cli`,
+    `${installDev} jest`,
     `${installDev} babel-jest`,
     `${installDev} react-test-renderer`,
-  
+
     // WebPack
     `${installDev} webpack`,
     `${installDev} webpack-cli`,
@@ -98,8 +97,8 @@ const npms = (yarn) => {
     // For PWA
     `${installDev} workbox-webpack-plugin`,
     `${installDev} webpack-pwa-manifest`,
-    `${installDev} html-webpack-plugin`,
-  
+    `${installDev} html-webpack-plugin@next`,
+
     // ESLint
     `${installDev} eslint`,
     `${installDev} babel-eslint`,
@@ -109,19 +108,19 @@ const npms = (yarn) => {
     `${installDev} eslint-plugin-jsx-a11y`,
     `${installDev} eslint-plugin-jest`,
     `${installDev} eslint-plugin-react-hooks`,
-  
+
     // Prettier
     `${installDev} prettier`,
     `${installDev} eslint-plugin-prettier`,
     `${installDev} eslint-config-prettier`,
-  
+
     // libs
     `${install} @material-ui/core`,
     `${install} @material-ui/icons`,
     `${install} react-router-dom`,
-    `${install} axios`  
-  ]
-}
+    `${install} axios`,
+  ];
+};
 
 const npms_ts = (yarn) => {
   const npmInstallDev = "npm install --save-dev";
@@ -137,34 +136,34 @@ const npms_ts = (yarn) => {
     `${installDev} @types/jest`,
     `${installDev} @babel/preset-typescript`,
     `${installDev} @typescript-eslint/parser`,
-    `${installDev} @typescript-eslint/eslint-plugin`
-  ]
+    `${installDev} @typescript-eslint/eslint-plugin`,
+  ];
 };
 
 const repository = {
   type: "git",
-  url: "https://example.com"
+  url: "https://example.com",
 };
 
 const jest = {
   unmockedModulePathPatterns: [
     "<rootDir>/node_modules/react",
     "<rootDir>/node_modules/react-dom",
-    "<rootDir>/node_modules/react-addons-test-utils"
+    "<rootDir>/node_modules/react-addons-test-utils",
   ],
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
   },
-  moduleFileExtensions: ["js", "json", "ts", "tsx"]
+  moduleFileExtensions: ["js", "json", "ts", "tsx"],
 };
 
 const scripts = {
-  start: "webpack-dev-server --progress --colors --config webpack.dev.js",
-  build: "webpack -p --progress --colors --config webpack.prod.js",
+  start: "webpack serve --progress --color --config webpack.dev.js",
+  build: "webpack --progress --color --config webpack.prod.js",
   test: "jest",
   update_test: "jest --updateSnapshot",
   lint: "eslint 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}'",
-  fix: "eslint 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}' --fix"
+  fix: "eslint 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}' --fix",
 };
 
 const eslint = {
@@ -174,12 +173,12 @@ const eslint = {
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
     "prettier",
-    "prettier/react"
+    "prettier/react",
   ],
   parser: "babel-eslint",
   env: {
     browser: true,
-    jest: true
+    jest: true,
   },
   plugins: ["prettier", "jest"],
   rules: {
@@ -192,10 +191,10 @@ const eslint = {
       {
         components: ["Link"],
         specialLink: ["to", "hrefLeft", "hrefRight"],
-        aspects: ["noHref", "invalidHref", "preferButton"]
-      }
-    ]
-  }
+        aspects: ["noHref", "invalidHref", "preferButton"],
+      },
+    ],
+  },
 };
 
 const eslint_ts = {
@@ -207,55 +206,54 @@ const eslint_ts = {
     "plugin:prettier/recommended",
     "prettier",
     "prettier/@typescript-eslint",
-    "prettier/react"
+    "prettier/react",
   ],
   parser: "@typescript-eslint/parser",
   env: {
     browser: true,
-    jest: true
+    jest: true,
   },
-  plugins: ["prettier", "jest"],
+  plugins: ["prettier", "jest", "@typescript-eslint"],
   settings: {
     "import/resolver": {
       node: {
-        extensions: [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      }
-    }
-  },  
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".ts", ".tsx"] }],
     "import/prefer-default-export": "off",
     "react/no-find-dom-node": 0,
-    "class-methods-use-this": "off",    
+    "class-methods-use-this": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
         components: ["Link"],
         specialLink: ["to", "hrefLeft", "hrefRight"],
-        aspects: ["noHref", "invalidHref", "preferButton"]
-      }
+        aspects: ["noHref", "invalidHref", "preferButton"],
+      },
     ],
     "import/extensions": [
       "error",
       "ignorePackages",
       {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-   ]
-  }
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+  },
 };
 
 const keywords = {
-  keywords: ["react", "flux"]
+  keywords: ["react", "flux"],
 };
 
 main();
@@ -264,13 +262,13 @@ function main() {
   console.log("*** starter-react-flux ***");
   const args = process.argv;
   const options = {
-    ts: false, 
-    yarn: false
-  }
+    ts: false,
+    yarn: false,
+  };
 
   if (args.includes("init")) {
     options.yarn = !!args.includes("--yarn");
-    options.ts = !!args.includes("--ts")
+    options.ts = !!args.includes("--ts");
     if (args[2] === "init") {
       setupReact(options);
       showComplete();
@@ -278,7 +276,6 @@ function main() {
   } else {
     showUsage();
   }
-
 }
 
 function showUsage() {
@@ -305,7 +302,7 @@ function showComplete() {
 }
 
 function installModules(npms) {
-  npms.map(command => {
+  npms.map((command) => {
     console.log(command);
     exec(command, fu.puts);
   });
@@ -341,10 +338,10 @@ function setupReact({ ts = false, yarn = false }) {
           "last 2 Safari versions",
           "last 2 Firefox versions",
           "ie 11",
-          "cover 85% in US"
-        ]
-      }
-    ]
+          "cover 85% in US",
+        ],
+      },
+    ],
   ];
   if (ts) {
     presets.push("@babel/preset-typescript");
@@ -370,8 +367,8 @@ function setupReact({ ts = false, yarn = false }) {
       "@babel/plugin-syntax-dynamic-import",
       "@babel/plugin-syntax-import-meta",
       "@babel/plugin-proposal-json-strings",
-      "@babel/plugin-transform-runtime"
-    ]
+      "@babel/plugin-transform-runtime",
+    ],
   });
 
   console.log(__dirname);
@@ -441,4 +438,3 @@ function setupReact({ ts = false, yarn = false }) {
     installModules(npms_ts(yarn));
   }
 }
-
