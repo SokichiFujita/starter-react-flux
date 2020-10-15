@@ -21,9 +21,15 @@ Starter-React-Flux generates a well-configured project of [React](https://reactj
 
 ```
 mkdir my-app && cd my-app
-npx starter-react-flux init
+
+npx starter-react-flux init // JavaScript and npm
+npx starter-react-flux init --ts // TypeScript
+npx starter-react-flux init --yarn // yarn
+
 npm start
 ```
+
+
 ## Installed packages
 
 * [React](http://facebook.github.io/react/)
@@ -64,37 +70,7 @@ npm start
 * [Immutable.js](https://facebook.github.io/immutable-js/)
 
 
-## Usage
-
-### Create a new project
-
-```
-mkdir my-app && cd my-app
-```
-
-- Create a React app using JavaScript and npm
-
-```
-npx starter-react-flux init 
-```
-
-- Create a React app using TypeScript and npm
-
-```
-npx starter-react-flux init --ts
-```
-
-- Create a React app using JavaScript and npm
-
-```
-npx starter-react-flux init --yarn
-```
-
-- Create a React app using TypeScript and yarn
-
-```
-npx starter-react-flux init --ts --yarn
-```
+## Usage of generated project
 
 ### Launch the application
 
