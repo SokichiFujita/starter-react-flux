@@ -1,5 +1,7 @@
 # Starter React Flux
 
+Starter-React-Flux generates a well-configured project of [React](https://reactjs.org/) and [Flux](https://facebook.github.io/flux/) [PWA](https://developers.google.com/web/progressive-web-apps/).
+
 ![Node.js CI](https://github.com/SokichiFujita/starter-react-flux/workflows/Node.js%20CI/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/SokichiFujita/starter-react-flux.svg?branch=master)](https://travis-ci.org/SokichiFujita/starter-react-flux)
 [![total](https://img.shields.io/npm/dt/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
@@ -11,8 +13,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
 
 ![](./images/app1.png)
-
-Starter-React-Flux generates a well-configured project of [React](https://reactjs.org/) and [Flux](https://facebook.github.io/flux/) [PWA](https://developers.google.com/web/progressive-web-apps/).
 
 - **[TypeScript](https://www.typescriptlang.org)** and **[JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)** are supported.
 - **[npm](https://www.npmjs.com)** and **[yarn](https://yarnpkg.com)** are supported.
