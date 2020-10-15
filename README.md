@@ -14,8 +14,6 @@ Starter-React-Flux enable you to quickly create a modern [PWA](https://developer
 
 - Both **[TypeScript](https://www.typescriptlang.org)** and **[JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)** are supported.
 - Both **[npm](https://www.npmjs.com)** and **[yarn](https://yarnpkg.com)** are supported.
-- **No Lock-In**, No blackbox npm scripts and `npm run eject` command.
-- Latest version of the [libraries](https://github.com/SokichiFujita/starter-react-flux#installed-packages) are supported.
 
 ### Quick start
 
