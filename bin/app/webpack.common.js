@@ -9,28 +9,29 @@ const config = {
   output: {
     path: path.resolve(__dirname, "public"),
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
+  target: ["web", "es5"],
   resolve: {
-    extensions: [".mjs", ".js", ".jsx"]
+    extensions: [".mjs", ".js", ".jsx"],
   },
   module: {
     rules: [
       {
         test: /.(js|jsx)$/,
         exclude: [path.resolve(__dirname, "node_modules")],
-        loader: "babel-loader"
-      }
-    ]
+        loader: "babel-loader",
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./app/html/index.html",
-      title: "Starter-React-Flux"
+      title: "Starter-React-Flux",
     }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, "app", "sw.js"),
-      swDest: path.resolve(__dirname, "public", "sw.js")
+      swDest: path.resolve(__dirname, "public", "sw.js"),
     }),
     new WebpackPwaManifest({
       name: "Starter-React-Flux",
@@ -44,11 +45,11 @@ const config = {
       icons: [
         {
           src: path.resolve("app/icon/icon.png"),
-          sizes: [96, 128, 192, 256, 384, 512, 1024]
-        }
-      ]
-    })
-  ]
+          sizes: [96, 128, 192, 256, 384, 512, 1024],
+        },
+      ],
+    }),
+  ],
 };
 
 module.exports = config;
