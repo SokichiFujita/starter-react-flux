@@ -14,7 +14,6 @@ Starter-React-Flux generates a well-configured project of [React](https://reactj
 
 - **[TypeScript](https://www.typescriptlang.org)** and **[JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)** are supported.
 - **[npm](https://www.npmjs.com)** and **[yarn](https://yarnpkg.com)** are supported.
-- 
 
 ### Quick start
 
