@@ -1,7 +1,5 @@
 # Starter React Flux
 
-Starter-React-Flux generates a well-configured project of [React](https://reactjs.org/) and [Flux](https://facebook.github.io/flux/) [PWA](https://developers.google.com/web/progressive-web-apps/).
-
 ![Node.js CI](https://github.com/SokichiFujita/starter-react-flux/workflows/Node.js%20CI/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/SokichiFujita/starter-react-flux.svg?branch=master)](https://travis-ci.org/SokichiFujita/starter-react-flux)
 [![total](https://img.shields.io/npm/dt/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
@@ -11,6 +9,8 @@ Starter-React-Flux generates a well-configured project of [React](https://reactj
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/LICENSE)
 [![npm](https://img.shields.io/npm/v/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SokichiFujita/starter-react-flux/blob/master/README.md)
+
+Starter-React-Flux generates a well-configured project of [React](https://reactjs.org/) and [Flux](https://facebook.github.io/flux/) [PWA](https://developers.google.com/web/progressive-web-apps/).
 
 ![](./images/app1.png)
 
