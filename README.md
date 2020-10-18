@@ -1,6 +1,7 @@
 # Starter React Flux
 
 ![Node.js CI](https://github.com/SokichiFujita/starter-react-flux/workflows/Node.js%20CI/badge.svg?branch=master)
+[![Build Status](https://travis-ci.org/SokichiFujita/starter-react-flux.svg?branch=master)](https://travis-ci.org/SokichiFujita/starter-react-flux)
 [![total](https://img.shields.io/npm/dt/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![per year](https://img.shields.io/npm/dy/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
 [![per month](https://img.shields.io/npm/dm/starter-react-flux.svg)](https://www.npmjs.com/package/starter-react-flux)
