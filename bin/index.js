@@ -90,7 +90,7 @@ const npms = (yarn) => {
     `${installDev} webpack-cli`,
     `${installDev} webpack-dev-server`,
     `${installDev} babel-loader`,
-    `${installDev} webpack-merge`,
+    `${installDev} webpack-merge@latest`,
     // Analyze modules
     `${installDev} webpack-bundle-analyzer`,
     `${installDev} webpack-bundle-size-analyzer`,
