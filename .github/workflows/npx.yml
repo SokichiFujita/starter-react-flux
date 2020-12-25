@@ -26,8 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: |
+          mkdir dir1 && cd dir1
           npx starter-react-flux init
+          cd ../ && mkdir dir2 && cd dir2
           npx starter-react-flux init --ts
-          npx starter-react-flux init --yarn
         env:
           CI: true
