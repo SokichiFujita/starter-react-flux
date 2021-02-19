@@ -97,7 +97,7 @@ const npms = (yarn) => {
     // For PWA
     `${installDev} workbox-webpack-plugin`,
     `${installDev} webpack-pwa-manifest`,
-    `${installDev} html-webpack-plugin@next`,
+    `${installDev} html-webpack-plugin`,
 
     // ESLint
     `${installDev} eslint`,
