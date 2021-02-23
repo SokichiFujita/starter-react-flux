@@ -330,24 +330,20 @@ function setupReact({ ts = false, yarn = false }) {
   fu.createJSON(".eslintrc", ts ? eslint_ts : eslint);
   const presets = [
     "@babel/preset-react",
-    [
-      "@babel/preset-env",
-      {
-        targets: [
-          "last 2 Chrome versions",
-          "last 2 Safari versions",
-          "last 2 Firefox versions",
-          "ie 11",
-          "cover 85% in US",
-        ],
-      },
-    ],
-  ];
+    "@babel/preset-env",
+   ];
   if (ts) {
     presets.push("@babel/preset-typescript");
   }
 
   fu.createJSON(".babelrc", {
+    targets: [
+      "last 2 Chrome versions",
+      "last 2 Safari versions",
+      "last 2 Firefox versions",
+      "ie 11",
+      "cover 85% in US",
+    ],
     presets,
     plugins: [
       ["@babel/plugin-proposal-class-properties", { loose: false }],
