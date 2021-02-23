@@ -111,7 +111,6 @@ const npms = (yarn) => {
 
     // Prettier
     `${installDev} prettier`,
-    `${installDev} eslint-plugin-prettier`,
     `${installDev} eslint-config-prettier`,
 
     // libs
@@ -163,7 +162,7 @@ const scripts = {
   test: "jest",
   update_test: "jest --updateSnapshot",
   lint: "eslint 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}'",
-  fix: "eslint 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}' --fix",
+  fix: "eslint --fix 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}' && prettier --write 'app/**/*.{ts,tsx,js}' '__tests__/**/*.{ts,tsx,js}",
 };
 
 const eslint = {
@@ -171,7 +170,6 @@ const eslint = {
     "airbnb",
     "airbnb/hooks",
     "plugin:jest/recommended",
-    "plugin:prettier/recommended",
     "prettier",
     "prettier/react",
   ],
