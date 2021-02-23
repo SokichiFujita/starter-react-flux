@@ -171,14 +171,13 @@ const eslint = {
     "airbnb/hooks",
     "prettier",
     "plugin:jest/recommended",
-    "plugin:prettier/recommended",
   ],
   parser: "babel-eslint",
   env: {
     browser: true,
     jest: true,
   },
-  plugins: ["prettier", "jest"],
+  plugins: ["jest"],
   rules: {
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": [1, { extensions: [".js"] }],
@@ -199,19 +198,17 @@ const eslint_ts = {
   extends: [
     "airbnb",
     "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended",
     "prettier",
     "prettier/@typescript-eslint",
-    "prettier/react",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
   ],
   parser: "@typescript-eslint/parser",
   env: {
     browser: true,
     jest: true,
   },
-  plugins: ["prettier", "jest", "@typescript-eslint"],
+  plugins: ["jest", "@typescript-eslint"],
   settings: {
     "import/resolver": {
       node: {

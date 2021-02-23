@@ -59,7 +59,6 @@ npm start
   * [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
   * [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest)
   * [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
-  * [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
   * [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) (Optional)
   * [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint) (Optional)
 * [Prettier](https://prettier.io)
