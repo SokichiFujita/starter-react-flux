@@ -201,7 +201,6 @@ const eslint_ts = {
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
     "prettier",
-    "prettier/@typescript-eslint",
   ],
   parser: "@typescript-eslint/parser",
   env: {
