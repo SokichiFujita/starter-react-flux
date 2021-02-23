@@ -169,9 +169,9 @@ const eslint = {
   extends: [
     "airbnb",
     "airbnb/hooks",
-    "plugin:jest/recommended",
     "prettier",
-    "prettier/react",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
   ],
   parser: "babel-eslint",
   env: {
